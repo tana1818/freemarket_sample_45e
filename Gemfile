@@ -59,4 +59,18 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# ↓以下、デフォルトから追加したGem
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'factory_girl_rails', '~> 4.4.1'
+  gem 'rails-controller-testing'
+  gem 'faker'
+  gem 'pry-rails'
+end
+
+gem 'haml-rails', '~> 1.0'
+gem 'erb2haml'
+gem 'font-awesome-rails'
+gem 'devise'

@@ -11,6 +11,7 @@
 |introduction|text|-------|自己紹介|
 |uid|string|null: false|SNS認証用項目|
 |provider|string|null: false|SNS認証用項目|
+
 ※SNS認証の参考URL：
 https://qiita.com/kazuooooo/items/47e7d426cbb33355590e
 

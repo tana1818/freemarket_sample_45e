@@ -16,9 +16,14 @@
 https://qiita.com/kazuooooo/items/47e7d426cbb33355590e
 
 ### Association
-- has_one :user_details
-- has_one :deliveries
-- has_one :cards
+- has_one :user_detail
+- has_one :delivery
+- has_one :card
+- has_many :products
+- has_many :comments
+- has_many :likes
+- has_many :purchases
+- has_many :rates
 
 
 ## user_details（ユーザー詳細テーブル）
@@ -36,7 +41,7 @@ https://qiita.com/kazuooooo/items/47e7d426cbb33355590e
 |banchi|string|-------|番地|
 |tatemono|string|-------|建物|
 |image|string|-------|プロフィール画像|
-|user_id|references|null: false,foreign_key: ture|users.id|
+|users_id|references|null: false,foreign_key: true|ユーザーID／users.id|
 
 ### Association
 - belongs_to :user
@@ -55,10 +60,11 @@ https://qiita.com/kazuooooo/items/47e7d426cbb33355590e
 |banchi|string|null: false|番地|
 |tatemono|string|null: false|建物|
 |tel|integer|null: false|電話番号|
-|user_id|references|null: false,foreign_key: ture|users.id|
+|users_id|references|null: false,foreign_key: true|ユーザーID／users.id|
 
 ### Association
 - belongs_to :user
+- has_many :purchases
 
 
 ## cards（クレジットカードテーブル）
@@ -68,94 +74,223 @@ https://qiita.com/kazuooooo/items/47e7d426cbb33355590e
 |expiration_month|integer|null: false|有効月|
 |expiration_year|integer|null: false|有効年|
 |security_code|integer|null: false|セキュリティコード|
-|user_id|references|null: false,foreign_key: ture|users.id|
+|users_id|references|null: false,foreign_key: true|ユーザーID／users.id|
 
 ### Association
 - belongs_to :user
+- has_many :purchases
 
 
 ## prefectures（都道府県テーブル）
 |Column|Type|Options|Note|
 |------|----|-------|----|
 |name|string|null: false|都道府県名|
+|is_hidden|integer|-------|非表示フラグ|
 
 ### Association
-----------
+なし
+- has_many :products
 
 
-
-### ＜商品系のテーブル＞
+## ＜商品系のテーブル＞
 
 ## products（商品テーブル）
 |Column|Type|Options|Note|
 |------|----|-------|----|
-|商品名product_name|string|null: false|
-|説明description|TEXT|null: false|
-|カテゴリー||null: false|
-|商品の状態||null: false|
-|配送料の負担||null: false|
-|配送の方法||null: false|
-|発送元の地域||null: false|
-|発送までの日数||null: false|
-|価格||null: false|
-|出品ステータス||null: false|（出品中・取引中・売却済み・公開停止中）
-|サイズ|||
-|ブランド|||
-|user_id|references|null: false,foreign_key: ture|users.id|
+|name|string|null: false|商品名（〜40文字）|
+|description|text|null: false|商品説明（〜1000文字）|
+|categories_id|references|null: false,foreign_key: true|カテゴリー／categories.id|
+|conditions_id|references|null: false,foreign_key: true|商品の状態／conditions.id|
+|delivery_fee_pays_id|references|null: false,foreign_key: true|配送料の負担／delivery_fee_pays.id|
+|delivery_methods_id|references|null: false,foreign_key: true|配送の方法／delivery_methods.id|
+|prefectures_id|references|null: false,foreign_key: true|発送元の地域／prefectures.id|
+|shipment_periods_id|references|null: false,foreign_key: true|発送までの日数／shipment_periods.id|
+|price|integer|null: false|価格|
+|status|string|null: false|出品ステータス（出品停止中・出品中・取引中・売却済み）|
+|sizes_id|references|null: false,foreign_key: true|サイズ／sizes.id／categories.size_kinds_idがnullでなければ必須|
+|brand|string|null: false|ブランド名／is_brand_presenceがnullでなければ必須|
+|users_id|references|null: false,foreign_key: true|ユーザーID／users.id|
+
+### Association
+- belongs_to :category
+- belongs_to :condition
+- belongs_to :delivery_fee_pay
+- belongs_to :delivery_method
+- belongs_to :prefecture
+- belongs_to :shipment_period
+- belongs_to :size
+- belongs_to :user
+- has_many :images
+- has_many :comments
+- has_many :likes
+- has_many :purchases
 
 
-## 大カテゴリーテーブル
+## large_categories（大カテゴリーテーブル）
 |Column|Type|Options|Note|
 |------|----|-------|----|
-|大カテゴリー名|||
+|name|string|null: false|大カテゴリー名|
+|sort_by|integer|null: false|並び順|
+
+### Association
+- has_many :middle_categories
 
 
-## 中カテゴリーテーブル
+## middle_categories（中カテゴリーテーブル）
 |Column|Type|Options|Note|
 |------|----|-------|----|
-|中カテゴリー名|||
+|name|string|null: false|中カテゴリー名|
+|sort_by|integer|null: false|並び順|
+|large_categories_id|references|null: false,foreign_key: true|大カテゴリ／large_categories.id|
+
+### Association
+- belongs_to :large_category
+- has_many :categories
 
 
-## カテゴリーテーブル
+## categories（カテゴリーテーブル）
 |Column|Type|Options|Note|
 |------|----|-------|----|
-|カテゴリー名|||
-|大カテゴリ|||
-|中カテゴリ|||
-|サイズ種別|||（服・靴・キッズ服小・キッズ服大・キッズ靴・なし）
-|ブランド有無|||（あり・なし）
+|name|string|null: false|カテゴリー名
+|sort_by|integer|null: false|並び順|
+|size_kinds_id|integer|-------|サイズ種別|
+|is_brand_presence|integer|-------|ブランド有無|
+|middle_categories_id|references|null: false,foreign_key: true|中カテゴリ|
+
+### Association
+- belongs_to :middle_category
+- has_many :products
 
 
-## サイズテーブル
+## sizes（サイズテーブル）
 |Column|Type|Options|Note|
 |------|----|-------|----|
-|サイズ名|||
-|サイズ種別|||（服・靴・キッズ服小・キッズ服大・キッズ靴・なし）
+|name|string|null: false|サイズ名|
+|sort_by|integer|null: false|並び順|
+|size_kinds_id|integer|-------|サイズ種別|
+
+### Association
+- has_many :products
+- belongs_to :size_kind
 
 
-## 商品画像テーブル
+## size_kinds（サイズ種別テーブル）
 |Column|Type|Options|Note|
 |------|----|-------|----|
-||||
-||||
+|name|string|null: false|サイズ種別名（服・靴・キッズ服小・キッズ服大・キッズ靴）|
+
+### Association
+- has_many :sizes
 
 
-## 商品コメントテーブル
+## conditions（商品の状態テーブル）
 |Column|Type|Options|Note|
 |------|----|-------|----|
-||||
-||||
+|name|string|null: false|状態名|
+|sort_by|integer|null: false|並び順|
+
+### Association
+- has_many :products
 
 
-## 商品購入テーブル
+## delivery_fee_pays（配送料の負担テーブル）
 |Column|Type|Options|Note|
 |------|----|-------|----|
-||||
-||||
+|name|string|null: false|配送料の負担名|
+|sort_by|integer|null: false|並び順|
 
-## rate（評価テーブル）
+### Association
+- has_many :products
+
+
+## delivery_methods（配送の方法テーブル）
 |Column|Type|Options|Note|
 |------|----|-------|----|
-|user_id|string|null: false|評価したユーザーID|
-|rate|string|null: false|評価|
-|rated_user_id|null: false|string|評価されたユーザーID|
+|name|string|null: false|配送の方法名|
+|sort_by|integer|null: false|並び順|
+
+### Association
+- has_many :products
+
+
+## shipment_periods（発送までの日数テーブル）
+|Column|Type|Options|Note|
+|------|----|-------|----|
+|name|string|null: false|発送までの日数名|
+|sort_by|integer|null: false|並び順|
+
+### Association
+- has_many :products
+
+
+## images（商品画像テーブル）
+|Column|Type|Options|Note|
+|------|----|-------|----|
+|image|string|null: false|商品画像|
+|products_id|references|null: false,foreign_key: true|商品ID／products.id|
+
+### Association
+- belongs_to :product
+
+
+## comments（商品コメントテーブル）
+|Column|Type|Options|Note|
+|------|----|-------|----|
+|comment|text|null: false|商品コメント|
+|products_id|references|null: false,foreign_key: true|商品ID／products.id|
+|users_id|references|null: false,foreign_key: true|ユーザーID／users.id|
+
+### Association
+- belongs_to :product
+- belongs_to :user
+
+
+## likes（いいねテーブル）
+|Column|Type|Options|Note|
+|------|----|-------|----|
+|products_id|references|null: false,foreign_key: true|商品ID／products.id|
+|users_id|references|null: false,foreign_key: true|ユーザーID／users.id|
+
+### Association
+- belongs_to :product
+- belongs_to :user
+
+
+## purchases（商品購入テーブル）
+|Column|Type|Options|Note|
+|------|----|-------|----|
+|payment|integer|null: false|支払い金額|
+|deliveries_id|references|null: false,foreign_key: true|届け先ID／deliveries.id|
+|cards_id|references|null: false,foreign_key: true|クレジットカードID／cards.id|
+|products_id|references|null: false,foreign_key: true|商品ID／products.id|
+|users_id|references|null: false,foreign_key: true|購入ユーザーID／users.id|
+
+### Association
+- belongs_to :delivery
+- belongs_to :card
+- belongs_to :product
+- belongs_to :user
+- has_many :rates
+
+
+## rates（評価テーブル）
+|Column|Type|Options|Note|
+|------|----|-------|----|
+|rating_type|string|null: false|評価区分（受取評価・購入者評価）|
+|scores_id|references|null: false,foreign_key: true|評点ID／scores.id|
+|comment|text|null: false|評価コメント|
+|purchases_id|references|null: false,foreign_key: true|商品購入ID／purchases.id|
+|users_id|references|null: false,foreign_key: true|被評価ユーザーID／users.id|
+
+### Association
+- belongs_to :score
+- belongs_to :purchase
+- belongs_to :user
+
+
+## scores（評点テーブル）
+|name|string|null: false|評点名（良い・普通・悪い）|
+
+### Association
+- has_many :rates
+

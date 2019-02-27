@@ -8,6 +8,14 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
 
+      t.avater_image :text
+      t.introduction :text
+
+      t.references :check_user
+      t.references :ship_add
+      t.references :grade
+      t.references :credit
+
       ## Recoverable
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at

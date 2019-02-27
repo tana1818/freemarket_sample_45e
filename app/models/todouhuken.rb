@@ -1,0 +1,2 @@
+class Todouhuken < ApplicationRecord
+end

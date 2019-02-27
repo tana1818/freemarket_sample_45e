@@ -74,13 +74,13 @@ https://qiita.com/kazuooooo/items/47e7d426cbb33355590e
 - belongs_to :user
 
 
-## （都道府県テーブル）
+## prefectures（都道府県テーブル）
 |Column|Type|Options|Note|
 |------|----|-------|----|
 |name|string|null: false|都道府県名|
 
 ### Association
-
+----------
 
 
 

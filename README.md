@@ -141,10 +141,20 @@ https://qiita.com/kazuooooo/items/47e7d426cbb33355590e
 |------|----|-------|----|
 |name|string|null: false|中カテゴリー名|
 |sort_by|integer|null: false|並び順|
-|large_categories_id|references|null: false,foreign_key: true|大カテゴリ／large_categories.id|
+<!-- |large_categories_id|references|null: false,foreign_key: true|大カテゴリ／large_categories.id| -->
 
 ### Association
-- belongs_to :large_category
+<!-- - belongs_to :large_category -->
+- has_many :categories
+
+
+## small_categorie (小カテゴリーテーブル)
+|Column|Type|Options|Note|
+|------|----|-------|----|
+|name|string|null: false|小カテゴリー名|
+|sort_by|integer|null: false|並び順|
+
+### Association
 - has_many :categories
 
 
@@ -155,9 +165,12 @@ https://qiita.com/kazuooooo/items/47e7d426cbb33355590e
 |sort_by|integer|null: false|並び順|
 |size_kinds_id|integer|-------|サイズ種別|
 |is_brand_presence|integer|-------|ブランド有無|
+|large_categories_id|references|null: false,foreign_key: ture|大カテゴリ|
 |middle_categories_id|references|null: false,foreign_key: true|中カテゴリ|
+|small_categories_id|references|null: false,foreign_key: true|小カテゴリ|
 
 ### Association
+- belong_to :small_category
 - belongs_to :middle_category
 - has_many :products
 
@@ -237,6 +250,7 @@ https://qiita.com/kazuooooo/items/47e7d426cbb33355590e
 |Column|Type|Options|Note|
 |------|----|-------|----|
 |comment|text|null: false|商品コメント|
+|timestamps||null: false|投稿時間|
 |products_id|references|null: false,foreign_key: true|商品ID／products.id|
 |users_id|references|null: false,foreign_key: true|ユーザーID／users.id|
 
@@ -289,6 +303,8 @@ https://qiita.com/kazuooooo/items/47e7d426cbb33355590e
 
 
 ## scores（評点テーブル）
+|Column|Type|Options|Note|
+|------|----|-------|----|
 |name|string|null: false|評点名（良い・普通・悪い）|
 
 ### Association

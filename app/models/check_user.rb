@@ -1,2 +1,0 @@
-class CheckUser < ApplicationRecord
-end

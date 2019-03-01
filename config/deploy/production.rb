@@ -62,7 +62,7 @@
 
 server '52.197.201.210',
   user: 'ec2-user',
-  roles: %w{web db app},
+  roles: %w{app db web},
   ssh_options: {
       port: 22022,
       user: "ec2-user",

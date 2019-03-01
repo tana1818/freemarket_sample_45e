@@ -68,3 +68,5 @@ server '52.197.201.210',
       user: "ec2-user",
       keys: %w(~/.ssh/freemarket_sample_45e.pem),
       forward_agent: true
+  }
+

@@ -17,20 +17,15 @@
           .login-main__upper
             .login-main__upper__Facebook-btn
               %h2
-                -# = fa_icon "facebook",class "facebook"
-                -# %i.fab.fa-facebook
                 %a{:href => "#"}Facebookでログイン
             .login-main__upper__Google-btn
               %h3
-                -# = fa_icon "google",class "google"
-                -# %i.fab.fa-google
                 %a{:href => "#"}Googleでログイン
           .login-main__lower
             .login-main__lower__email
               %input.login-input-text{:name => "email", :placeholder => "メールアドレス", :type => "email", :value => ""}/
             .login-main__lower__password
               %input.login-input-text{:name => "password", :placeholder => "パスワード", :type => "password"}/
-            .login-main__lower__certification
             .login-main__lower__login
               %button.login-submit.btn-default.btn-red{:type => "submit"} ログイン
             .login-main__lower__reset-start

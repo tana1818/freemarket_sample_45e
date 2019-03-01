@@ -76,7 +76,6 @@ a {
       color: rgb(51,51,51);
       line-height: 1;
       height: 400px;
-      background: #fff;
       padding: 24px 32px;
       border-top: 1px solid #eee;
       &__upper{
@@ -84,18 +83,12 @@ a {
         height: 116px;
         &__Facebook-btn{
           h2 {
-            .facebook {
-              color: #fff;
-              background: #385185;
-              font-size: 18px;
-            }
             a {
               background: #385185;
               color: #fff;
               display: block;
               margin: 0px 0px 0px 32px;
               border: 1px solid #0099e8;
-              color: #fff;
               line-height: 40px;
               width: 328px;
             }
@@ -103,18 +96,12 @@ a {
         }
         &__Google-btn{
           h3 {
-            .google {
-              color: #fff;
-              background: white;
-              font-size: 18px;
-            }
             a {
-              margin: 16px 0 0;
+              margin: 16px 0px 0px 32px;
               background: #fff;
               border: #979797 solid 1px;
               color: #333;
               display: block;
-              margin: 16px 0px 0px 32px;
               line-height: 40px;
             }
           }
@@ -128,8 +115,6 @@ a {
         }
         &__password{
           margin: 24px 0 0;
-        }
-        &__certification{
         }
         &__login{
           margin: 24px 0 0;

@@ -62,11 +62,5 @@
 
 server '52.197.201.210',
   user: 'ec2-user',
-  roles: %w{app db web},
-  ssh_options: {
-      port: 22022,
-      user: "ec2-user",
-      keys: %w(~/.ssh/freemarket_sample_45e.pem),
-      forward_agent: true
-  }
+  roles: %w{app db web}
 

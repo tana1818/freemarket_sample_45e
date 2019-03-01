@@ -1,0 +1,208 @@
+///////////////////////////////////////////////////
+//全体共通の記述
+///////////////////////////////////////////////////
+
+* {
+  box-sizing: border-box;
+  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+}
+
+body {
+  background-color: rgb(245, 245, 245);
+  font-size:14px;
+  position: relative;
+  min-height: 100%;
+  color: rgb(51,51,51);
+  line-height: 1;
+}
+
+div {
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+  opacity: .7;
+}
+
+ul {
+  list-style: none;
+}
+
+h2 {
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+h3 {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+///////////////////////////////////////////////////
+//共通部品のヘッダー・フッターと合体したら不要になるもの
+///////////////////////////////////////////////////
+
+.header {
+  background-color: #fff;
+  width: 100vw;
+  height: 90px;
+}
+
+.breadcrumb {
+  background-color: #fff;
+  width: 100vw;
+  height: 50px;
+  border-top: 1px solid #eee;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.16);
+}
+
+.app_banner {
+  width: 100vw;
+  height: 260px;
+  background-color: #ccc;
+}
+
+footer {
+  width: 100vw;
+  height: 600px;
+  background-color: #212121;
+}
+
+///////////////////////////////////////////////////
+//メイン（画面右）の記述
+///////////////////////////////////////////////////
+
+main{
+  width: 1020px;
+  margin: 40px 100px 0;
+  padding-bottom: 40px;
+  .my-page-payment__body {
+    width: 65%;
+    float: right;
+    background-color: white;
+    &__head {
+      font-size: 22px;
+      line-height: 33px;
+      padding: 32px 16px;
+      text-align: center;
+      font-weight: bold;
+      margin: 0;
+    }
+    &__inner {
+      padding: 64px;
+      border-top: 1px solid rgb(245, 245, 245);
+      &__body {
+        max-width: 320px;
+        margin: 0 auto;
+        &__sub-head {
+          font-size: 16px;
+        }
+        &__setting-add-card {
+          padding: 12px 0;
+          border-bottom: 1px solid rgb(245, 245, 245);
+          .btn-default {
+            display: block;
+            width: 100%;
+            line-height: 48px;
+            font-size: 14px;
+            cursor: pointer;
+            text-align: center;
+          }
+          .btn-red {
+            background: #ea352d;
+            position: relative;
+            margin-top: 10px;
+            color: white;
+          }
+        }
+        &__setting-not-regist {
+          text-align: right;
+          margin-top: 40px;
+          color: blue;
+          font-size: 14px;
+        }
+
+        .icon-angle-right {
+          text-align: right;
+          color: blue;
+        }
+      }
+    }
+  }
+}
+main.clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+///////////////////////////////////////////////////
+//サイドバー（画面左）の記述
+///////////////////////////////////////////////////
+
+.sidebar {
+  width: 280px;
+  float: left;
+  margin-right: 40px;
+  .mypage-nav {
+    .mypage-nav-list {
+      li {
+        background-color: #fff;
+        border-top: 1px solid #eee;
+        .mypage-nav-list-item {
+          color: #333;
+          position: relative;
+          display: block;
+          font-size: 14px;
+          line-height: 16px;
+          padding: 16px;
+          .fa-angle-right {
+            color: #ccc;
+            font-weight:bold;
+            font-size: 22px;
+            position: absolute;
+            top: 12px;
+            right: 16px;
+            transition: all ease-out .2s;
+          }
+        }
+        .mypage-nav-list-item:hover {
+          .fa-angle-right {
+            color: #333;
+            right: 12px;
+          }
+        }
+        .active {
+          background-color: #eee;
+          font-weight: bold;
+          .fa-angle-right {
+            color: #333;
+          }
+        }
+        a:hover {
+          background: #fafafa;
+          opacity: 1;
+        }
+        .active:hover {
+          background: #eee;
+        }
+      }
+      li:first-child {
+        border: 0;
+      }
+    }
+    .mypage-nav-head {
+      font-size: 16px;
+      font-weight: bold;
+      margin-top: 40px;
+    }
+    .mypage-nav-head+.mypage-nav-list {
+      margin: 8px 0 0;
+    }
+  }
+}

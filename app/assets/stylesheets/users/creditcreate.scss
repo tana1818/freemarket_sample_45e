@@ -1,0 +1,279 @@
+///////////////////////////////////////////////////
+//全体共通の記述
+///////////////////////////////////////////////////
+
+* {
+  box-sizing: border-box;
+  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+}
+
+body {
+  background-color: rgb(245, 245, 245);
+  font-size:14px;
+  position: relative;
+  min-height: 100%;
+  color: rgb(51,51,51);
+  line-height: 1;
+}
+
+div {
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+  opacity: .7;
+}
+
+ul {
+  list-style: none;
+}
+
+h2 {
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+h3 {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+///////////////////////////////////////////////////
+//共通部品のヘッダー・フッターと合体したら不要になるもの
+///////////////////////////////////////////////////
+
+.header {
+  background-color: #fff;
+  width: 100vw;
+  height: 90px;
+}
+
+.breadcrumb {
+  background-color: #fff;
+  width: 100vw;
+  height: 50px;
+  border-top: 1px solid #eee;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.16);
+}
+
+.app_banner {
+  width: 100vw;
+  height: 260px;
+  background-color: #ccc;
+}
+
+footer {
+  width: 100vw;
+  height: 600px;
+  background-color: #212121;
+}
+
+///////////////////////////////////////////////////
+//メイン（画面右）の記述
+///////////////////////////////////////////////////
+
+main{
+  width: 1020px;
+  margin: 40px 100px 0;
+  padding-bottom: 40px;
+  .my-page-credit__body {
+    background-color: rgb(245, 245, 245);
+    &__content {
+      margin: auto;
+      width: 1020px;
+    }
+    &__main {
+      background-color: white;
+      width:700px;
+      float: right;
+      &__head {
+        font-size: 22px;
+        line-height: 33px;
+        padding: 32px 16px;
+        text-align: center;
+        font-weight: bold;
+        margin: 0;
+      }
+      &__inner {
+        padding: 64px;
+        border-top: 1px solid rgb(245, 245, 245);
+        &__body {
+          max-width: 320px;
+          margin: 0 auto;
+          & :first-child {
+            margin-top: 0;
+          }
+          &__field {
+            width: 320px;
+            margin-top: 40px;
+            label {
+              font-size: 14px;
+            }
+            .form-require {
+              background: #ea352d;
+              margin-left: 8px;
+              padding: 2px 4px;
+              color: white;
+              font-size: 12px;
+              vertical-align: top;
+            }
+            .input-default {
+              width: 100%;
+              margin-top: 8px;
+              height: 48px;
+              padding: 10px 16px 8px;
+              border-radius: 4px;
+              box-sizing: border-box;
+            }
+            .signup-card-list {
+              margin-top: 8px;
+              li {
+                display: inline-block;
+              }
+              &__visa {
+                width: 49px;
+                height: 20px;
+              }
+              &__master {
+                width: 34px;
+                height: 20px;
+              }
+              &__saison {
+                width: 30px;
+                height: 20px;
+              }
+              &__jcb {
+                width: 32px;
+                height: 20px;
+              }
+              &__american {
+                width: 21px;
+                height: 20px;
+              }
+              &__diners {
+                width: 32px;
+                height: 20px;
+              }
+              &__discover {
+                width: 32px;
+                height: 20px;
+              }
+            }
+            .signup-form-expire {
+              &__wrap {
+                margin-top: 8px;
+                select {
+                  height: 48px;
+                  width: 35%;
+                  display: inline-block;
+                  padding: 0 16px;
+                  border-radius:4px;
+                  font-size: 16px;
+                  cursor: pointer;
+                }
+              }
+            }
+            p {
+              margin-top: 8px;
+              font-size: 14px;
+            }
+            .info {
+              color: blue;
+              text-align: right;
+            }
+            .btn-default {
+              display: block;
+              width: 100%;
+              line-height: 48px;
+              font-size: 14px;
+              cursor: pointer;
+              text-align: center;
+            }
+            .btn-red {
+              background: #ea352d;
+              position: relative;
+              margin-top: 50px;
+              color: white;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+main.clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+///////////////////////////////////////////////////
+//サイドバー（画面左）の記述
+///////////////////////////////////////////////////
+
+.sidebar {
+  width: 280px;
+  float: left;
+  margin-right: 40px;
+  .mypage-nav {
+    .mypage-nav-list {
+      li {
+        background-color: #fff;
+        border-top: 1px solid #eee;
+        .mypage-nav-list-item {
+          color: #333;
+          position: relative;
+          display: block;
+          font-size: 14px;
+          line-height: 16px;
+          padding: 16px;
+          .fa-angle-right {
+            color: #ccc;
+            font-weight:bold;
+            font-size: 22px;
+            position: absolute;
+            top: 12px;
+            right: 16px;
+            transition: all ease-out .2s;
+          }
+        }
+        .mypage-nav-list-item:hover {
+          .fa-angle-right {
+            color: #333;
+            right: 12px;
+          }
+        }
+        .active {
+          background-color: #eee;
+          font-weight: bold;
+          .fa-angle-right {
+            color: #333;
+          }
+        }
+        a:hover {
+          background: #fafafa;
+          opacity: 1;
+        }
+        .active:hover {
+          background: #eee;
+        }
+      }
+      li:first-child {
+        border: 0;
+      }
+    }
+    .mypage-nav-head {
+      font-size: 16px;
+      font-weight: bold;
+      margin-top: 40px;
+    }
+    .mypage-nav-head+.mypage-nav-list {
+      margin: 8px 0 0;
+    }
+  }
+}

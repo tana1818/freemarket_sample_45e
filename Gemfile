@@ -74,3 +74,15 @@ gem 'haml-rails', '~> 1.0'
 gem 'erb2haml'
 gem 'font-awesome-rails'
 gem 'devise'
+
+group :production do
+  gem 'unicorn'
+end
+
+group :development, :test do
+  gem 'capistrano'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano3-unicorn'
+end

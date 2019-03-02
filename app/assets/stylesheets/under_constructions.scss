@@ -1,0 +1,31 @@
+// Place all the styles related to the under_constructions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: image-url('fe409ce3.png');
+  background-repeat: no-repeat;
+  background-position: center;
+
+  .under_constructions {
+    font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+    font-size: 36px;
+    color: #fff;
+    background-color: rgba(255,51,51,0.8);
+    width: 100%;
+    line-height: 48px;
+    border: 2px solid rgba(255,51,51,0.8);
+    border-radius: 4px;
+    text-align: center;
+  }
+}

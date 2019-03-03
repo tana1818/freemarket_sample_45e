@@ -1,0 +1,11 @@
+.mypage {
+  width: 1020px;
+  margin: 40px 210px 0;
+  padding-bottom: 40px;
+}
+
+.mypage:after {
+  content: '';
+  display: block;
+  clear: both;
+}

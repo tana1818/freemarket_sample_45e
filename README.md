@@ -36,7 +36,7 @@ https://qiita.com/kazuooooo/items/47e7d426cbb33355590e
 |banchi|string|-------|番地|
 |tatemono|string|-------|建物|
 |image|string|-------|プロフィール画像|
-|users_id|references|null: false,foreign_key: true|ユーザーID／users.id|
+|user_id|references|null: false,foreign_key: true|ユーザーID／users.id|
 ### Association
 - belongs_to :user
 ## deliveries（発送元・届け先テーブル）
@@ -52,7 +52,7 @@ https://qiita.com/kazuooooo/items/47e7d426cbb33355590e
 |banchi|string|null: false|番地|
 |tatemono|string|null: false|建物|
 |tel|integer|null: false|電話番号|
-|users_id|references|null: false,foreign_key: true|ユーザーID／users.id|
+|user_id|references|null: false,foreign_key: true|ユーザーID／users.id|
 ### Association
 - belongs_to :user
 - has_many :purchases
@@ -63,7 +63,7 @@ https://qiita.com/kazuooooo/items/47e7d426cbb33355590e
 |expiration_month|integer|null: false|有効月|
 |expiration_year|integer|null: false|有効年|
 |security_code|integer|null: false|セキュリティコード|
-|users_id|references|null: false,foreign_key: true|ユーザーID／users.id|
+|user_id|references|null: false,foreign_key: true|ユーザーID／users.id|
 ### Association
 - belongs_to :user
 - has_many :purchases
@@ -85,13 +85,13 @@ https://qiita.com/kazuooooo/items/47e7d426cbb33355590e
 |conditions_id|references|null: false,foreign_key: true|商品の状態／conditions.id|
 |delivery_fee_pays_id|references|null: false,foreign_key: true|配送料の負担／delivery_fee_pays.id|
 |delivery_methods_id|references|null: false,foreign_key: true|配送の方法／delivery_methods.id|
-|prefectures_id|references|null: false,foreign_key: true|発送元の地域／prefectures.id|
+|prefecture_id|references|null: false,foreign_key: true|発送元の地域／prefectures.id|
 |shipment_periods_id|references|null: false,foreign_key: true|発送までの日数／shipment_periods.id|
 |price|integer|null: false|価格|
 |status|string|null: false|出品ステータス（出品停止中・出品中・取引中・売却済み）|
 |sizes_id|references|null: false,foreign_key: true|サイズ／sizes.id／categories.size_kinds_idがnullでなければ必須|
 |brand|string|null: false|ブランド名／is_brand_presenceがnullでなければ必須|
-|users_id|references|null: false,foreign_key: true|ユーザーID／users.id|
+|user_id|references|null: false,foreign_key: true|ユーザーID／users.id|
 ### Association
 - belongs_to :category
 - belongs_to :condition
@@ -190,7 +190,7 @@ https://qiita.com/kazuooooo/items/47e7d426cbb33355590e
 |Column|Type|Options|Note|
 |------|----|-------|----|
 |image|string|null: false|商品画像|
-|products_id|references|null: false,foreign_key: true|商品ID／products.id|
+|product_id|references|null: false,foreign_key: true|商品ID／products.id|
 ### Association
 - belongs_to :product
 ## comments（商品コメントテーブル）
@@ -198,16 +198,16 @@ https://qiita.com/kazuooooo/items/47e7d426cbb33355590e
 |------|----|-------|----|
 |comment|text|null: false|商品コメント|
 |timestamps||null: false|投稿時間|
-|products_id|references|null: false,foreign_key: true|商品ID／products.id|
-|users_id|references|null: false,foreign_key: true|ユーザーID／users.id|
+|product_id|references|null: false,foreign_key: true|商品ID／products.id|
+|user_id|references|null: false,foreign_key: true|ユーザーID／users.id|
 ### Association
 - belongs_to :product
 - belongs_to :user
 ## likes（いいねテーブル）
 |Column|Type|Options|Note|
 |------|----|-------|----|
-|products_id|references|null: false,foreign_key: true|商品ID／products.id|
-|users_id|references|null: false,foreign_key: true|ユーザーID／users.id|
+|product_id|references|null: false,foreign_key: true|商品ID／products.id|
+|user_id|references|null: false,foreign_key: true|ユーザーID／users.id|
 ### Association
 - belongs_to :product
 - belongs_to :user
@@ -217,8 +217,8 @@ https://qiita.com/kazuooooo/items/47e7d426cbb33355590e
 |payment|integer|null: false|支払い金額|
 |deliveries_id|references|null: false,foreign_key: true|届け先ID／deliveries.id|
 |cards_id|references|null: false,foreign_key: true|クレジットカードID／cards.id|
-|products_id|references|null: false,foreign_key: true|商品ID／products.id|
-|users_id|references|null: false,foreign_key: true|購入ユーザーID／users.id|
+|product_id|references|null: false,foreign_key: true|商品ID／products.id|
+|user_id|references|null: false,foreign_key: true|購入ユーザーID／users.id|
 ### Association
 - belongs_to :delivery
 - belongs_to :card
@@ -229,17 +229,17 @@ https://qiita.com/kazuooooo/items/47e7d426cbb33355590e
 |Column|Type|Options|Note|
 |------|----|-------|----|
 |rating_type|string|null: false|評価区分（受取評価・購入者評価）|
-|scores_id|references|null: false,foreign_key: true|評点ID／scores.id|
+|reputation_id|references|null: false,foreign_key: true|評点ID／scores.id|
 |comment|text|null: false|評価コメント|
-|purchases_id|references|null: false,foreign_key: true|商品購入ID／purchases.id|
-|users_id|references|null: false,foreign_key: true|被評価ユーザーID／users.id|
+|purchase_id|references|null: false,foreign_key: true|商品購入ID／purchases.id|
+|user_id|references|null: false,foreign_key: true|被評価ユーザーID／users.id|
 ### Association
 - belongs_to :score
 - belongs_to :purchase
 - belongs_to :user
-## scores（評点テーブル）
+## reputation（評点テーブル）
 |Column|Type|Options|Note|
 |------|----|-------|----|
-|name|string|null: false|評点名（良い・普通・悪い）|
+|score|string|null: false|評点名（良い・普通・悪い）|
 ### Association
 - has_many :rates

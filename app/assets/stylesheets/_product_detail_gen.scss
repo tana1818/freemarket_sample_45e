@@ -10,25 +10,25 @@ main {
   &-detail {
     background-color: #fff;
     padding: 24px 40px 40px;
-    &-content {
+    &__content {
       // margin: 16px 0 0;
       height: 420px;
     }
-    &-table {
+    &__table {
       float:right;
     }
-    &-price {
+    &__price {
       margin: 24px 0 0;
       text-align: center;
     }
-    &-description {
+    &__description {
       padding-top: 32px;
       &-text {
         white-space: pre-wrap;
         font-size: 20px;
       }
     }
-    &-like{
+    &__like{
       content: '';
       display: block;
       clear: both;
@@ -43,6 +43,9 @@ main {
         a {
           color: #0099e8;
         }
+      }
+      &-clear {
+        clear: both;
       }
     }
   }
@@ -94,9 +97,6 @@ main {
 
 .clear {
   margin-top: 16px;
-  content: '';
-  display: block;
-  clear: both;
 }
 
 .btn-nomal {

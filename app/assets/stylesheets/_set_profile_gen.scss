@@ -1,5 +1,5 @@
 .main-content-set {
-  &-profile {
+  &__profile {
       position: relative;
       background: image-url('fe409ce3.png');
       text-align: center;
@@ -13,7 +13,7 @@
         vertical-align: middle;
       }
   }
-  &-content {
+  &__content {
     padding: 40px 16px;
     background-color: #fff;
     & .textarea-default {

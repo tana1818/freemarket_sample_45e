@@ -6,14 +6,14 @@
 
 
     //---------ユーザープロフィール編集　ここから---------
-    %h2.main-content-head プロフィール
-    .main-content-set
-      .main-content-set-profile
-        %figure.main-content-set-profile-icon
+    %h2.main-content__head プロフィール
+    .main-content__set
+      .main-content__set__profile
+        %figure.main-content__set__profile-icon
           = image_tag 'fe409ce3.png', size: '60x60'
         %input.input-small{:name => "nickname", :placeholder => "例)AYA☆セール中", :type => "text"}/
 
-      .main-content-set-content
+      .main-content__set__content
         %textarea.textarea-default{:name => "introduction", :placeholder => "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
 
       %button.btn-default.btn-red{:type => "submit"} 登録する

@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 
-  def show
+  def new *プロフィール編集ページ
   end
+
 end

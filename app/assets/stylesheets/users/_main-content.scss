@@ -1,0 +1,201 @@
+.main-content {
+  width: 700px;
+  float: right;
+}
+
+.user-info {
+  position: relative;
+  height: 200px;
+  padding: 20px;
+  background: image-url('user-bg.jpg');
+  text-align: center;
+  &__link {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translate(0, -50%);
+    color: #333;
+  }
+  &__link:hover {
+    text-decoration: underline;
+  }
+  &__user-icon {
+    overflow: hidden;
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+    border-radius: 50%;
+  }
+  &__user-name {
+    margin: 8px 0 0;
+    font-size: 13px;
+    height: 19px;
+    font-weight: bold;
+  }
+  &__number {
+    margin: 8px 0 0;
+    font-size: 0;
+    height: 16px;
+  }
+  &__item {
+    font-size: 14px;
+    line-height: 19.6px;
+    display: inline-block;
+  }
+  &__value {
+    margin: 0 0 0 8px;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  div+div {
+    margin: 0 0 0 16px;
+  }
+}
+
+.mypage-tab {
+  margin: 0;
+  background-color: #fff;
+  &__container {
+    border: 0;
+    background: #eee;
+    font-size: 0;
+  }
+  %__link {
+    color: #333;
+    font-size: 16px;
+    line-height: 72px;
+    display: block;
+    position: relative;
+  }
+  &__link {
+    @extend %__link;
+  }
+  &__link--active {
+    @extend %__link;
+    border-top: 2px solid #ea352d;
+  }
+  %__tab {
+    width: 50%;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+  }
+  &__tab {
+    @extend %__tab;
+  }
+  &__tab--active {
+    @extend %__tab;
+    background: #fff;
+  }
+  &__tab-head {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 0 16px;
+    line-height: 72px;
+    background: #fafafa;
+  }
+  &__content {
+    display: none;
+  }
+  &__content--active {
+    display: block;
+  }
+  &__item-list {
+    position: relative;
+    border-bottom: 1px solid #eee;
+  }
+  &__item-list:first-child {
+    border-bottom: 1px solid #eee;
+  }
+  &__item-list:last-child {
+    border: 0;
+  }
+  &__item-link {
+    display: block;
+    min-height: 80px;
+    padding: 16px;
+    color: #333;
+  }
+  &__item-link:hover {
+    background: #fafafa;
+    opacity: 1;
+  }
+  &__icon {
+    position: relative;
+    overflow: hidden;
+    float: left;
+    width: 48px;
+    height: 48px;
+    margin: 0;
+  }
+  &__icon-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    width: 100%;
+  }
+  &__item-body {
+    margin: 0 40px 0 68px;
+    overflow: hidden;
+    line-height: 14px;
+  }
+  &__item-text {
+    overflow: hidden;
+    display: block;
+    max-height: 4.4em;
+    text-overflow: ellipsis;
+    line-height: 1.5;
+    font-size: 14px;
+  }
+  &__time-container {
+    display: inline-block;
+    color: #888;
+    font-size: 14px;
+    vertical-align: middle;
+  }
+  &__time {
+    vertical-align: middle;
+  }
+  .fa-angle-right {
+    font-weight:bold;
+    font-size: 22px;
+    position: absolute;
+    top: 34px;
+    right: 16px;
+  }
+  .fa-check-circle {
+    font-size: 18px;
+    margin: 0 8px 0 0;
+  }
+  &__go-list {
+    font-size: 14px;
+    padding: 16px;
+  }
+  &__go-list-link {
+    display: block;
+    height: 56px;
+    margin: 0 auto;
+    background: #eee;
+    color: #333;
+    line-height: 56px;
+    text-align: center;
+  }
+  &__item-not-found {
+    padding: 160px 0 60px;
+    background: image-url('logo-gray-icon.svg');
+    background-repeat: no-repeat;
+    background-size: 78px 85px;
+    background-position: center 40px;
+    font-size: 16px;
+    text-align: center;
+    color: #ccc;
+    font-weight: bold;
+  }
+  &__tab-spacer {
+    margin: 40px 0 0;
+  }
+}

@@ -1,5 +1,6 @@
-%header.header
-%header.breadcrumb
+-# = render "layouts/header"
+-# = render "layouts/breadcrumb"
+
 %main.clearfix
   .main-content
     %section.mypage-user-icon
@@ -215,5 +216,6 @@
           %a.mypage-nav-list-item{href: ''}
             ログアウト
             %i.fa.fa-angle-right
-.app_banner
-%footer
+
+-#   = render "sidebar"
+-# = render "layouts/footer"

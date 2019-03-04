@@ -1,39 +1,29 @@
-!!!
-%html
-  %head
-    %meta{:charset => "UTF-8"}/
-    %link{:href => "login.scss", :rel => "stylesheet"}/
-  %body
-    %header.header
-      %h1
-        %a{:href => "https://www.mercari.com/jp/"}
-          %img{:alt => "mercari", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?128691313"}/
-    %main.main
-      .login-panel
-        .login-no-account
-          %p アカウントをお持ちでない方はこちら
-          %a{:href => "https://www.mercari.com/jp/signup/"} 新規会員登録
-        .login-main
-          .login-main__upper
-            .login-main__upper__Facebook-btn
-              %h2
-                %a{:href => "#"}Facebookでログイン
-            .login-main__upper__Google-btn
-              %h3
-                %a{:href => "#"}Googleでログイン
-          .login-main__lower
-            .login-main__lower__email
-              %input.login-input-text{:name => "email", :placeholder => "メールアドレス", :type => "email", :value => ""}/
-            .login-main__lower__password
-              %input.login-input-text{:name => "password", :placeholder => "パスワード", :type => "password"}/
-            .login-main__lower__login
-              %button.login-submit.btn-default.btn-red{:type => "submit"} ログイン
-            .login-main__lower__reset-start
-              %a{:href => "https://www.mercari.com/jp/password/reset/start/"} パスワードをお忘れの方
-    %footer.footer
-      .sentence
-        %a{:href => "https://www.mercari.com/jp/privacy/"} プライバシーポリシー
-        %a{:href => "https://www.mercari.com/jp/tos/"} メルカリ利用規約
-        %a{:href => "https://www.mercari.com/jp/tokutei/"} 特定商取引に関する表記
-      .mark
-        %img{:alt => "mercari", :height => "65", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?128691313", :width => "80"}/
+%body
+  = render "layouts/single-header"
+  %main.log-main
+    .login-panel
+      .login-no-account
+        %p アカウントをお持ちでない方はこちら
+        = link_to '#',class: "new" do
+          新規会員登録
+      .login-main
+        .login-main__upper
+          .login-main__upper__Facebook-btn
+            = link_to '#',class: "facebook" do
+              = fa_icon "facebook-square"
+              Facebookでログイン
+          .login-main__upper__Google-btn
+            = link_to '#',class: "google" do
+              = fa_icon "google"
+              Googleでログイン
+        .login-main__lower
+          .login-main__lower__email
+            %input.login-input-text{:name => "email", :placeholder => "メールアドレス", :type => "email", :value => ""}/
+          .login-main__lower__password
+            %input.login-input-text{:name => "password", :placeholder => "パスワード", :type => "password"}/
+          .login-main__lower__login
+            %button.login-submit.btn-default.btn-red{:type => "submit"} ログイン
+          .login-main__lower__reset-start
+            = link_to '#',class: "pass" do
+              パスワードをお忘れの方
+  = render "layouts/single-footer"

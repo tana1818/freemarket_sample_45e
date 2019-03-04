@@ -1,0 +1,105 @@
+.signup-main-regist{
+  padding-top: 64px;
+  border-top: 1px solid rgb(245, 245, 245);
+  background-color: rgb(245, 245, 245);
+  section{
+    width: 700px;
+    margin: 0 auto;
+    background: #fff;
+    h4{
+      padding: 32px 16px;
+      font-size: 22px;
+      font-weight: bold;
+      line-height: 1.5;
+      text-align: center;
+      border-bottom: 1px solid rgb(245, 245, 245);
+    }
+    form{
+      padding-bottom: 32px;
+      .l-signup-content{
+        max-width: 320px;
+        margin: 0 auto;
+        .form-group{
+          width: 320px;
+          margin-top: 40px;
+          label{
+            font-weight: bold;
+          }
+          h5{
+            font-weight: bold;
+          }
+          p{
+            margin: 20px 0;
+          }
+          .form-require {
+            background: #ea352d;
+            margin-left: 8px;
+            padding: 2px 4px;
+            color: white;
+            font-size: 12px;
+            vertical-align: top;
+          }
+          .input-default {
+            width: 100%;
+            margin-top: 8px;
+            height: 48px;
+            padding: 10px 16px 8px;
+            border-radius: 4px;
+            box-sizing: border-box;
+          }
+          .birthday{
+            select {
+              margin-top: 8px;
+              height: 48px;
+              width: 35%;
+              display: inline-block;
+              padding: 0 16px;
+              border-radius:4px;
+              font-size: 16px;
+              cursor: pointer;
+            }
+          }
+        }
+        .btn-default {
+          display: block;
+          width: 100%;
+          line-height: 48px;
+          font-size: 14px;
+          cursor: pointer;
+          text-align: center;
+        }
+        .btn-red {
+          background: #ea352d;
+          position: relative;
+          margin-top: 50px;
+          color: white;
+        }
+        p{
+            margin: 20px 0;
+        }
+      }
+      .l-signup-content-last{
+        max-width: 320px;
+        margin: 0 auto;
+        .form-group{
+          width: 320px;
+          margin: 40px 0 0 80px;
+        }
+        .btn-default {
+          display: block;
+          width: 100%;
+          line-height: 48px;
+          font-size: 14px;
+          cursor: pointer;
+          text-align: center;
+        }
+        .btn-red {
+          background: #ea352d;
+          position: relative;
+          margin-top: 50px;
+          color: white;
+        }
+      }
+    }
+  }
+}

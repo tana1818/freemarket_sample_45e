@@ -1,0 +1,116 @@
+footer.footer {
+  background-image: url("footer_background_image.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  bottom: 0;
+  width: 100vw;
+  height: 743px;
+  .footer__upper {
+    width: 750px;
+    height: 260px;
+    margin: 0 auto;
+    &__left {
+      float: left;
+      width: calc(100% - 300px);
+      height: 100%;
+      padding-top: 50px;
+      &__text {
+        width: 420px;
+        height: 80px;
+        &__upper {
+          font-size: 24px;
+          color: #fff;
+          font-weight: bold;
+        }
+        &__lower {
+          display: block;
+          margin-top: 10px;
+          font-size: 35px;
+          color: #fff;
+        }
+      }
+      &__icon {
+        width: 420px;
+        height: 70px;
+        .mercari_icon {
+          float: left;
+          width: 68px;
+          height: 68px;
+          margin-top: 10px;
+          cursor: pointer;
+        }
+        .app-store, .google-play {
+          float: left;
+          cursor: pointer;
+          margin: 25px 0 20px;
+        }
+        .app-store:hover, .google-play:hover {
+          opacity: 0.7;
+        }
+        .app-store {
+          margin-right: 20px;
+          margin-left: 30px;
+        }
+      }
+    }
+    &__right {
+      float: right;
+      width: 300px;
+      height: 100%;
+      img {
+        width: 300px;
+        height: 260px;
+      }
+    }
+  }
+  .footer__lower {
+    background-color: #212121;
+    width: 100vw;
+    height: 600px;
+    padding: 60px 0 80px;
+    &__navigation-box {
+      width: 1020px;
+      height: 390px;
+      margin: 0 auto;
+      &__content {
+        float: left;
+        width: 235px;
+        height: 390px;
+        margin: 0 10px;
+        h2 {
+          display: block;
+          font-weight: bold;
+          margin-bottom: 17px;
+          font-size: 16px;
+          color: #fff;
+          text-align: center;
+          cursor: pointer;
+        }
+        p {
+          display: block;
+          margin-bottom: 11px;
+          color: #fff;
+          text-align: center;
+          font-size: 14px;
+          cursor: pointer;
+        }
+      }
+    }
+    img {
+      display: block;
+      width: 124px;
+      height: 33px;
+      margin: 40px auto 0;
+    }
+    img:hover {
+      opacity: 0.7;
+    }
+    p {
+      display: block;
+      color: #fff;
+      font-size: 14px;
+      margin-top: 8px;
+      text-align: center;
+    }
+  }
+}

@@ -17,11 +17,15 @@
             %p カテゴリーから探す
           %li
             %p ブランドから探す
-      .header__conetnts__lower__button
+      .header__conetnts__lower__user-navigation
         %ul
-          %li.header__conetnts__lower__button__login
-            %p ログイン
-          %li.header__conetnts__lower__button__signup
-            %p 新規会員登録
-
-
+          %li.header__conetnts__lower__user-navigation__mypage
+            .header__conetnts__lower__user-navigation__mypage__image
+              = image_tag "mypage-icon.jpg"
+            %p マイページ
+          %li.header__conetnts__lower__user-navigation__news
+            = fa_icon('bell')
+            %p お知らせ
+          %li.header__conetnts__lower__user-navigation__todo-list
+            = fa_icon('check')
+            %p やることリスト

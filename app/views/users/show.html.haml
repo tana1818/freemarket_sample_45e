@@ -1,0 +1,111 @@
+= render 'layouts/header'
+= render 'layouts/breadcrumb'
+%main.mypage
+  .main-content
+    %section.user-info
+      = link_to '#', class: 'user-info__link' do
+        %figure.user-info__user-icon
+          = image_tag 'member_photo_noimage_thumb.png', size: '60x60'
+        %h2.user-info__user-name
+          kozitex
+        .user-info__number
+          .user-info__item
+            評価
+            %span.user-info__value
+              0
+          .user-info__item
+            出品数
+            %span.user-info__value
+              0
+    %section.mypage-tab
+      %ul.mypage-tab__container
+        %li.mypage-tab__tab--active
+          %h3
+            = link_to 'お知らせ', '#', class: 'mypage-tab__link--active'
+        %li.mypage-tab__tab
+          %h3
+            = link_to 'やることリスト', '#', class: 'mypage-tab__link'
+      %div
+        %ul.mypage-tab__content--active
+          %li.mypage-tab__item-list
+            = link_to '#', class: 'mypage-tab__item-link' do
+              %figure.mypage-tab__icon
+                = image_tag 'mercari_profile.png', class: 'mypage-tab__icon-image'
+              .mypage-tab__item-body
+                .mypage-tab__item-text
+                  事務局から個別メッセージ「商品を買ってもらうには？「売り切れ」商品を参考にしよう！」
+                %time.mypage-tab__time-container
+                  = fa_icon('check-circle lg')
+                  %span.mypage-tab__time
+                    6 時間前
+              = fa_icon('angle-right')
+          %li.mypage-tab__item-list
+            = link_to '#', class: 'mypage-tab__item-link' do
+              %figure.mypage-tab__icon
+                = image_tag 'mercari_profile.png', class: 'mypage-tab__icon-image'
+              .mypage-tab__item-body
+                .mypage-tab__item-text
+                  3日後、¥600割引お得チケットの有効期限が切れます！タップして詳細を確認しましょう。
+                %time.mypage-tab__time-container
+                  = fa_icon('check-circle lg')
+                  %span.mypage-tab__time
+                    9 時間前
+              = fa_icon('angle-right')
+          %li.mypage-tab__item-list
+            = link_to '#', class: 'mypage-tab__item-link' do
+              %figure.mypage-tab__icon
+                = image_tag 'mercari_profile.png', class: 'mypage-tab__icon-image'
+              .mypage-tab__item-body
+                .mypage-tab__item-text
+                  事務局から個別メッセージ「【¥600分のお得チケット獲得！】欲しかったあの商品をお得にゲットしませんか？」
+                %time.mypage-tab__time-container
+                  = fa_icon('check-circle lg')
+                  %span.mypage-tab__time
+                    13 時間前
+              = fa_icon('angle-right')
+          %li.mypage-tab__item-list
+            = link_to '#', class: 'mypage-tab__item-link' do
+              %figure.mypage-tab__icon
+                = image_tag 'mercari_profile.png', class: 'mypage-tab__icon-image'
+              .mypage-tab__item-body
+                .mypage-tab__item-text
+                  【メルカリ安心への取り組み】商品代金は、取引完了まで事務局が大切にお預かりいたします
+                %time.mypage-tab__time-container
+                  = fa_icon('check-circle lg')
+                  %span.mypage-tab__time
+                    1 日前
+              = fa_icon('angle-right')
+          %li.mypage-tab__item-list
+            = link_to '#', class: 'mypage-tab__item-link' do
+              %figure.mypage-tab__icon
+                = image_tag 'mercari_profile.png', class: 'mypage-tab__icon-image'
+              .mypage-tab__item-body
+                .mypage-tab__item-text
+                  事務局から個別メッセージ「ログイン通知」
+                %time.mypage-tab__time-container
+                  = fa_icon('check-circle lg')
+                  %span.mypage-tab__time
+                    2 日前
+              = fa_icon('angle-right')
+          %li.mypage-tab__go-list
+            = link_to '一覧を見る', '#', class: 'mypage-tab__go-list-link'
+        %ul.mypage-tab__content
+          %li.mypage-tab__item-not-found
+            現在、やることリストはありません
+    .mypage-tab__tab-spacer
+    %section.mypage-tab
+      %h2.mypage-tab__tab-head
+        購入した商品
+      %ul.mypage-tab__container
+        %li.mypage-tab__tab--active
+          %h3
+            = link_to '取引中', '#', class: 'mypage-tab__link--active'
+        %li.mypage-tab__tab
+          %h3
+            = link_to '過去の取引', '#', class: 'mypage-tab__link'
+      %div
+        %ul.mypage-tab__content--active
+          %li.mypage-tab__item-not-found
+            取引中の商品がありません
+  = render 'sidebar'
+= render 'layouts/footer'

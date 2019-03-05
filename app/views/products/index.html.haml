@@ -1,0 +1,39 @@
+!!!
+%html.top-page
+  = render 'layouts/header'
+  %main.top-page
+    %section.top-page__mainvisual
+      .top-page__mainvisual__content
+        .top-page__mainvisual__content__left
+          %h2 スマホでかんたん
+          %h2.lower フリマアプリ
+          %p メルカリはスマホカメラからすぐに出品できる
+          %p 購入時も安心な独自システムのアプリです
+          .top-page__mainvisual__content__left__icon
+            = link_to "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8", target: "_blank" do
+              = image_tag "app-store.svg"
+            = link_to "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja", target: "_blank" do
+              = image_tag "google-play.svg"
+        .top-page__mainvisual__content__right
+          = image_tag "main_content_pc.png"
+      .top-page__mainvisual__navigation
+        = fa_icon('angle-left', class: 'fa-angle-left')
+        = fa_icon('angle-right', class: 'fa-angle-right')
+        .top-page__mainvisual__navigation__dots
+          .top-page__mainvisual__navigation__dots__dot
+          .top-page__mainvisual__navigation__dots__dot
+          .top-page__mainvisual__navigation__dots__dot
+    %section.top-page__pickup-container
+      %h2 ピックアップカテゴリー
+      = render 'products/top-page-items-boxes'
+      = render 'products/top-page-items-boxes'
+      = render 'products/top-page-items-boxes'
+      = render 'products/top-page-items-boxes'
+    %section.top-page__pickup-container
+      %h2 ピックアップブランド
+      = render 'products/top-page-items-boxes'
+      = render 'products/top-page-items-boxes'
+      = render 'products/top-page-items-boxes'
+      = render 'products/top-page-items-boxes'
+  = render 'layouts/footer'
+  -# = render 'layouts/exhibit-button'

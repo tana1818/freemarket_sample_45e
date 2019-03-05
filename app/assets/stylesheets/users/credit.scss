@@ -56,3 +56,8 @@
     }
   }
 }
+.credit-main:after {
+  content: '';
+  display: block;
+  clear: both;
+}

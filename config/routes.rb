@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'users#show'
-  resources :users, only: [:show]
+  # root 'users#show'
+  # resources :users, only: [:show]
   get  '/users/show' => 'users#show'
   get  '/users/login' => 'users#login'
   get  '/users/logout' => 'users#logout'
@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   get  '/users/signup_memberinfo' => 'users#signup_memberinfo'
   get  '/users/signup_tel' => 'users#signup_tel'
   get  '/users/signup_address' => 'users#signup_address'
-  get  '/users/signup_pay' => 'users#signup_pay'
+  get  '/users/signup_credit' => 'users#signup_credit'
   get  '/users/signup_complete' => 'users#signup_complete'
 end

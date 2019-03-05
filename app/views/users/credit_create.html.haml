@@ -1,3 +1,6 @@
+= render "layouts/header"
+= render "layouts/breadcrumb"
+
 %main.credit-create-main
   .my-page-credit__body
     .my-page-credit__body__content
@@ -63,3 +66,6 @@
               %p.info カード裏面の番号とは？
               %button{ type: "button", class: "btn-default btn-red" }
                 次へ進む
+
+  = render "sidebar"
+= render "layouts/footer"

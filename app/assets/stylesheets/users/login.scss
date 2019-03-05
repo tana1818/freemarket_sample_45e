@@ -99,29 +99,6 @@
     }
   }
 }
-.single-footer{
-  position: absolute;
-  right: 0;
-  left: 0;
-  z-index: 1;
-  height: 250px;
-  padding: 40px 0;
-  text-align: center;
-  background-color: rgb(245, 245, 245);
-  .sentence{
-    display: block;
-    color: black;
-  }
-  .mark{
-    vertical-align: middle;
-    text-align: center;
-    img {
-      display: block;
-      color: #333;
-      margin: 40px auto 0;
-    }
-  }
-}
 
 .login-input-text{
   height: 48px;

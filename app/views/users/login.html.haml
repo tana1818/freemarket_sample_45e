@@ -18,11 +18,11 @@
               Googleでログイン
         .login-main__lower
           .login-main__lower__email
-            %input.login-input-text{:name => "email", :placeholder => "メールアドレス", :type => "email", :value => ""}/
+            %input.login-input-text{name: "email", placeholder: "メールアドレス", type: "email", value: ""}
           .login-main__lower__password
-            %input.login-input-text{:name => "password", :placeholder => "パスワード", :type => "password"}/
+            %input.login-input-text{name: "password", placeholder: "パスワード", type: "password"}
           .login-main__lower__login
-            %button.login-submit.btn-default.btn-red{:type => "submit"} ログイン
+            %button.login-submit.btn-default.btn-red{type: "submit"} ログイン
           .login-main__lower__reset-start
             = link_to '#',class: "pass" do
               パスワードをお忘れの方

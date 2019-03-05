@@ -1,0 +1,289 @@
+///////////////////////////////////////////////////
+//ヘッダー部分
+///////////////////////////////////////////////////
+
+.sell-header {
+  text-align: center;
+  height: 128px;
+  &__title {
+    margin: 40px 0 0;
+    display: inline-block;
+  }
+  &__link {
+    display: inline-block;
+    width: 185px;
+    height: 49px;
+    line-height: 49px;
+    margin: 0 8px 0 0;
+  }
+  &__image {
+    width: 185px;
+    height: 49px;
+  }
+}
+
+///////////////////////////////////////////////////
+//メインの部分
+///////////////////////////////////////////////////
+
+.sell-main {
+  background-color: #fff;
+  width: 700px;
+  margin: 0 auto;
+  &__title {
+    padding: 32px 16px;
+    font-size: 22px;
+    line-height: 1.5;
+    text-align: center;
+    font-weight: bold;
+  }
+  %__btn {
+    display: block;
+    line-height: 48px;
+    font-size: 14px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    text-align: center;
+    color: #fff;
+  }
+}
+
+///////////////////////////////////////////////////
+//フォームの部分
+///////////////////////////////////////////////////
+
+.sell-form {
+  border-top: 1px solid #eee;
+  &__form-require {
+    background: #ea352d;
+    margin: 0 0 0 8px;
+    padding: 2px 4px;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 12px;
+    vertical-align: top;
+  }
+  &__upload-box {
+    width: 620px;
+    padding: 40px;
+  }
+  &__upload-head {
+    font-size: 16px;
+  }
+  &__desc {
+    margin: 8px 0 0;
+    line-height: 1.5;
+  }
+  &__drop-box {
+    width: 620px;
+    margin: 16px auto 0;
+    padding: 40px;
+    min-height: 162px;
+    background: #f5f5f5;
+    border: 1px dashed #ccc;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__box-desc {
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  &__content {
+    padding: 40px;
+    border-top: 1px solid #eee;
+  }
+  &__content:after {
+    content: '';
+    clear: both;
+    display: block;
+  }
+  &__group {
+    margin: 40px 0 0;
+  }
+  &__group:first-child {
+    margin: 0;
+  }
+  &__label {
+    font-weight: bold;
+  }
+  &__input {
+    width: 100%;
+    margin: 8px 0 0;
+    height: 48px;
+    padding: 10px 16px 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: #fff;
+    line-height: 1.5;
+    font-size: 16px;
+  }
+  &__textarea {
+    margin: 8px 0 0;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-height: 142px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background: #fff;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  &__sub-head {
+    float: left;
+    color: #888;
+    font-size: 14px;
+  }
+  &__mini-box {
+    float: right;
+    width: 400px;
+    margin: 0;
+  }
+  &__select {
+    padding: 0 16px;
+    position: relative;
+    z-index: 2;
+    height: 48px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: 0;
+    font-size: 16px;
+    line-height: 1.5;
+    cursor: pointer;
+    width: 100%;
+    -webkit-appearance: none;
+    outline: 0;
+  }
+  &__question {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #0099e8;
+    color: #fff;
+    line-height: 14px;
+    font-size: 12px;
+    text-align: center;
+  }
+  &__select-wrap {
+    position: relative;
+    background: #fff;
+    margin: 8px 0 0;
+    .fa-angle-down {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      z-index: 2;
+      color: #888;
+      font-size: 28px;
+      font-weight: bold;
+      -webkit-transform: translate(0, -50%);
+      transform: translate(0, -50%);
+    }
+  }
+  &__price {
+    padding: 0 0 24px;
+    overflow: auto;
+  }
+  &__fee {
+    overflow: auto;
+    border-top: 1px solid #ccc;
+    padding: 24px 0;
+  }
+  &__profit {
+    overflow: auto;
+    border-top: 1px solid #ccc;
+    padding: 24px 0;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  &__left-box {
+    float: left;
+  }
+  &__right-box {
+    float: right;
+  }
+  &__profit-right-box {
+    float: right;
+    font-size: 34px;
+  }
+  &__price-input {
+    width: 160px;
+    height: 48px;
+    padding: 10px 16px 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: #fff;
+    line-height: 1.5;
+    font-size: 16px;
+    text-align: right;
+  }
+  &__price-wrap {
+    width: 160px;
+    display: inline-block;
+  }
+  &__price-label {
+    font-weight: bold;
+    line-height: 48px;
+  }
+  &__caution {
+    line-height: 1.5;
+  }
+  &__btn {
+    @extend %__btn;
+    &--sell {
+      @extend %__btn;
+      margin: 40px 0 0;
+      background: #ea352d;
+      border: 1px solid #ea352d;
+      width: 100%;
+    }
+    &--back {
+      @extend %__btn;
+      width: 45%;
+      margin: 24px auto 0;
+      background: #aaa;
+      border: 1px solid #aaa;
+      width: 45%;
+    }
+  }
+}
+
+///////////////////////////////////////////////////
+//フッター部分
+///////////////////////////////////////////////////
+
+.sell-footer {
+  width: 456px;
+  height: 220px;
+  margin: 0 auto;
+  padding: 40px 0;
+  text-align: center;
+  &__list {
+    font-size: 0;
+  }
+  &__item:first-child {
+    margin: 0;
+  }
+  &__item {
+    display: inline-block;
+    font-size: 12px;
+    margin: 0 0 0 16px;
+  }
+  &__copyright {
+    margin: 8px 0 0;
+    font-size: 11px;
+    line-height: 14px;
+  }
+  &__logo {
+    display: block;
+    color: #333;
+    width: 80px;
+    height: 65px;
+    margin: 40px auto 0;
+  }
+}
+

@@ -1,7 +1,13 @@
 @import 'reset';
+@import 'users';
+@import 'user_detail_gen';
+@import 'set_profile_gen';
+@import 'product_detail_gen';
 @import 'users/side-bar';
 @import 'users/main-content';
 @import 'users/mypage';
 @import 'common';
 @import 'font-awesome';
 @import 'layouts/header';
+@import 'layouts/footer';
+@import 'layouts/exhibit-button';

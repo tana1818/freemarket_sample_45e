@@ -5,11 +5,7 @@
         = link_to root_path do
           = image_tag "logo.svg"
       .header__contents__upper__form
-        -# ///以下コントローラー設定後form_forに書き換え///
         .header__contents__upper__form__text-field
-        -# = form_for [@product] do |f|
-        -#   = f.text_field class: 'header__upper-content__form__text-field', placeholder: 'キーワードから探す'
-        -# ///ここまで///
     .header__contents__lower.clearfix
       %nav.header__contents__lower__brand-and-category-search
         %ul

@@ -1,2 +1,57 @@
-.app_banner
-.footer
+%footer.footer
+  .footer__upper
+    .footer__upper__left
+      .footer__upper__left__text
+        %p.footer__upper__left__text__upper スマホでかんたんフリマアプリ
+        %p.footer__upper__left__text__lower 今すぐ無料ダウンロード！
+      .footer__upper__left__icon
+        = image_tag "mercari_icon.png", class: 'mercari_icon'
+        = link_to "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8", target: "_blank" do
+          = image_tag "app-store.svg", class: 'app-store'
+        = link_to "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja", target: "_blank" do
+          = image_tag "google-play.svg", class: 'google-play'
+    .footer__upper__right
+      = image_tag "download_content_pc.png"
+  .footer__lower
+    .footer__lower__navigation-box
+      .footer__lower__navigation-box__content
+        %h2 メルカリについて
+        %p 会社概要（運営会社）
+        %p メルカリ利用規約
+        %p 有償ポイントに関する特約
+        %p あんしんスマホサポート制度に関する利用規約
+        %p コンプライアンスポリシー
+        %p 個人データの安全管理に係る基本方針
+        %p 特定商取引に関する表記
+        %p 資金決済法に基づく表示
+        %p 法令遵守と犯罪防止のために
+        %p 採用情報
+      .footer__lower__navigation-box__content
+        %h2 メルカリを見る
+        %p カテゴリー一覧
+        %p ブランド一覧
+        %p 出品地域一覧
+        %p 公式ブログ
+        %p 公式Twitter
+        %p 公式Facebook
+      .footer__lower__navigation-box__content
+        %h2 ヘルプ＆ガイド
+        %p メルカリガイド
+        %p メルカリロゴ利用ガイドライン
+        %p お知らせ
+        %p らくらくメルカリ便とは
+        %p ゆうゆうメルカリ便とは
+        %p 大型らくらくメルカリ便とは
+        %p 車体取引ガイド
+        %p 返品・返金ポリシー
+        %p メルカリあんしん・あんぜん宣言！
+        %p 偽ブランド品撲滅への取り組み
+        %p メルカリボックス
+      .footer__lower__navigation-box__content
+        %h2 国
+        %p United States
+        %p United Kingdom
+        %p 日本
+    = link_to root_path do
+      = image_tag "logo-white.svg"
+    %p ©️ 2019 Mercari

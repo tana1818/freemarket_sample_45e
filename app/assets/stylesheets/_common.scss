@@ -1,0 +1,74 @@
+///////////////////////////////////////////////////
+//全体共通の記述
+///////////////////////////////////////////////////
+
+* {
+  box-sizing: border-box;
+  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+}
+
+body {
+  background-color: rgb(245, 245, 245);
+  font-size:14px;
+  position: relative;
+  min-height: 100%;
+  color: rgb(51,51,51);
+  line-height: 1;
+}
+
+div {
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+  opacity: .7;
+}
+
+ul {
+  list-style: none;
+}
+
+h2 {
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+h3 {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+///////////////////////////////////////////////////
+//共通部品のヘッダー・フッターと合体したら不要になるもの
+///////////////////////////////////////////////////
+
+.header {
+  background-color: #fff;
+  width: 100vw;
+  height: 90px;
+}
+
+.breadcrumb {
+  background-color: #fff;
+  width: 100vw;
+  height: 50px;
+  border-top: 1px solid #eee;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.16);
+}
+
+.app_banner {
+  width: 100vw;
+  height: 260px;
+  background-color: #ccc;
+}
+
+.footer {
+  width: 100vw;
+  height: 600px;
+  background-color: #212121;
+}

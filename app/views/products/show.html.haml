@@ -74,8 +74,28 @@
         = link_to "", "#", class: 'paypay'
 
   .product-exhibit
-    = render "products/product-exhibit-gen__user"
+    .product-exhibit__user
+      %h2.product-exhibit__user__name.bold
+        = link_to "tanakaさんの商品", "#"
+      .product-exhibit__user__item
+        = render "products/product-exhibit-gen__user"
+        = render "products/product-exhibit-gen__user"
+        = render "products/product-exhibit-gen__user"
+        = render "products/product-exhibit-gen__user"
+        = render "products/product-exhibit-gen__user"
+        = render "products/product-exhibit-gen__user"
 
-    = render "products/product-exhibit-gen__other"
+    .product-exhibit__other
+      .product-exhibit__user
+        %h2.product-exhibit__user__name.bold
+          = link_to "JOJO　その他の商品", "#"
+        .product-exhibit__user__item
+          = render "products/product-exhibit-gen__other"
+          = render "products/product-exhibit-gen__other"
+          = render "products/product-exhibit-gen__other"
+          = render "products/product-exhibit-gen__other"
+          = render "products/product-exhibit-gen__other"
+          = render "products/product-exhibit-gen__other"
+          
 .app_banner
 %footer

@@ -3,7 +3,7 @@ header.header {
   width: 100vw;
   background-color: #fff;
   padding-top: 8px;
-  .header__conetnts {
+  .header__contents {
     height: 90px;
     width: 1020px;
     margin: 0 auto;
@@ -60,7 +60,7 @@ header.header {
         height: 32px;
         width: 200px;
         ul {
-          li.header__conetnts__lower__button__login  {
+          li.header__contents__lower__button__login  {
             p {
               display: block;
               padding: 0 10px;
@@ -81,7 +81,7 @@ header.header {
               opacity: 1;
             }
           }
-          li.header__conetnts__lower__button__signup {
+          li.header__contents__lower__button__signup {
             p {
               display: block;
               padding: 0 10px;
@@ -112,7 +112,7 @@ header.header {
             padding-left: 16px;
             vertical-align: middle;
             cursor: pointer;
-            .header__conetnts__lower__user-navigation__mypage__image {
+            .header__contents__lower__user-navigation__mypage__image {
               display: inline-block;
               margin: 0 auto;
               vertical-align: middle;

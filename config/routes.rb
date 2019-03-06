@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   resources :users
   resources :products
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'users#show'
+  root 'under_constructions#index'
+  resources :products, only: [:new]
   resources :users, only: [:show, :new]
   resources :user_details, only: [:index]
-  
+
 end

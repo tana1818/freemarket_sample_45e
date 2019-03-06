@@ -4,8 +4,7 @@
     .login-panel
       .login-no-account
         %p アカウントをお持ちでない方はこちら
-        = link_to '#',class: "new" do
-          新規会員登録
+        = link_to "新規会員登録",'#',class: "new"
       .login-main
         .login-main__upper
           .login-main__upper__Facebook-btn
@@ -24,6 +23,5 @@
           .login-main__lower__login
             %button.login-submit.btn-default.btn-red{type: "submit"} ログイン
           .login-main__lower__reset-start
-            = link_to '#',class: "pass" do
-              パスワードをお忘れの方
+            = link_to "パスワードをお忘れの方",'#',class: "pass"
   = render "layouts/single-footer"

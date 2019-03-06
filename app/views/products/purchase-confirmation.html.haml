@@ -1,0 +1,50 @@
+%body.purchase-confirmation
+  %header
+    = link_to root_path do
+      = image_tag "logo.svg"
+  %main
+    %section
+      %h2 購入を確定しますか？
+      %section.buy-content
+        .buy-content__inner
+          .buy-content__inner__image
+            = image_tag "item_sample_image.jpg"
+          %p.buy-content__inner__name 宇多田ヒカルのくま「ぼくはくま　くま　くま　くま〜」
+          .buy-content__inner__price
+            %p.buy-content__inner__price__price ¥ 2,100
+            %p.buy-content__inner__price__shipping-fee 送料込み
+          %ul.buy-content__inner__point
+            %li
+              .buy-content__inner__point__text ポイントはありません
+          .buy-content__inner__payment
+            %p.buy-content__inner__payment__text 支払い金額
+            %p.buy-content__inner__payment__price ¥ 2,100
+          %p.buy-content__inner__error-text 配送先と支払い方法の入力を完了してください。
+          %p.buy-content__inner__button 購入する
+      %section.shipping-to
+        .shipping-to__inner
+          %h3 配送先
+          %address 〒-
+          %br
+          %br
+          %p.shipping-to__inner__text
+          = link_to root_path do
+            %p.shipping-to__inner__change 変更する　＞
+      %section.pay-method
+        .pay-method__inner
+          %h3 支払方法
+          %p
+          %br /
+          %figure
+          %p.pay-method__inner__text
+          = link_to root_path do
+            %p.pay-method__inner__change 変更する　＞
+  %footer
+    %nav
+      %ul
+        %li プライバシーポリシー
+        %li メルカリ利用規約
+        %li 特定商取引に関する表記
+    = link_to root_path do
+      = image_tag "logo-gray.svg"
+    %small ©️ 2019 Mercari

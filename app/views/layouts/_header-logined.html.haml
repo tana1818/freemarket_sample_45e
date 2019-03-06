@@ -1,0 +1,27 @@
+%header.header
+  .header__contents
+    .header__contents__upper
+      .header__contents__upper__logo
+        = link_to root_path do
+          = image_tag "logo.svg"
+      .header__contents__upper__form
+        .header__contents__upper__form__text-field
+    .header__contents__lower.clearfix
+      %nav.header__contents__lower__brand-and-category-search
+        %ul
+          %li
+            %p カテゴリーから探す
+          %li
+            %p ブランドから探す
+      .header__contents__lower__user-navigation
+        %ul
+          %li.header__contents__lower__user-navigation__mypage
+            .header__contents__lower__user-navigation__mypage__image
+              = image_tag "mypage-icon.jpg"
+            %p マイページ
+          %li.header__contents__lower__user-navigation__news
+            = fa_icon('bell')
+            %p お知らせ
+          %li.header__contents__lower__user-navigation__todo-list
+            = fa_icon('check')
+            %p やることリスト

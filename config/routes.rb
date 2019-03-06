@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  root 'users#show'
-  resources :products, onry: [:show]
+  root 'under_constructions#index'
+  resources :products, onry: [:show, :new]
   resources :users, only: [:show, :new]
   resources :user_details, only: [:index]
 

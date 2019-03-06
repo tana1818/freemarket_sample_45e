@@ -1,0 +1,186 @@
+body.purchase-confirmation {
+  background-color: #f5f5f5;
+  header {
+    padding-top: 40px;
+    height: 128px;
+    background-color: #f5f5f5;
+    img {
+      display: block;
+      margin: 0 auto;
+      width: 185px;
+      height: 49px;
+    }
+    img:hover {
+      opacity: 0.7;
+    }
+  }
+  main {
+    section {
+      width: 700px;
+      margin: 0 auto;
+      background-color: #fff;
+      h2 {
+        display: block;
+        padding: 32px 16px;
+        font-size: 22px;
+        line-height: 1.5;
+        text-align: center;
+        font-weight: bold;
+      }
+      .buy-content {
+        padding: 24px 12.5% 0;
+        border-top: 1px solid #f5f5f5;
+        &__inner {
+          max-width: 320px;
+          margin: 0 auto;
+          img {
+            display: block;
+            width: auto;
+            max-height: 148px;
+            margin: 0 auto;
+          }
+          &__name {
+            display: block;
+            margin: 8px 0 0;
+            text-align: center;
+            font-size: 16px;
+            line-height: 1.5;
+            font-weight: bold;
+            word-break: break-word;
+          }
+          &__price {
+            text-align: center;
+            &__price, &__shipping-fee {
+              display: inline-block;
+            }
+            &__price {
+              margin: 8px 0 0;
+              line-height: 1.5;
+              font-size: 28px;
+              font-weight: bold;
+            }
+            &__shipping-fee {
+              margin: 0 0 0 8px;
+              font-size: 14px;
+            }
+          }
+          &__point {
+            margin-top: 16px;
+            background-color: #ccc;
+            border: 1px solid #ccc;
+            text-align: center;
+            &__text {
+              display: block;
+              padding: 16px;
+              font-size: 14px;
+            }
+          }
+          &__payment{
+            height: 60px;
+            &__text, &__price {
+              display: block;
+              font-size: 28px;
+              font-weight: bold;
+              padding: 16px 0;
+            }
+            &__text {
+              float: left;
+            }
+            &__price {
+              float: right;
+            }
+          }
+          &__error-text {
+            clear: both;
+            display: block;
+            text-align: center;
+            font-size: 14px;
+            color: #ea352d;
+            margin-top: 8px;
+            line-height: 1.5;
+          }
+          &__button {
+            display: block;
+            margin-top: 16px;
+            border: 1px solid #888;
+            background-color: #888;
+            color: #fff;
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 48px;
+            text-align: center;
+          }
+        }
+      }
+      .shipping-to, .pay-method {
+        margin-top: 40px;
+        padding: 24px 12.5% 0;
+        border-top: 1px solid #f5f5f5;
+        &__inner {
+          max-width: 320px;
+          margin: auto;
+          h3 {
+            display: block;
+            font-size: 14px;
+            font-weight: bold;
+          }
+          address {
+            display: block;
+            margin-top: 8px;
+            font-size: 14px;
+            line-height: 1.4;
+          }
+          a {
+            color: #0099e8;
+          }
+          p.shipping-to__inner__text, .pay-method__inner__text {
+            display: block;
+            margin-top: 8px;
+            font-size: 14px;
+            line-height: 1.4;
+          }
+          p.shipping-to__inner__change, .pay-method__inner__change {
+            display: block;
+            text-align: right;
+            font-size: 14px;
+          }
+        }
+      }
+      .pay-method {
+        padding: 40px 12.5%;
+      }
+    }
+  }
+  footer {
+    width: 456px;
+    height: 220px;
+    margin: 0 auto;
+    z-index: 1;
+    padding: 40px 0;
+    text-align: center;
+    nav {
+      ul {
+        li {
+          display: inline-block;
+          margin: 0 8px;
+          font-size: 12px;
+        }
+      }
+    }
+    a {
+      text-decoration: none;
+      img {
+        display: block;
+        margin: 40px auto 0;
+        width: 80px;
+        height: 65px;
+      }
+      img:hover {
+        opacity: 0.7;
+      }
+    }
+    small {
+      font-size: 10px;
+    }
+  }
+}

@@ -28,11 +28,9 @@
             = image_tag 'fe409ce3.png', size: '50x50'
           .product-photo-srade
             = image_tag 'fe409ce3.png', size: '50x50'
-      .product-detail__table
-        .tbody
-          .th 出品者
-          .td
 
+      %table.product-detail__table
+        = render "products/product-detail-gen__table"
 
     .product-detail__price
       %span.product-price.bold ¥1,800
@@ -42,7 +40,7 @@
       %button.btn-default.btn-red{:type => "submit"} 購入画面に進む
 
     .product-detail__description
-      %p.product-detail__description-text ----------------------------------------------------------ご閲覧して頂きありがとうございます！
+      %p.product-detail__description-text ----------------------------------------------------------<br><br>ご閲覧して頂きありがとうございます！<br>　
 
     .product-detail__like.clear
       .product-detail__like-left
@@ -52,10 +50,171 @@
         %a.product-detail__like-right__add{:href => "#"}
           %i.fa.fa-angle-right
           %span あんしん・あんぜんへの取り組み
-      .product-detail__like-clear
+      .product-detail__like.clear
+
+  .product-message
+    .product-message__content
+      %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+      %textarea.textarea-default{:name => "introduction"}
+      %button.btn-default.btn-gray{:type => "submit"} コメントする
+
+  %ul.product-nav-item.clear
+    %li.product-nav-item__prev
+      = link_to "ワンピース　花柄", "#", class: 'gen'
+    %li.product-nav-item__next
+      = link_to "Nintendo Switch", "#"
+
+  .product-media
+    %ul.product-media__box
+      %li.facebook
+        = link_to "", "#", class: 'facebook'
+      %li.twitter
+        = link_to "", "#", class: 'twitter'
+      %li.paypay
+        = link_to "", "#", class: 'paypay'
+
+  .product-exhibit
+    .product-exhibit__user
+      %h2.product-exhibit__user__name.bold
+        = link_to "tanakaさんの商品", "#"
+      .product-exhibit__user__item
+        .product-exhibit__user__item-box
+          = link_to "#" do
+            .product-exhibit__user__item-box__photo
+              = image_tag 'fe409ce3.png', size: '220x220'
+            .product-exhibit__user__item-box__text
+              %p.product-exhibit__user__item-box__text__name ジョジョジョジョジョジョッジョジョジョジョジョジョジョジョジョジョジョッじょジョジョ
+              .product-exhibit__user__item-box__text__price
+                %span ¥ 14,000
+                %span.product-exhibit__user__item-box__text__price-like ❤️ ５
+              %p.product-exhibit__user__item-box__text__price-tax (税込)
+
+        .product-exhibit__user__item-box
+          = link_to "#" do
+            .product-exhibit__user__item-box__photo
+              = image_tag 'fe409ce3.png', size: '220x220'
+            .product-exhibit__user__item-box__text
+              %p.product-exhibit__user__item-box__text__name ジョジョジョジョジョジョッジョジョジョジョジョジョジョジョジョジョジョッじょジョジョ
+              .product-exhibit__user__item-box__text__price
+                %span ¥ 14,000
+                %span.product-exhibit__user__item-box__text__price-like ❤️
+              %p.product-exhibit__user__item-box__text__price-tax (税込)
+
+        .product-exhibit__user__item-box
+          = link_to "#" do
+            .product-exhibit__user__item-box__photo
+              = image_tag 'fe409ce3.png', size: '220x220'
+            .product-exhibit__user__item-box__text
+              %p.product-exhibit__user__item-box__text__name ジョジョジョジョジョジョッジョジョジョジョジョジョジョジョジョジョジョッじょジョジョ
+              .product-exhibit__user__item-box__text__price
+                %span ¥ 14,000
+                %span.product-exhibit__user__item-box__text__price-like ❤️
+              %p.product-exhibit__user__item-box__text__price-tax (税込)
+
+        .product-exhibit__user__item-box
+          = link_to "#" do
+            .product-exhibit__user__item-box__photo
+              = image_tag 'fe409ce3.png', size: '220x220'
+            .product-exhibit__user__item-box__text
+              %p.product-exhibit__user__item-box__text__name ジョジョジョジョジョジョッジョジョジョジョジョジョジョジョジョジョジョッじょジョジョ
+              .product-exhibit__user__item-box__text__price
+                %span ¥ 14,000
+                %span.product-exhibit__user__item-box__text__price-like ❤️
+              %p.product-exhibit__user__item-box__text__price-tax (税込)
+
+        .product-exhibit__user__item-box
+          = link_to "#" do
+            .product-exhibit__user__item-box__photo
+              = image_tag 'fe409ce3.png', size: '220x220'
+            .product-exhibit__user__item-box__text
+              %p.product-exhibit__user__item-box__text__name ジョジョジョジョジョジョッジョジョジョジョジョジョジョジョジョジョジョッじょジョジョ
+              .product-exhibit__user__item-box__text__price
+                %span ¥ 14,000
+                %span.product-exhibit__user__item-box__text__price-like ❤️
+              %p.product-exhibit__user__item-box__text__price-tax (税込)
+
+        .product-exhibit__user__item-box
+          = link_to "#" do
+            .product-exhibit__user__item-box__photo
+              = image_tag 'fe409ce3.png', size: '220x220'
+            .product-exhibit__user__item-box__text
+              %p.product-exhibit__user__item-box__text__name ジョジョジョジョジョジョッジョジョジョジョジョジョジョジョジョジョジョッじょジョジョ
+              .product-exhibit__user__item-box__text__price
+                %span ¥ 14,000
+                %span.product-exhibit__user__item-box__text__price-like ❤️
+              %p.product-exhibit__user__item-box__text__price-tax (税込)
 
 
-      //途中
+    .product-exhibit__other
+      .product-exhibit__user
+        %h2.product-exhibit__user__name.bold
+          = link_to "JOJO　その他の商品", "#"
+        .product-exhibit__user__item
+          .product-exhibit__user__item-box
+            = link_to "#" do
+              .product-exhibit__user__item-box__photo
+                = image_tag 'fe409ce3.png', size: '220x220'
+              .product-exhibit__user__item-box__text
+                %p.product-exhibit__user__item-box__text__name ジョジョジョジョジョジョッジョジョジョジョジョジョジョジョジョジョジョッじょジョジョ
+                .product-exhibit__user__item-box__text__price
+                  %span ¥ 14,000
+                  %span.product-exhibit__user__item-box__text__price-like ❤️
+                %p.product-exhibit__user__item-box__text__price-tax (税込)
+
+          .product-exhibit__user__item-box
+            = link_to "#" do
+              .product-exhibit__user__item-box__photo
+                = image_tag 'fe409ce3.png', size: '220x220'
+              .product-exhibit__user__item-box__text
+                %p.product-exhibit__user__item-box__text__name ジョジョジョジョジョジョッジョジョジョジョジョジョジョジョジョジョジョッじょジョジョ
+                .product-exhibit__user__item-box__text__price
+                  %span ¥ 14,000
+                  %span.product-exhibit__user__item-box__text__price-like ❤️
+                %p.product-exhibit__user__item-box__text__price-tax (税込)
+
+          .product-exhibit__user__item-box
+            = link_to "#" do
+              .product-exhibit__user__item-box__photo
+                = image_tag 'fe409ce3.png', size: '220x220'
+              .product-exhibit__user__item-box__text
+                %p.product-exhibit__user__item-box__text__name ジョジョジョジョジョジョッジョジョジョジョジョジョジョジョジョジョジョッじょジョジョ
+                .product-exhibit__user__item-box__text__price
+                  %span ¥ 14,000
+                  %span.product-exhibit__user__item-box__text__price-like ❤️
+                %p.product-exhibit__user__item-box__text__price-tax (税込)
+
+          .product-exhibit__user__item-box
+            = link_to "#" do
+              .product-exhibit__user__item-box__photo
+                = image_tag 'fe409ce3.png', size: '220x220'
+              .product-exhibit__user__item-box__text
+                %p.product-exhibit__user__item-box__text__name ジョジョジョジョジョジョッジョジョジョジョジョジョジョジョジョジョジョッじょジョジョ
+                .product-exhibit__user__item-box__text__price
+                  %span ¥ 14,000
+                  %span.product-exhibit__user__item-box__text__price-like ❤️
+                %p.product-exhibit__user__item-box__text__price-tax (税込)
+
+          .product-exhibit__user__item-box
+            = link_to "#" do
+              .product-exhibit__user__item-box__photo
+                = image_tag 'fe409ce3.png', size: '220x220'
+              .product-exhibit__user__item-box__text
+                %p.product-exhibit__user__item-box__text__name ジョジョジョジョジョジョッジョジョジョジョジョジョジョジョジョジョジョッじょジョジョ
+                .product-exhibit__user__item-box__text__price
+                  %span ¥ 14,000
+                  %span.product-exhibit__user__item-box__text__price-like ❤️
+                %p.product-exhibit__user__item-box__text__price-tax (税込)
+
+          .product-exhibit__user__item-box
+            = link_to "#" do
+              .product-exhibit__user__item-box__photo
+                = image_tag 'fe409ce3.png', size: '220x220'
+              .product-exhibit__user__item-box__text
+                %p.product-exhibit__user__item-box__text__name ジョジョジョジョジョジョッジョジョジョジョジョジョジョジョジョジョジョッじょジョジョ
+                .product-exhibit__user__item-box__text__price
+                  %span ¥ 14,000
+                  %span.product-exhibit__user__item-box__text__price-like ❤️
+                %p.product-exhibit__user__item-box__text__price-tax (税込)
 
 .app_banner
 %footer

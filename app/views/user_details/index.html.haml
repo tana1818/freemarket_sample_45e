@@ -1,0 +1,62 @@
+%header.header
+%header.breadcrumb
+%main.clearfix
+  .main-content
+    //以上まだrenderingしてない
+
+
+    //---------ユーザー確認ページ　ここから---------
+    %h2.main-content__head 本人情報の登録
+    .main-content__form
+      %p お客さまの本人情報をご登録ください。<br>登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+      %p.text-right
+        = link_to "本人確認書類のアップロードについて", "#"
+        -# %a{:href => "#"} 本人確認書類のアップロードについて
+        %i.fas.fa-angle-right
+      .main-content__form__group
+        %label お名前
+        %p 田中元
+      .main-content__form__group
+        %label お名前カナ
+        %p タナカゲン
+      .main-content__form__group
+        %label 生年月日
+        %p 1991/11/24
+
+      .main-content__form__group
+        %label 郵便番号
+        %span.form-arbitrary 任意
+        %input.input-default{:name => "zip_code", :placeholder => "例）1234567", :type => "text"}/
+
+      .main-content__form__group
+        %label 都道府県
+        %span.form-arbitrary 任意
+        %input.input-default{:name => "zip_code", :placeholder => "", :type => "text"}/
+
+      .main-content__form__group
+        %label 市区町村
+        %span.form-arbitrary 任意
+        %input.input-default{:name => "zip_code", :placeholder => "例) 横浜市緑区", :type => "text"}/
+
+      .main-content__form__group
+        %label 番地
+        %span.form-arbitrary 任意
+        %input.input-default{:name => "zip_code", :placeholder => "例) 青山1−1−1", :type => "text"}/
+
+      .main-content__form__group
+        %label 建物
+        %span.form-arbitrary 任意
+        %input.input-default{:name => "zip_code", :placeholder => "例) 柳ビル103", :type => "text"}/
+
+      .main-content__form__group
+        %button.btn-default.btn-red{:type => "submit"} 登録する
+
+      .main-content__form__group
+        %p.text-right
+          = link_to "本人情報の登録について", "#"
+          = fa_icon 'angle-right'
+          //----------ここまでがユーザー確認ページ-----------
+
+  = render 'users/sidebar'
+.app_banner
+%footer

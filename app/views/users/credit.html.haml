@@ -1,0 +1,17 @@
+= render "layouts/header"
+= render "layouts/breadcrumb"
+
+%main.credit-main
+  .my-page-payment__body
+    %h2.my-page-payment__body__head 支払い方法
+    .my-page-payment__body__inner
+      .my-page-payment__body__inner__body
+        %h3.my-page-payment__body__inner__body__sub-head クレジットカード一覧
+        .my-page-payment__body__inner__body__setting-add-card
+          %button{ type: "button", class: "btn-default btn-red" }
+            クレジットカードを追加する
+        .my-page-payment__body__inner__body__setting-not-regist
+          支払い方法について
+
+  = render "sidebar"
+= render "layouts/footer"

@@ -4,12 +4,12 @@ Rails.application.routes.draw do
   # resources :users, only: [:show]
   # root 'users#show'
   # resources :users, only: [:show, :new]
-  # resources :user_details, only: [:index]  
+  # resources :user_details, only: [:index]
   root 'products#index'
   resources :products, only: [:index, :show, :new]
   resources :users, only: [:show, :new]
   resources :user_details, only: [:index]
-  get  '/users/new' => 'users#new'  
+  get  '/users/new' => 'users#new'
   get  '/users/show' => 'users#show'
   get  '/users/login' => 'users#login'
   get  '/users/logout' => 'users#logout'

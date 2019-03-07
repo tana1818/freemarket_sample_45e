@@ -6,6 +6,7 @@
 @import 'users/side-bar';
 @import 'users/main-content';
 @import 'users/mypage';
+@import 'products/sell';
 @import 'common';
 @import 'font-awesome';
 @import "./users/login";
@@ -18,4 +19,10 @@
 @import "./users/signup_main";
 @import "./users/signup_main_credit";
 @import "./users/signup_main_regist";
+@import 'under_constructions';
+@import 'products/purchase-confirmation';
+@import 'products/index';
+@import 'products/top-page-items-boxes';
+@import 'layouts/header';
+@import 'layouts/footer';
 @import 'layouts/exhibit-button';

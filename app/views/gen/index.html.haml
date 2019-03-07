@@ -1,0 +1,277 @@
+%header.header
+%header.breadcrumb
+%main.clearfix
+  .main-content
+    %h2.main-content-head 本人情報の登録
+    .main-content-form
+      %p お客さまの本人情報をご登録ください。<br>登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+      %p.text-right
+        %a{:href => "#"} 本人確認書類のアップロードについて
+        %i.fas.fa-angle-right
+      .main-content-form-group
+        %label お名前
+        %p 田中元
+      .main-content-form-group
+        %label お名前カナ
+        %p タナカゲン
+      .main-content-form-group
+        %label 生年月日
+        %p 1991/11/24
+
+      .main-content-form-group
+        %label 郵便番号
+        %span.form-arbitrary 任意
+        -# = text_field :content, class: 'chat__form__message', placeholder: 'type a message'
+        -# %input#page_name{:name => "page[name]", :size => "30", :type => "text"}/
+        %input.input-default{:name => "zip_code", :placeholder => "例）1234567", :type => "text"}/
+
+      .main-content-form-group
+        %label 都道府県
+        %span.form-arbitrary 任意
+        -# = text_field :content, class: 'chat__form__message', placeholder: 'type a message'
+        -# %input#page_name{:name => "page[name]", :size => "30", :type => "text"}/
+        %input.input-default{:name => "zip_code", :placeholder => "", :type => "text"}/
+
+      .main-content-form-group
+        %label 市区町村
+        %span.form-arbitrary 任意
+        -# = text_field :content, class: 'chat__form__message', placeholder: 'type a message'
+        -# %input#page_name{:name => "page[name]", :size => "30", :type => "text"}/
+        %input.input-default{:name => "zip_code", :placeholder => "例) 横浜市緑区", :type => "text"}/
+
+      .main-content-form-group
+        %label 番地
+        %span.form-arbitrary 任意
+        -# = text_field :content, class: 'chat__form__message', placeholder: 'type a message'
+        -# %input#page_name{:name => "page[name]", :size => "30", :type => "text"}/
+        %input.input-default{:name => "zip_code", :placeholder => "例) 青山1−1−1", :type => "text"}/
+
+      .main-content-form-group
+        %label 建物
+        %span.form-arbitrary 任意
+        -# = text_field :content, class: 'chat__form__message', placeholder: 'type a message'
+        -# %input#page_name{:name => "page[name]", :size => "30", :type => "text"}/
+        %input.input-default{:name => "zip_code", :placeholder => "例) 柳ビル103", :type => "text"}/
+
+      .main-content-form-group
+        %button.btn-default.btn-red{:type => "submit"} 登録する
+
+      .main-content-form-group
+        %p.text-right
+          %a{:href => "#"} 本人情報の登録について
+          %i.fas.fa-angle-right
+    -# %section.mypage-user-icon
+    -#   = link_to '#' do
+    -#     %figure
+    -#       = image_tag 'member_photo_noimage_thumb.png', size: '60x60'
+    -#     %h2.bold
+    -#       kozitex
+    -#     .mypage-number
+    -#       %div
+    -#         評価
+    -#         %span.bold
+    -#           0
+    -#       %div
+    -#         出品数
+    -#         %span.bold
+    -#           0
+    -# %section.mypage-tab-container.notice-todo
+    -#   %ul.mypage-tabs
+    -#     %li.active
+    -#       %h3
+    -#         %a{href: ''}
+    -#           お知らせ
+    -#     %li
+    -#       %h3
+    -#         %a{href: ''}
+    -#           やることリスト
+    -#   .tab-content
+    -#     %ul.mypage-item-list.tab-pane.active
+    -#       %li
+    -#         %a.mypage-item-link{href: ''}
+    -#           %figure
+    -#             = image_tag 'mercari_profile.png'
+    -#           .mypage-item-body
+    -#             .mypage-item-text
+    -#               事務局から個別メッセージ「商品を買ってもらうには？「売り切れ」商品を参考にしよう！」
+    -#             %time
+    -#               %i.fa.fa-check-circle.fa-lg
+    -#               %span
+    -#                 6 時間前
+    -#           %i.fa.fa-angle-right
+    -#       %li
+    -#         %a.mypage-item-link{href: ''}
+    -#           %figure
+    -#             = image_tag 'mercari_profile.png'
+    -#           .mypage-item-body
+    -#             .mypage-item-text
+    -#               3日後、¥600割引お得チケットの有効期限が切れます！タップして詳細を確認しましょう。
+    -#             %time
+    -#               %i.fa.fa-check-circle.fa-lg
+    -#               %span
+    -#                 9 時間前
+    -#           %i.fa.fa-angle-right
+    -#       %li
+    -#         %a.mypage-item-link{href: ''}
+    -#           %figure
+    -#             = image_tag 'mercari_profile.png'
+    -#           .mypage-item-body
+    -#             .mypage-item-text
+    -#               事務局から個別メッセージ「【¥600分のお得チケット獲得！】欲しかったあの商品をお得にゲットしませんか？」
+    -#             %time
+    -#               %i.fa.fa-check-circle.fa-lg
+    -#               %span
+    -#                 13 時間前
+    -#           %i.fa.fa-angle-right
+    -#       %li
+    -#         %a.mypage-item-link{href: ''}
+    -#           %figure
+    -#             = image_tag 'mercari_profile.png'
+    -#           .mypage-item-body
+    -#             .mypage-item-text
+    -#               【メルカリ安心への取り組み】商品代金は、取引完了まで事務局が大切にお預かりいたします
+    -#             %time
+    -#               %i.fa.fa-check-circle.fa-lg
+    -#               %span
+    -#                 1 日前
+    -#           %i.fa.fa-angle-right
+    -#       %li
+    -#         %a.mypage-item-link{href: ''}
+    -#           %figure
+    -#             = image_tag 'mercari_profile.png'
+    -#           .mypage-item-body
+    -#             .mypage-item-text
+    -#               事務局から個別メッセージ「ログイン通知」
+    -#             %time
+    -#               %i.fa.fa-check-circle.fa-lg
+    -#               %span
+    -#                 2 日前
+    -#           %i.fa.fa-angle-right
+    -#       %li.mypage-go-list
+    -#         %a{href: ''}
+    -#           一覧を見る
+    -#     %ul.mypage-item-list.tab-pane
+    -#       %li.mypage-item-not-found
+    -#         現在、やることリストはありません
+    -# %section.mypage-tab-container.purchase
+    -#   %h2.mypage-tab-head
+    -#     購入した商品
+    -#   %ul.mypage-tabs
+    -#     %li.active
+    -#       %h3
+    -#         %a{href: ''}
+    -#           取引中
+    -#     %li
+    -#       %h3
+    -#         %a{href: ''}
+    -#           過去の取引
+    -#   .tab-content
+    -#     %ul.mypage-item-list.tab-pane.active
+    -#       %li.mypage-item-not-found
+    -#         取引中の商品がありません
+    -#     %ul.mypage-item-list.tab-pane
+    -#       %li.mypage-item-not-found
+    -#         過去に取引した商品がありません
+  .sidebar
+    %nav.mypage-nav
+      %ul.mypage-nav-list
+        %li
+          %a.mypage-nav-list-item.active{href: ''}
+            マイページ
+            %i.fa.fa-angle-right
+        %li
+          %a.mypage-nav-list-item{href: ''}
+            お知らせ
+            %i.fa.fa-angle-right
+        %li
+          %a.mypage-nav-list-item{href: ''}
+            やることリスト
+            %i.fa.fa-angle-right
+        %li
+          %a.mypage-nav-list-item{href: ''}
+            いいね！一覧
+            %i.fa.fa-angle-right
+        %li
+          %a.mypage-nav-list-item{href: ''}
+            出品する
+            %i.fa.fa-angle-right
+        %li
+          %a.mypage-nav-list-item{href: ''}
+            出品した商品 - 出品中
+            %i.fa.fa-angle-right
+        %li
+          %a.mypage-nav-list-item{href: ''}
+            出品した商品 - 取引中
+            %i.fa.fa-angle-right
+        %li
+          %a.mypage-nav-list-item{href: ''}
+            出品した商品 - 売却済み
+            %i.fa.fa-angle-right
+        %li
+          %a.mypage-nav-list-item{href: ''}
+            購入した商品 - 取引中
+            %i.fa.fa-angle-right
+        %li
+          %a.mypage-nav-list-item{href: ''}
+            購入した商品 - 過去の取引
+            %i.fa.fa-angle-right
+        %li
+          %a.mypage-nav-list-item{href: ''}
+            ニュース一覧
+            %i.fa.fa-angle-right
+        %li
+          %a.mypage-nav-list-item{href: ''}
+            評価一覧
+            %i.fa.fa-angle-right
+        %li
+          %a.mypage-nav-list-item{href: ''}
+            ガイド
+            %i.fa.fa-angle-right
+        %li
+          %a.mypage-nav-list-item{href: ''}
+            お問い合わせ
+            %i.fa.fa-angle-right
+      %h3.mypage-nav-head
+        メルペイ
+      %ul.mypage-nav-list
+        %li
+          %a.mypage-nav-list-item{href: ''}
+            売上・振込申請
+            %i.fa.fa-angle-right
+        %li
+          %a.mypage-nav-list-item{href: ''}
+            ポイント
+            %i.fa.fa-angle-right
+      %h3.mypage-nav-head
+        設定
+      %ul.mypage-nav-list
+        %li
+          %a.mypage-nav-list-item{href: ''}
+            プロフィール
+            %i.fa.fa-angle-right
+        %li
+          %a.mypage-nav-list-item{href: ''}
+            発送元・お届け先住所変更
+            %i.fa.fa-angle-right
+        %li
+          %a.mypage-nav-list-item{href: ''}
+            支払い方法
+            %i.fa.fa-angle-right
+        %li
+          %a.mypage-nav-list-item{href: ''}
+            メール/パスワード
+            %i.fa.fa-angle-right
+        %li
+          %a.mypage-nav-list-item{href: ''}
+            本人情報
+            %i.fa.fa-angle-right
+        %li
+          %a.mypage-nav-list-item{href: ''}
+            電話番号の確認
+            %i.fa.fa-angle-right
+        %li
+          %a.mypage-nav-list-item{href: ''}
+            ログアウト
+            %i.fa.fa-angle-right
+.app_banner
+%footer

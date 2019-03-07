@@ -21,6 +21,7 @@ div {
 }
 
 a {
+  color: #0099e8;
   text-decoration: none;
 }
 
@@ -42,6 +43,16 @@ h3 {
   font-size: 22px;
   font-weight: bold;
 }
+
+.clearfix:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+///cleafixについては下記参照。float使うときに便利だよ///
+///http://creator.aainc.co.jp/archives/4721///
+
+
 
 ///////////////////////////////////////////////////
 //共通部品のヘッダー・フッターと合体したら不要になるもの

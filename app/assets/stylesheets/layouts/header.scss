@@ -1,0 +1,150 @@
+header.header {
+  height: 90px;
+  width: 100vw;
+  background-color: #fff;
+  padding-top: 8px;
+  .header__contents {
+    height: 90px;
+    width: 1020px;
+    margin: 0 auto;
+    &__upper {
+      height: 36px;
+      width: 100%;
+      text-align: center;
+      &__logo {
+        display: inline-block;
+        img {
+          width: 134px;
+          height: 36px;
+          margin: 0 5px;
+          cursor: pointer;
+        }
+        img:hover {
+          opacity: 0.7;
+        }
+      }
+      &__form {
+        display: inline-block;
+        width: calc(100% - (134px + 16px));
+        &__text-field {
+          height: 36px;
+          background-color: red;
+        }
+      }
+    }
+    &__lower {
+      height: 50px;
+      width: 100%;
+      margin: 8px 0 0;
+      nav {
+        ul {
+          li {
+            height: 38px;
+            width: 128px;
+            float: left;
+            margin-right: 10px;
+            p {
+              font-size: 14px;
+              font-weight: 400;
+              line-height: 32px;
+              cursor: pointer;
+            }
+            p:hover {
+              color: #0099e8;
+            }
+          }
+        }
+      }
+      &__button {
+        float: right;
+        height: 32px;
+        width: 200px;
+        ul {
+          li.header__contents__lower__button__login  {
+            p {
+              display: block;
+              padding: 0 10px;
+              border: 1px solid #ea352d;
+              border-radius: 5px;
+              background-color: #ea352d;
+              width: 80px;
+              height: 32px;
+              float: left;
+              opacity: 0.9;
+              color: #fff;
+              text-align: center;
+              font-size: 14px;
+              line-height: 32px;
+              cursor: pointer;
+            }
+            p:hover {
+              opacity: 1;
+            }
+          }
+          li.header__contents__lower__button__signup {
+            p {
+              display: block;
+              padding: 0 10px;
+              border: 1px solid #0099e8;
+              border-radius: 5px;
+              width: 106px;
+              height: 32px;
+              float: right;
+              color: #0099e8;
+              text-align: center;
+              font-size: 14px;
+              line-height: 32px;
+              cursor: pointer;
+            }
+            p:hover {
+              color: #fff;
+              background-color: #0099e8;
+            }
+          }
+        }
+      }
+///ここから_header-logined.html.haml用///
+      &__user-navigation {
+        float: right;
+        ul {
+          li {
+            display: inline-block;
+            padding-left: 16px;
+            vertical-align: middle;
+            cursor: pointer;
+            .header__contents__lower__user-navigation__mypage__image {
+              display: inline-block;
+              margin: 0 auto;
+              vertical-align: middle;
+              border-radius: 50%;
+              overflow: hidden;
+              img {
+                vertical-align: middle;
+                width: 32px;
+              }
+            }
+            i {
+              display: inline-block;
+              line-height: 1;
+              vertical-align: middle;
+              font-size: 17px;
+              color: #333;
+            }
+            p {
+              display: inline-block;
+              margin-left: 6px;
+              font-size: 14px;
+              vertical-align: middle;
+              color: #333;
+            }
+          }
+          li:hover {
+            i, p {
+              color: #0099e8;
+            }
+          }
+        }
+      }
+    }
+  }
+}

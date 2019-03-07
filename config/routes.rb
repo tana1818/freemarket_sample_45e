@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-root ‘products#index’
+root 'products#index'
 resources :products, only: [:index, :show, :new]
 resources :user_details, only: [:index]
 resources :users, only: [:show, :new] do
@@ -17,4 +17,5 @@ resources :users, only: [:show, :new] do
     get :signup_credit
     get :signup_complete
   end
+end
 end

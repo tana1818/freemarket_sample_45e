@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 root 'products#index'
 resources :products, only: [:index, :show, :new] do
   collection do
-    get :purchase-confirmation
+    get :purchase_confirmation
   end
 end
 resources :user_details, only: [:index]

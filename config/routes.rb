@@ -18,3 +18,5 @@ resources :users, only: [:show, :new] do
     get :signup_complete
   end
 end
+
+end

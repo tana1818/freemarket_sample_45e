@@ -1,6 +1,5 @@
 .logout-main{
   width: 1020px;
-  margin: 40px 100px 0;
   padding-bottom: 40px;
   .main-content{
     float: right;
@@ -23,9 +22,4 @@
       }
     }
   }
-}
-.logout-main:after {
-  content: '';
-  display: block;
-  clear: both;
 }

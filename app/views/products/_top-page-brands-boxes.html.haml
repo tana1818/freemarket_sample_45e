@@ -1,12 +1,12 @@
 
-    //---------ピックアップ（カテゴリ）ページ　ここから---------
+    //---------ピックアップ（ブランド）ページ　ここから---------
 
 %section.top-page-items-boxes
   %h3
     = link_to root_path do
-      レディース 新着アイテム
+      シャネル 新着アイテム
   .top-page-items-boxes__content.clearfix
-    - @products_womens.each do |p|
+    - @products_chanels.each do |p|
       .top-page-items-boxes__content__item-box
         = link_to root_path do
           .top-page-items-boxes__content__item-box__image
@@ -21,9 +21,9 @@
 
   %h3
     = link_to root_path do
-      メンズ 新着アイテム
+      ルイ ヴィトン 新着アイテム
   .top-page-items-boxes__content.clearfix
-    - @products_mens.each do |p|
+    - @products_vitons.each do |p|
       .top-page-items-boxes__content__item-box
         = link_to root_path do
           .top-page-items-boxes__content__item-box__image
@@ -38,9 +38,9 @@
 
   %h3
     = link_to root_path do
-      ベビー・キッズ 新着アイテム
+      シュプリーム 新着アイテム
   .top-page-items-boxes__content.clearfix
-    - @products_kids.each do |p|
+    - @products_shups.each do |p|
       .top-page-items-boxes__content__item-box
         = link_to root_path do
           .top-page-items-boxes__content__item-box__image
@@ -55,9 +55,9 @@
 
   %h3
     = link_to root_path do
-      コスメ・香水・美容 新着アイテム
+      ナイキ 新着アイテム
   .top-page-items-boxes__content.clearfix
-    - @products_perfumes.each do |p|
+    - @products_nikes.each do |p|
       .top-page-items-boxes__content__item-box
         = link_to root_path do
           .top-page-items-boxes__content__item-box__image

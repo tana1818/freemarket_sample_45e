@@ -129,6 +129,9 @@ ActiveRecord::Schema.define(version: 2019_03_08_021639) do
     t.bigint "size_id"
     t.bigint "user_id"
     t.bigint "image_id"
+    t.bigint "small_categorie_id"
+    t.bigint "middle_categorie_id"
+    t.bigint "large_categorie_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_products_on_category_id"
@@ -136,9 +139,12 @@ ActiveRecord::Schema.define(version: 2019_03_08_021639) do
     t.index ["delivery_fee_pay_id"], name: "index_products_on_delivery_fee_pay_id"
     t.index ["delivery_method_id"], name: "index_products_on_delivery_method_id"
     t.index ["image_id"], name: "index_products_on_image_id"
+    t.index ["large_categorie_id"], name: "index_products_on_large_categorie_id"
+    t.index ["middle_categorie_id"], name: "index_products_on_middle_categorie_id"
     t.index ["prefecture_id"], name: "index_products_on_prefecture_id"
     t.index ["shipment_period_id"], name: "index_products_on_shipment_period_id"
     t.index ["size_id"], name: "index_products_on_size_id"
+    t.index ["small_categorie_id"], name: "index_products_on_small_categorie_id"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
 
@@ -219,15 +225,6 @@ ActiveRecord::Schema.define(version: 2019_03_08_021639) do
   add_foreign_key "categories", "small_categories"
   add_foreign_key "deliveries", "prefectures"
   add_foreign_key "deliveries", "users"
-  add_foreign_key "products", "categories"
-  add_foreign_key "products", "conditions"
-  add_foreign_key "products", "delivery_fee_pays"
-  add_foreign_key "products", "delivery_methods"
-  add_foreign_key "products", "images"
-  add_foreign_key "products", "prefectures"
-  add_foreign_key "products", "shipment_periods"
-  add_foreign_key "products", "sizes"
-  add_foreign_key "products", "users"
   add_foreign_key "user_details", "prefectures"
   add_foreign_key "user_details", "users"
 end

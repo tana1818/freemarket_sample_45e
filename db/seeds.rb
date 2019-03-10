@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # coding: utf-8
-
+#
 # LargeCategorie.create(name: 'レディース', sort_by: 1)
 # LargeCategorie.create(name: 'メンズ', sort_by: 2)
 # LargeCategorie.create(name: 'ベビー・キッズ', sort_by: 3)
@@ -109,7 +109,7 @@
 # Prefecture.create(name: '東京都')
 # Prefecture.create(name: '神奈川県')
 # Prefecture.create(name: '新潟県')
-#
+
 # ShipmentPeriod.create(name: '1~2日で発送', sort_by: 1)
 # ShipmentPeriod.create(name: '2~3日で発送', sort_by: 2)
 # ShipmentPeriod.create(name: '4~7日で発送', sort_by: 3)
@@ -118,52 +118,13 @@
 # User.create(nickname: 'テスト2', email: 'test2@test.com', password: 'passw0rd')
 #
 #
-# Product.create(name: 'かっこいいナイキのTシャツ', description: '超かっこいい！！！', status: '良い', brand: 'nike', user_id: 1)
-# Product.create(name: '宇多田ヒカルのくま「ぼくはくま　くま　くま　くま〜」', description: '超かっこいい！！！', status: '良い', brand: 'hikaru', user_id: 2)
-
-# Image.create(name1: 'NIKE_t.png', name2: 'NIKE_t.png', name2: 'NIKE_t.png', name3: 'NIKE_t.png',)
-# Image.create(name1: 'bear.jpg', name2: 'bear.jpg', name2: 'bear.jpg', name3: 'bear.jpg',)
-
-
-
-
-# NewCategory.create(name: '', division: , sort_by: )
-# NewCategory.create(name: '', division: , sort_by: )
-# MiddleCategorie.create(name: 'トップス', division: 1, sort_by: 14)
-# MiddleCategorie.create(name: 'ジャケット/アウター', division: 1, sort_by: 15)
-# MiddleCategorie.create(name: 'パンツ', division: 1, sort_by: 16)
-# MiddleCategorie.create(name: 'スカート', division: 1, sort_by: 17)
-# MiddleCategorie.create(name: 'ワンピース', division: 1, sort_by: 18)
-# MiddleCategorie.create(name: '靴', division: 1, sort_by: 19)
-# MiddleCategorie.create(name: 'ルームウェア/パジャマ', division: 1, sort_by: 20)
-# MiddleCategorie.create(name: 'レッグウェア', division: 1, sort_by: 21)
-# MiddleCategorie.create(name: '帽子', division: 1, sort_by: 22)
-# MiddleCategorie.create(name: 'バッグ', division: 1, sort_by: 23)
-# MiddleCategorie.create(name: 'アクセサリー', division: 1, sort_by: 24)
-# MiddleCategorie.create(name: 'ヘアアクセサリー', division: 1, sort_by: 25)
-# MiddleCategorie.create(name: '小物', division: 1, sort_by: 26)
-# MiddleCategorie.create(name: '時計', division: 1, sort_by: 27)
-# MiddleCategorie.create(name: 'ウィッグ/エクステ', division: 1, sort_by: 28)
-# MiddleCategorie.create(name: '浴衣/水着', division: 1, sort_by: 29)
-# MiddleCategorie.create(name: 'スーツ/フォーマル/ドレス', division: 1, sort_by: 30)
-# MiddleCategorie.create(name: 'マタニティ', division: 1, sort_by: 31)
-# MiddleCategorie.create(name: 'その他', division: 1, sort_by: 32)
+# http://ab-st.net/wp-content/uploads/2016/02/032_main.jpg
 #
-# SmallCategorie.create(name: 'Tシャツ/カットソー(半袖/袖なし)', division: 14, sort_by: 119, size_kind_id: 1, is_brand_presence: 1)
-# SmallCategorie.create(name: 'Tシャツ/カットソー(七分/長袖)', division: 14, sort_by: 120, size_kind_id: 1, is_brand_presence: 1)
-# SmallCategorie.create(name: 'シャツ/ブラウス(半袖/袖なし)', division: 14, sort_by: 121, size_kind_id: 1, is_brand_presence: 1)
-# SmallCategorie.create(name: 'シャツ/ブラウス(七分/長袖)', division: 14, sort_by: 122, size_kind_id: 1, is_brand_presence: 1)
-# SmallCategorie.create(name: 'ポロシャツ', division: 14, sort_by: 123, size_kind_id: 1, is_brand_presence: 1)
-# SmallCategorie.create(name: 'キャミソール', division: 14, sort_by: 124, size_kind_id: 1, is_brand_presence: 1)
-# SmallCategorie.create(name: 'タンクトップ', division: 14, sort_by: 125, size_kind_id: 1, is_brand_presence: 1)
-# SmallCategorie.create(name: 'ホルターネック', division: 14, sort_by: 126, size_kind_id: 1, is_brand_presence: 1)
-# SmallCategorie.create(name: 'ニット/セーター', division: 14, sort_by: 127, size_kind_id: 1, is_brand_presence: 1)
-# SmallCategorie.create(name: 'チュニック', division: 14, sort_by: 128, size_kind_id: 1, is_brand_presence: 1)
-# SmallCategorie.create(name: 'カーディガン/ボレロ', division: 14, sort_by: 129, size_kind_id: 1, is_brand_presence: 1)
-# SmallCategorie.create(name: 'アンサンブル', division: 14, sort_by: 130, size_kind_id: 1, is_brand_presence: 1)
-# SmallCategorie.create(name: 'ベスト/ジレ', division: 14, sort_by: 131, size_kind_id: 1, is_brand_presence: 1)
-# SmallCategorie.create(name: 'パーカー', division: 14, sort_by: 132, size_kind_id: 1, is_brand_presence: 1)
-# SmallCategorie.create(name: 'トレーナー/スウェット', division: 14, sort_by: 133, size_kind_id: 1, is_brand_presence: 1)
-# SmallCategorie.create(name: 'ベアトップ/チューブトップ', division: 14, sort_by: 134, size_kind_id: 1, is_brand_presence: 1)
-# SmallCategorie.create(name: 'ジャージ', division: 14, sort_by: 135, size_kind_id: 1, is_brand_presence: 1)
-# SmallCategorie.create(name: 'その他', division: 14, sort_by: 136, size_kind_id: 1, is_brand_presence: 1)
+# Image.create(name1: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS35ETh4RMDxYIwI4m9QYRi5NwJXLbx5HY5ljZ_uKGdw2AXjxeQrA', name2: 'NIKE_t.png', name2: 'NIKE_t.png', name3: 'NIKE_t.png',)
+# Image.create(name1: 'https://pbs.twimg.com/media/Bfz3R0pIQAAIMBA.jpg', name2: 'bear.jpg', name2: 'bear.jpg', name3: 'bear.jpg',)
+# Image.create(name1: 'https://static.clubt.jp/image/product/S0000034836/4991835.jpg', name2: 'bear.jpg', name2: 'bear.jpg', name3: 'bear.jpg',)
+# Image.create(name1: 'https://www.biteki.com/wp-content/uploads/2016/12/2016bc_reader_304.jpg', name2: 'bear.jpg', name2: 'bear.jpg', name3: 'bear.jpg',)
+
+# Product.create(name: 'かっこいいナイキのTシャツ', description: '超かっこいい！！！', price: '1200', status: '良い', brand: 'nike', user_id: 1)
+# Product.create(name: '宇多田ヒカルのくま「ぼくはくま　くま　くま　くま〜」', description: '超かっこいい！！！',price: '33333', status: '良い', brand: 'hikaru', user_id: 2)
+# Product.create(name: 'アンパンマンTシャツ', description: 'すげえいかす！！！！', price: '500')

@@ -6,15 +6,19 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.integer :price
       t.string :status
       t.string :brand
-      t.references :category, foreign_key: true
-      t.references :condition, foreign_key: true
-      t.references :delivery_fee_pay, foreign_key: true
-      t.references :delivery_method, foreign_key: true
-      t.references :prefecture, foreign_key: true
-      t.references :shipment_period, foreign_key: true
-      t.references :size, foreign_key: true
-      t.references :user, foreign_key: true
-      t.references :image, foreign_key: true
+      t.references :category
+      t.references :condition
+      t.references :delivery_fee_pay
+      t.references :delivery_method
+      t.references :prefecture
+      t.references :shipment_period
+      t.references :size
+      t.references :user
+      t.references :image
+      t.references :small_categorie
+      t.references :middle_categorie
+      t.references :large_categorie
+
       t.timestamps
     end
   end

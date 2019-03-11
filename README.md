@@ -1,6 +1,6 @@
 # README
 
-![ER図3.10](images/freemarket_ER図3.10.png "ER")
+![ER図3.10](images/freemarket_ER図3.10.png)
 
 # ＜ユーザー系のテーブル＞
 

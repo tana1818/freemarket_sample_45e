@@ -1,5 +1,7 @@
 # README
 
+![freemarket_ER図3 10](https://user-images.githubusercontent.com/47135669/54096018-54c4bb00-43ed-11e9-8448-3d591724accc.png)
+
 # ＜ユーザー系のテーブル＞
 
 ## users（ユーザーテーブル）
@@ -11,6 +13,11 @@
 |introduction|text|-------|自己紹介|
 |uid|string|-------|SNS認証用項目|
 |provider|string|-------|SNS認証用項目|
+|sei|string|null: false|姓|
+|mei|string|null: false|名|
+|kana_sei|string|null: false|カナ姓|
+|kana_mei|string|null: false|カナ名|
+|birth|date|null: false|生年月日|
 
 ※SNS認証の参考URL：
 https://qiita.com/kazuooooo/items/47e7d426cbb33355590e
@@ -29,11 +36,6 @@ https://qiita.com/kazuooooo/items/47e7d426cbb33355590e
 ## user_details（ユーザー詳細テーブル）
 |Column|Type|Options|Note|
 |------|----|-------|----|
-|sei|string|null: false|姓|
-|mei|string|null: false|名|
-|kana_sei|string|null: false|カナ姓|
-|kana_mei|string|null: false|カナ名|
-|birth|date|null: false|生年月日|
 |auth_tel|integer|null: false|認証用携帯番号|
 |zip_code|integer|-------|郵便番号|
 |todofuken|string|-------|都道府県|
@@ -80,17 +82,6 @@ https://qiita.com/kazuooooo/items/47e7d426cbb33355590e
 - belongs_to :user
 - has_many :purchases
 
-
-## prefectures（都道府県テーブル）
-|Column|Type|Options|Note|
-|------|----|-------|----|
-|name|string|null: false|都道府県名|
-|is_hidden|integer|-------|非表示フラグ|
-
-### Association
-- has_many :products
-
-
 # ＜商品系のテーブル＞
 
 ## products（商品テーブル）
@@ -102,13 +93,18 @@ https://qiita.com/kazuooooo/items/47e7d426cbb33355590e
 |condition_id|references|null: false,foreign_key: true|商品の状態／conditions.id|
 |delivery_fee_pay_id|references|null: false,foreign_key: true|配送料の負担／delivery_fee_pays.id|
 |delivery_method_id|references|null: false,foreign_key: true|配送の方法／delivery_methods.id|
-|prefecture_id|references|null: false,foreign_key: true|発送元の地域／prefectures.id|
+|prefecture|string|null: false|発送元の地域|
 |shipment_period_id|references|null: false,foreign_key: true|発送までの日数／shipment_periods.id|
 |price|integer|null: false|価格|
 |status|string|null: false|出品ステータス（出品停止中・出品中・取引中・売却済み）|
 |size_id|references|null: false,foreign_key: true|サイズ／sizes.id／categories.size_kind_idがnullでなければ必須|
 |brand|string|null: false|ブランド名／is_brand_presenceがnullでなければ必須|
 |user_id|references|null: false,foreign_key: true|ユーザーID／users.id|
+|large_category_id|references|null: false,foreign_key: ture|大カテゴリ|
+|middle_category_id|references|null: false,foreign_key: true|中カテゴリ|
+|small_category_id|references|null: false,foreign_key: true|小カテゴリ|
+|image|string|null: false|商品画像|
+
 
 ### Association
 - belongs_to :category
@@ -119,6 +115,9 @@ https://qiita.com/kazuooooo/items/47e7d426cbb33355590e
 - belongs_to :shipment_period
 - belongs_to :size
 - belongs_to :user
+- belongs_to :small_category
+- belongs_to :middle_category
+- belongs_to :large_category
 - has_many :images
 - has_many :comments
 - has_many :likes
@@ -158,12 +157,10 @@ https://qiita.com/kazuooooo/items/47e7d426cbb33355590e
 |Column|Type|Options|Note|
 |------|----|-------|----|
 |name|string|null: false|カテゴリー名
+|division|string|null: false|区別
 |sort_by|integer|null: false|並び順|
 |size_kind_id|integer|-------|サイズ種別|
 |is_brand_presence|integer|-------|ブランド有無|
-|large_category_id|references|null: false,foreign_key: ture|大カテゴリ|
-|middle_category_id|references|null: false,foreign_key: true|中カテゴリ|
-|small_category_id|references|null: false,foreign_key: true|小カテゴリ|
 
 ### Association
 - belongs_to :small_category
@@ -231,17 +228,6 @@ https://qiita.com/kazuooooo/items/47e7d426cbb33355590e
 
 ### Association
 - has_many :products
-
-
-## images（商品画像テーブル）
-|Column|Type|Options|Note|
-|------|----|-------|----|
-|image|string|null: false|商品画像|
-|product_id|references|null: false,foreign_key: true|商品ID／products.id|
-
-### Association
-- belongs_to :product
-
 
 ## comments（商品コメントテーブル）
 |Column|Type|Options|Note|

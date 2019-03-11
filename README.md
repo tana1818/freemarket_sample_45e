@@ -1,6 +1,6 @@
 # README
 
-![ER図3.10](images/freemarket_ER図3.10.png)
+![freemarket_ER図3 10](https://user-images.githubusercontent.com/47135669/54096018-54c4bb00-43ed-11e9-8448-3d591724accc.png)
 
 # ＜ユーザー系のテーブル＞
 

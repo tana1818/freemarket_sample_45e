@@ -198,11 +198,6 @@ ActiveRecord::Schema.define(version: 2019_03_07_045805) do
   end
 
   create_table "user_details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "sei", null: false
-    t.string "mei", null: false
-    t.string "kana_sei", null: false
-    t.string "kana_mei", null: false
-    t.date "birth", null: false
     t.integer "auth_tel", null: false
     t.integer "zip_code"
     t.string "shikutyoson"
@@ -220,8 +215,13 @@ ActiveRecord::Schema.define(version: 2019_03_07_045805) do
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
     t.text "introduction"
-    t.string "uid", null: false
-    t.string "provider", null: false
+    t.string "uid"
+    t.string "provider"
+    t.string "sei", null: false
+    t.string "mei", null: false
+    t.string "kana_sei", null: false
+    t.string "kana_mei", null: false
+    t.date "birth", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

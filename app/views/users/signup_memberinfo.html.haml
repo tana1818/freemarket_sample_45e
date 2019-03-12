@@ -1,3 +1,83 @@
+%header.signup-header-line
+  %h1
+    = image_tag '////www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?128691313', alt: 'mercari'
+    .signup-header-line__progress
+      .signup-header-line__progress__item
+        .signup-header-line__progress__title.signup-header-line__progress--done 会員情報
+        .signup-header-line__progress__dot.signup-header-line__progress--done
+          = fa_icon "circle"
+          .signup-header-line__progress__line
+      .signup-header-line__progress__item
+        .signup-header-line__progress__title 電話番号
+        .signup-header-line__progress__dot
+          = fa_icon "circle"
+          .signup-header-line__progress__line
+      .signup-header-line__progress__item
+        .signup-header-line__progress__title 住所入力
+        .signup-header-line__progress__dot
+          = fa_icon "circle"
+          .signup-header-line__progress__line
+      .signup-header-line__progress__item
+        .signup-header-line__progress__title 支払い方法
+        .signup-header-line__progress__dot
+          = fa_icon "circle"
+          .signup-header-line__progress__line
+      .signup-header-line__progress__item
+        .signup-header-line__progress__title 完了
+        .signup-header-line__progress__dot
+          = fa_icon "circle"
+%main.signup-main-regist
+  %section.l-signup-container
+    %h4.l-signup-head 会員情報入力
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      %form.l-signup-inner
+        .l-signup-content
+          .form-group
+            = f.label :nickname, "ニックネーム"
+            %span.form-require 必須
+            = f.text_field :nickname, autofocus: true,placeholder: " 例) タナカ", class: "input-default"
+          .form-group
+            = f.label :email, "メールアドレス"
+            %span.form-require 必須
+            = f.email_field :email,autofocus: true,placeholder: "PC・携帯どちらでも可能", class: "input-default"
+          .form-group
+            = f.label :password, "パスワード"
+            %span.form-require 必須
+            = f.password_field :password,autofocus: true,placeholder: "6文字以上", class: "input-default"
+          .form-group
+            = f.label :password_confirmation, "パスワード（確認）"
+            %span.form-require 必須
+            = f.password_field :password_confirmation, placeholder: "６文字以上", class: "input-default"
+          .form-group
+            %h5 本人確認
+            %p 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+          .form-group
+            = f.label :sei, "姓 (全角)"
+            %span.form-require 必須
+            = f.text_field :sei, placeholder: "例)田中", class: "input-default"
+          .form-group
+            = f.label :mei, "名 (全角)"
+            %span.form-require 必須
+            = f.text_field :mei, placeholder: "例)源", class: "input-default"
+          .form-group
+            = f.label :kana_sei, "姓カナ (全角)"
+            %span.form-require 必須
+            = f.text_field :kana_sei, placeholder: "例)タナカ", class: "input-default"
+          .form-group
+            = f.label :kana_mei, "名カナ (全角)"
+            %span.form-require 必須
+            = f.text_field :kana_mei, placeholder: "例)ゲン", class: "input-default"
+          .form-group
+            = f.label :birth, "生年月日"
+            %span.form-require 必須
+            .birthday
+              = raw sprintf(f.date_select(:birth, start_year: 1900, use_month_numbers: 1, date_separator: '%s', datetime_separator: '%s'), '年', '月') + '日'
+            %p ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+          .form-group
+          = f.submit "次へ進む", class: "btn-red"
+= render "layouts/single-footer"
+
 -# %header.signup-header-line
 -#   %h1
 -#     = image_tag '////www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?128691313', alt: 'mercari'

@@ -29,13 +29,17 @@
 %main.signup-main-regist
   %section.l-signup-container
     %h4.l-signup-head 電話番号の確認
+    -# = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
     %form.l-signup-inner
       .l-signup-content
         .form-group
           %label 携帯電話の番号
+          -# = f.label :auth_tel, "携帯電話の番号"
           %input.input-default{type: "text", placeholder: "携帯電話の番号を入力"}
+          -# = f.text_field :auth_tel, placeholder: "携帯電話の番号を入力", class: "input-default"
         .form-group
-        %button.btn-default.btn-red{type: "submit"} 次へ進む
+          %button.btn-default.btn-red{type: "submit"} 次へ進む
+          -# = f.submit "次へ進む", class: "btn-default btn-red"
         .form-group
           %p ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
 = render "layouts/single-footer"

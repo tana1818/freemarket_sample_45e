@@ -4,7 +4,7 @@
 %main.logout-main
   .main-content
     .main-content__logout-btn
-      %button.btn-default.btn-red{type: "submit"} ログアウト
-
+      -# %button.btn-default.btn-red{type: "submit"} ログアウト
+      = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn-default btn-red'
   = render "sidebar"
 = render "layouts/footer"

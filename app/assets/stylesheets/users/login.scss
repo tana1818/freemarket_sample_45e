@@ -2,7 +2,7 @@
   .login-panel{
     max-width: none;
     width: 456px;
-    height: 575px;
+    height: 700px;
     margin: 0 auto;
     background: #fff;
     border-bottom: solid 1px white;
@@ -76,6 +76,9 @@
         }
         &__login{
           margin: 24px 0 0;
+          img {
+            height: 100px;
+          }
           .btn-default{
             width: 100%;
             line-height: 48px;

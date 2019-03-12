@@ -31,10 +31,11 @@
     .my-page-credit__body__content
       .my-page-credit__body__main
         %h2.my-page-credit__body__main__head 支払い方法
-        .my-page-credit__body__main__inner
+    -# = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|        .my-page-credit__body__main__inner
           .my-page-credit__body__main__inner__body
             .my-page-credit__body__main__inner__body__field
               カード番号
+              -# = f.label :card_number, "カード番号"
               %span.form-require 必須
               %input{ placeholder: "半角数字のみ", class: "input-default", maxlength: 19 }
               %ul.signup-card-list
@@ -54,6 +55,7 @@
                   =image_tag('credit/discover.svg', class: "signup-card-list__discover")
             .my-page-credit__body__main__inner__body__field.signup-form-expire
               有効期限
+              -# = f.label :credit_card_expiration, "有効期限"
               %span.form-require 必須
               .signup-form-expire__wrap
                 %select
@@ -69,6 +71,7 @@
                   %option{ value: 10 } 10
                   %option{ value: 11 } 11
                   %option{ value: 12 } 12
+                  -# = f.select :credit_card_expiration_month, options_for_select(["-"]+ (1..12).to_a.map {|m|format('%02d', m) }), {},{class: "input-default"}
                 %span 月
               .signup-form-expire__wrap
                 %select
@@ -83,12 +86,17 @@
                   %option{ value: 27 } 27
                   %option{ value: 28 } 28
                   %option{ value: 29 } 29
+                  -# = f.select :credit_card_expiration_year, options_for_select(["-"]+ (19..29).to_a.map {|m|format('%02d', m) }), {},{ class: "input-default"}
                 %span 年
             .my-page-credit__body__main__inner__body__field
               セキュリティコード
+              -# = f.label :security_code, "セキュリティコード"
               %span.form-require 必須
               %input{ placeholder: "カード背面4桁もしくは3桁の番号", class: "input-default" }
+              -# = f.text_field :security_code, placeholder: "カード背面4桁もしくは3桁の番号", class: "input-default validate[required, custom[onlyNumberSp]]"
               %p.info カード裏面の番号とは？
-              %button{ type: "button", class: "btn-default btn-red" }
-                次へ進む
+              -# %button{ type: "button", class: "btn-default btn-red" }
+                -# 次へ進む
+              %button.btn-default.btn-red{type: "submit"} 次へ進む
+              -# = f.submit "次へ進む", class: "btn-red"
 = render "layouts/single-footer"

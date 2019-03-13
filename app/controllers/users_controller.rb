@@ -1,22 +1,23 @@
 class UsersController < ApplicationController
 
-# def new
-#   @users = User.new
-#   # @users.build_user_detail
-# end
+def new
+#   # @user = User.new
+#   # @user.user_details.build
+#   # @user.deliveries.build
+#   # @user.cards.build
 
-# def create
-#   @user = User.new(params[:user]).user_params
-# end
 
-# def post_params
-#   params.require(:user).permit(:nickname,:email,:encrypted_password,:created_at,:updated_at)
-# end
+#   # @user_detail = @user.user_details.build
+#   # @deliverie = @user.deliveries.build
+#   # @card = @user.cards.build
 
-private
+#   # @blog = Blog.find(params[:id])
+#   # @user = @user_detail.comments.build  ## 親モデル.子モデル.buildという形式
+end
 
-# def user_params
-#   params.require(:user).permit(:email,:encrypted_password,:created_at,:updated_at)
-# end
+def create
+#   @article = current_user.articles.build(article_params)
+#   @article.save
+end
 
 end

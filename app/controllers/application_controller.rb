@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   end
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:birth,:nickname,:sei,:mei,:kana_sei,:kana_mei])
+    devise_parameter_sanitizer.permit(:sign_up, keys:[:nickname,:sei,:mei,:kana_sei,:kana_mei,:birth,card_attributes: [:card_number,:expiration_month,:expiration_year,:security_code,:user],deliverie_attributes: [:sei,:mei,:kana_sei,:kana_mei,:zip_code,:prefecture_id,:shikutyoson,:banchi,:tatemono,:tel],user_detail_attributes: [:auth_tel]])
   end
 
 end

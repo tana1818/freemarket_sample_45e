@@ -140,15 +140,14 @@
           .l-signup-inner
             .l-signup-content
               .form-group
-                -# = f.label :auth_tel, "携帯電話の番号"
-                -# = f.text_field :auth_tel, placeholder: "携帯電話の番号を入力", class: "input-default"
-              -# .form-group
-                -# %button.btn-default.btn-red{type: "submit"} 次へ進む
-              %button{ type: "button", class: "btn-default btn-red btn-address" }
-                次へ進む
-              .form-group
-                %p ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
-      -# = render "layouts/single-footer"
+                -# = f.fields_for :user_detail, UserDetail.new do |d|
+                -#   = d.label :auth_tel,"携帯電話の番号"
+                -#   = d.text_field :auth_tel,placeholder: "携帯電話の番号を入力", class: "input-default"
+                %button{ type: "button", class: "btn-default btn-red btn-address" }
+                  次へ進む
+                .form-group
+                  %p ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+      = render "layouts/single-footer"
 
     -# 住所入力画面
     %section.address
@@ -183,73 +182,52 @@
       %main.signup-main-regist
         .l-signup-container
           %h4.l-signup-head 発送元・お届け先住所入力
-          .l-signup-inner
-            .l-signup-content
-              .form-group
-                %label 姓 (全角)
-                -# = f.label :sei, "姓 (全角)"
-                %span.form-require 必須
-                %input.input-default{type: "text", placeholder: "例)田中"}
-                -# = f.text_field :sei, placeholder: "例)田中", class: "input-default"
-              .form-group
-                %label 名 (全角)
-                -# = f.label :mei, "名 (全角)"
-                %span.form-require 必須
-                %input.input-default{type: "text", placeholder: "例)源"}
-                -# = f.text_field :mei, placeholder: "例)源", class: "input-default"
-              .form-group
-                %label 姓カナ (全角)
-                -# = f.label :kana_sei, "姓カナ (全角)"
-                %span.form-require 必須
-                %input.input-default{type: "text", placeholder: "例)タナカ"}
-                -# = f.text_field :kana_sei, placeholder: "例)タナカ", class: "input-default"
-              .form-group
-                %label 名カナ (全角)
-                -# = f.label :kana_mei, "名カナ (全角)"
-                %span.form-require 必須
-                %input.input-default{type: "text", placeholder: "例)ゲン"}
-                -# = f.text_field :kana_mei, placeholder: "例)ゲン", class: "input-default"
-              .form-group
-                %label 郵便番号
-                -# = f.label :zip-code, "郵便番号"
-                %span.form-require 必須
-                %input.input-default{type: "text", placeholder: "例)123-4567"}
-                -# = f.text_field :zip-code, placeholder: "例)123-4567", class: "input-default"
-              .form-group
-                %label 都道府県
-                -# = f.label :Prefecture_id, "郵便番号"
-                %span.form-require 必須
-                %input.input-default{type: "text", placeholder: "例)北海道"}
-                -# = f.text_field :shikutyouson, placeholder: "例)北海道", class: "input-default"
-              .form-group
-                %label 市区町村
-                -# = f.label :shikutyouson, "市区町村"
-                %span.form-require 必須
-                %input.input-default{type: "text", placeholder: "例)札幌市豊平区"}
-                -# = f.text_field :shikutyouson, placeholder: "例)札幌市豊平区", class: "input-default"
-              .form-group
-                %label 番地
-                -# = f.label :banchi, "番地"
-                %span.form-require 必須
-                %input.input-default{type: "text", placeholder: "例)羊ケ丘1"}
-                -# = f.text_field :banchi, placeholder: "例)羊ケ丘1", class: "input-default"
-              .form-group
-                %label 建物名
-                -# = f.label :tatemono, "番地"
-                %span.form-require 任意
-                %input.input-default{type: "text", placeholder: "例)フォンティス"}
-                -# = f.text_field :tatemono, placeholder: "例)フォンティス", class: "input-default"
-              .form-group
-                %label 電話
-                -# = f.label :tel, "番地"
-                %span.form-require 任意
-                %input.input-default{type: "text", placeholder: "例)0123456789"}
-                -# = f.text_field :tel, placeholder: "例)0123456789", class: "input-default"
-              -# .form-group
-                -# = f.submit "次へ進む", class: "btn-red"
-              %button{ type: "button", class: "btn-default btn-red btn-credit" }
-                次へ進む
-      = render "layouts/single-footer"
+          = f.fields_for :deliverie,@user_detail do |de|
+            .l-signup-inner
+              .l-signup-content
+                .form-group
+                  = de.label :sei,"姓 (全角)"
+                  %span.form-require 必須
+                  = de.text_field :sei,placeholder: "例)田中", class: "input-default"
+                .form-group
+                  = de.label :mei,"名 (全角)"
+                  %span.form-require 必須
+                  = de.text_field :mei,placeholder: "例)源", class: "input-default"
+                .form-group
+                  = de.label :kana_sei,"姓カナ (全角)"
+                  %span.form-require 必須
+                  = de.text_field :kana_sei,placeholder: "例)タナカ", class: "input-default"
+                .form-group
+                  = de.label :kana_mei,"名カナ (全角)"
+                  %span.form-require 必須
+                  = de.text_field :kana_mei,placeholder: "例)ゲン", class: "input-default"
+                .form-group
+                  = de.label :zip_code,"郵便番号"
+                  %span.form-require 必須
+                  = de.text_field :zip_code,placeholder: "例)1234567", class: "input-default"
+                .form-group
+                  = de.label :prefecture_id,"都道府県"
+                  %span.form-require 必須
+                  = de.text_field :prefecture_id,placeholder: "例)北海道", class: "input-default"
+                .form-group
+                  = de.label :shikutyoson,"市区町村"
+                  %span.form-require 必須
+                  = de.text_field :shikutyoson,placeholder: "例)札幌市豊平区", class: "input-default"
+                .form-group
+                  = de.label :banchi,"市区町村"
+                  %span.form-require 必須
+                  = de.text_field :banchi,placeholder: "例)羊ケ丘1", class: "input-default"
+                .form-group
+                  = de.label :tatemono,"建物名"
+                  %span.form-require 任意
+                  = de.text_field :tatemono,placeholder: "例)フォンティス", class: "input-default"
+                .form-group
+                  = de.label :tel,"電話"
+                  %span.form-require 任意
+                  = de.text_field :tel,placeholder: "例)0123456789", class: "input-default"
+                %button{ type: "button", class: "btn-default btn-red btn-credit" }
+                  次へ進む
+        = render "layouts/single-footer"
 
     -# 支払方法画面
     %section.credit
@@ -286,77 +264,43 @@
           .my-page-credit__body__content
             .my-page-credit__body__main
               %h2.my-page-credit__body__main__head 支払い方法
-              .my-page-credit__body__main__inner__body
-                .my-page-credit__body__main__inner__body__field
-                  カード番号
-                  -# = f.label :card_number, "カード番号"
-                  %span.form-require 必須
-                  %input{ placeholder: "半角数字のみ", class: "input-default", maxlength: 19 }
-                  %ul.signup-card-list
-                    %li
-                      =image_tag('credit/visa.svg', class: "signup-card-list__visa")
-                    %li
-                      =image_tag('credit/master-card.svg', class: "signup-card-list__master")
-                    %li
-                      =image_tag('credit/saison-card.svg', class: "signup-card-list__saison")
-                    %li
-                      =image_tag('credit/jcb.svg', class: "signup-card-list__jcb")
-                    %li
-                      =image_tag('credit/american_express.svg', class: "signup-card-list__american")
-                    %li
-                      =image_tag('credit/dinersclub.svg', class: "signup-card-list__diners")
-                    %li
-                      =image_tag('credit/discover.svg', class: "signup-card-list__discover")
-                .my-page-credit__body__main__inner__body__field.signup-form-expire
-                  有効期限
-                  -# = f.label :credit_card_expiration, "有効期限"
-                  %span.form-require 必須
-                  .signup-form-expire__wrap
-                    %select
-                      %option{ value: 1 } 1
-                      %option{ value: 2 } 2
-                      %option{ value: 3 } 3
-                      %option{ value: 4 } 4
-                      %option{ value: 5 } 5
-                      %option{ value: 6 } 6
-                      %option{ value: 7 } 7
-                      %option{ value: 8 } 8
-                      %option{ value: 9 } 9
-                      %option{ value: 10 } 10
-                      %option{ value: 11 } 11
-                      %option{ value: 12 } 12
-                      -# = f.select :credit_card_expiration_month, options_for_select(["-"]+ (1..12).to_a.map {|m|format('%02d', m) }), {},{class: "input-default"}
-                    %span 月
-                  .signup-form-expire__wrap
-                    %select
-                      %option{ value: 19 } 19
-                      %option{ value: 20 } 20
-                      %option{ value: 21 } 21
-                      %option{ value: 22 } 22
-                      %option{ value: 23 } 23
-                      %option{ value: 24 } 24
-                      %option{ value: 25 } 25
-                      %option{ value: 26 } 26
-                      %option{ value: 27 } 27
-                      %option{ value: 28 } 28
-                      %option{ value: 29 } 29
-                      -# = f.select :credit_card_expiration_year, options_for_select(["-"]+ (19..29).to_a.map {|m|format('%02d', m) }), {},{ class: "input-default"}
-                    %span 年
-                .my-page-credit__body__main__inner__body__field
-                  セキュリティコード
-                  -# = f.label :security_code, "セキュリティコード"
-                  %span.form-require 必須
-                  %input{ placeholder: "カード背面4桁もしくは3桁の番号", class: "input-default" }
-                  -# = f.text_field :security_code, placeholder: "カード背面4桁もしくは3桁の番号", class: "input-default validate[required, custom[onlyNumberSp]]"
-                  %p.info カード裏面の番号とは？
-                  -# %button.btn-default.btn-red{type: "submit"} 次へ進む
-                  -# = f.submit "次へ進む", class: "btn-red"
-                  -# %button{ type: "button", class: "btn-default btn-red" }
-                    -# 次へ進む
-                  -# %button{ type: "button", class: "btn-default btn-red btn-complete" }
-                    -# 次へ進む
-                  = f.submit "次へ進む", class: "btn-default btn-red btn-complete"
-      = render "layouts/single-footer"
+              = f.fields_for :card, Card.new do |c|
+                .my-page-credit__body__main__inner__body
+                  .my-page-credit__body__main__inner__body__field
+                    = c.label :card_number,"カード番号"
+                    %span.form-require 必須
+                    = c.text_field :card_number,placeholder: "半角数字のみ", class: "input-default"
+                    %ul.signup-card-list
+                      %li
+                        =image_tag('credit/visa.svg', class: "signup-card-list__visa")
+                      %li
+                        =image_tag('credit/master-card.svg', class: "signup-card-list__master")
+                      %li
+                        =image_tag('credit/saison-card.svg', class: "signup-card-list__saison")
+                      %li
+                        =image_tag('credit/jcb.svg', class: "signup-card-list__jcb")
+                      %li
+                        =image_tag('credit/american_express.svg', class: "signup-card-list__american")
+                      %li
+                        =image_tag('credit/dinersclub.svg', class: "signup-card-list__diners")
+                      %li
+                        =image_tag('credit/discover.svg', class: "signup-card-list__discover")
+                  .my-page-credit__body__main__inner__body__field.signup-form-expire
+                    有効期限
+                    %span.form-require 必須
+                    .signup-form-expire__wrap
+                      = c.select :expiration_year, options_for_select(["-"]+ (1..12).to_a.map {|m|format('%02d', m) }), {},{class: "input-default"}
+                      %span 月
+                    .signup-form-expire__wrap
+                      = c.select :expiration_month, options_for_select(["-"]+ (19..29).to_a.map {|m|format('%02d', m) }), {},{ class: "input-default"}
+                      %span 年
+                  .my-page-credit__body__main__inner__body__field
+                    セキュリティコード
+                    %span.form-require 必須
+                    = c.text_field :security_code, placeholder: "カード背面4桁もしくは3桁の番号", class: "input-default validate[required, custom[onlyNumberSp]]"
+                    %p.info カード裏面の番号とは？
+                    = f.submit "次へ進む", class: "btn-default btn-red btn-complete"
+        = render "layouts/single-footer"
 
     -# 完了画面
     %section.complete
@@ -390,7 +334,7 @@
                 = fa_icon "circle"
       %main.signup-main-regist
         .l-signup-container
-          %h4.l-signup-head 電話番号の確認
+          %h4.l-signup-head 登録完了
           .l-signup-inner
             .l-signup-content-last
               .form-group

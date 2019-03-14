@@ -5,6 +5,7 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    @large_categories = Category.where(division: :null).order('sort_by')
     @conditions = Condition.order('sort_by')
     @delivery_fee_pays = DeliveryFeePay.order('sort_by')
     @delivery_methods = DeliveryMethod.order('sort_by')
@@ -50,7 +51,7 @@ class ProductsController < ApplicationController
     if params[:product][:images]
       params[:product][:images] = params[:product][:images].values
     end
-    params.require(:product).permit(:name, :description, :condition_id, :delivery_fee_pay_id, :delivery_method_id, :prefecture_id, :shipment_period_id, :price, {images: []}).merge(small_category: params[:small_category], size_id: params[:size_id], brand: params[:brand], user_id: 1, status: '出品中')
+    params.require(:product).permit(:name, :description, :large_category, :condition_id, :delivery_fee_pay_id, :delivery_method_id, :prefecture_id, :shipment_period_id, :price, {images: []}).merge(middle_category: params[:middle_category], small_category: params[:small_category], size_id: params[:size_id], brand: params[:brand], user_id: 1, status: '出品中')
   end
 
 end

@@ -47,7 +47,7 @@
             %span.sell-form__form-require
               必須
           .sell-form__select-wrap#sell-form__large-category
-            = collection_select @product, :large_category, Category.where(division: :null).order('sort_by'), :id, :name, {prompt: '---'}, {class: 'sell-form__select', id: 'large_category'}
+            = f.collection_select :large_category, @large_categories, :id, :name, {prompt: '---'}, {class: 'sell-form__select'}
             = fa_icon('angle-down')
           .sell-form__alert#alert-large-category
           .sell-form__select-wrap#sell-form__middle-category

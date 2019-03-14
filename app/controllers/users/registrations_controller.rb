@@ -7,34 +7,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # GET /resource/sign_up
   # def new
   #   super
-    # @user = User.new(
-    #   nickname: session[:nickname],
-    #   email: session[:email],
-    #   password: session[:password],
-    #   password_confirmation: session[:password],
-    #   )
-    # @user = User.new
-    # @user_detail = @user.user_detail.build
-    # @deliverie = @user.deliverie.build
-    # @card = @user.card.build
   # end
 
   # POST /resource
   # def create
     # super
-    # user = User.new
-    # @user = User.new
-    # @user.user_detail.build
-    # @user.deliverie.build
-    # @user.card.build
-
-    # @user_detail = @user.user_detail.build
-    # @deliverie = @user.deliverie.build
-    # @card = @user.card.build
-
-    # @user_detail = user.user_detail.build
-    # @deliverie = user.deliverie.build
-    # @card = user.card.build
   # end
 
   # GET /resource/edit

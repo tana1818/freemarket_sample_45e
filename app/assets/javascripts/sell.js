@@ -4,8 +4,8 @@ $(function() {
 //大カテゴリを選択した時に中カテゴリの選択肢を変更してプルダウンを表示するスクリプト
 ////////////////////////////////////////////////////////////////////////////////
 
-  $(document).on('change', '#product_large_category', function() {
-    var largeCategoryID = $('#product_large_category').val();
+  $(document).on('change', '#large_category', function() {
+    var largeCategoryID = $('#large_category').val();
     var middlePullDown = $('#sell-form__middle-category');
     var smallPullDown = $('#sell-form__small-category');
     if (largeCategoryID == '') {

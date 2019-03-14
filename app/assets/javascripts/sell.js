@@ -17,9 +17,9 @@ $(function() {
         url: '/products/get_middle_categories',
         data: { large_category: largeCategoryID }
       })
-      .done(function(data) {
+      .done(function(strHTML) {
         middlePullDown.css('display', 'block');
-        middlePullDown.html(data);
+        middlePullDown.html(strHTML);
       })
       .fail(function() {
         alert('データの取得に失敗しました');
@@ -43,9 +43,9 @@ $(function() {
         url: '/products/get_small_categories',
         data: { middle_category: middleCategoryID }
       })
-      .done(function(data) {
+      .done(function(strHTML) {
         smallPullDown.css('display', 'block');
-        smallPullDown.html(data);
+        smallPullDown.html(strHTML);
       })
       .fail(function() {
         alert('データの取得に失敗しました');
@@ -70,10 +70,10 @@ $(function() {
         url: '/products/judge_get_sizes',
         data: { small_category: smallCategoryID }
       })
-      .done(function(data) {
-        if (data) {
+      .done(function(strHTML) {
+        if (strHTML) {
           sizePullDown.css('display', 'block');
-          sizePullDown.html(data);
+          sizePullDown.html(strHTML);
         } else {
           sizePullDown.css('display', 'none');
         }
@@ -86,11 +86,10 @@ $(function() {
         url: '/products/judge_brand',
         data: { small_category: smallCategoryID }
       })
-      .done(function(data) {
-        // console.log(data);
-        if (data) {
+      .done(function(strHTML) {
+        if (strHTML) {
           brandTextBox.css('display', 'block');
-          brandTextBox.html(data);
+          brandTextBox.html(strHTML);
         } else {
           brandTextBox.css('display', 'none');
         }
@@ -122,15 +121,15 @@ $(function() {
 ////////////////////////////////////////////////////////////////////////////////
 
   $(document).on('keyup', '#product_price', function() {
-    var priceData = $('#product_price').val();
+    var productPrice = $('#product_price').val();
     var controlFee = $('#number-fee');
     var controlProfit = $('#number-profit');
 
-    if (priceData >= 300 && priceData < 10000000) {
-      var feeData = Math.round(priceData * 0.1);
-      var profitData = Math.round(priceData - feeData);
-      controlFee.text(feeData.toString().replace(/(\d)(?=(\d{3})+$)/g , '$1,'));
-      controlProfit.text(profitData.toString().replace(/(\d)(?=(\d{3})+$)/g , '$1,'));
+    if (productPrice >= 300 && productPrice < 10000000) {
+      var productFee = Math.round(productPrice * 0.1);
+      var productProfit = Math.round(productPrice - productFee);
+      controlFee.text(productFee.toString().replace(/(\d)(?=(\d{3})+$)/g , '$1,'));
+      controlProfit.text(productProfit.toString().replace(/(\d)(?=(\d{3})+$)/g , '$1,'));
     } else {
       controlFee.text('-');
       controlProfit.text('-');

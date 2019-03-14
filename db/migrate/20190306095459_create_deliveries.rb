@@ -5,7 +5,7 @@ class CreateDeliveries < ActiveRecord::Migration[5.2]
       t.string :mei, null: false
       t.string :kana_sei, null: false
       t.string :kana_mei, null: false
-      t.integer :zip_code, null: false
+      t.string :zip_code, null: false
       t.string :shikutyoson, null: false
       t.string :banchi, null: false
       t.string :tatemono

@@ -1,0 +1,22 @@
+.signup-container {
+  background-color: rgb(245, 245, 245);
+  height: 100%;
+  width: 100%;
+
+  &__memberinfo {
+    display: none;
+  }
+  &__tel {
+    display: none;
+  }
+  &__address {
+    display: none;
+  }
+  &__credit {
+    display: none;
+  }
+  &__complete {
+    display: none;
+  }
+
+}

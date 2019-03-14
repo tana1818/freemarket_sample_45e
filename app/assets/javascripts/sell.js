@@ -187,6 +187,8 @@ $(function() {
 
       // DBへの書き込みが完了した時のアクション
       this.on("successmultiple", function(files, response) {
+        var productId = response.productId
+        $('#modal__share').attr('href', '/products/' + productId )
         // モーダル画面を表示
         $('.modal').show();
         return false;

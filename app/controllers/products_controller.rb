@@ -16,9 +16,9 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-      render json: {message: 'success', productId: @product.id}, status: 200
+      render json: { message: 'success', productId: @product.id }, status: 200
     else
-      render json: { error: @product.errors.full_messages.join(", ")}, status: 400
+      render json: { error: @product.errors.full_messages.join(", ") }, status: 400
     end
   end
 

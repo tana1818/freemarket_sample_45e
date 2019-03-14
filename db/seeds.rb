@@ -59,6 +59,14 @@ Category.create(name: 'トレーナー/スウェット', division: 14, sort_by: 
 Category.create(name: 'ベアトップ/チューブトップ', division: 14, sort_by: 134, size_kind_id: 1, is_brand_presence: 1)
 Category.create(name: 'ジャージ', division: 14, sort_by: 135, size_kind_id: 1, is_brand_presence: 1)
 Category.create(name: 'その他', division: 14, sort_by: 136, size_kind_id: 1, is_brand_presence: 1)
+Category.create(name: 'ミニスカート', division: 17, sort_by: 167, size_kind_id: 1, is_brand_presence: 1)
+Category.create(name: 'ひざ丈スカート', division: 17, sort_by: 168, size_kind_id: 1, is_brand_presence: 1)
+Category.create(name: 'ロングスカート', division: 17, sort_by: 169, size_kind_id: 1, is_brand_presence: 1)
+Category.create(name: 'キュロット', division: 17, sort_by: 170, size_kind_id: 1, is_brand_presence: 1)
+Category.create(name: 'その他', division: 17, sort_by: 171, size_kind_id: 1, is_brand_presence: 1)
+
+
+
 
 SizeKind.create(name: '服')
 

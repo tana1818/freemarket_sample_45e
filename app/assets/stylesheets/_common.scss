@@ -58,28 +58,10 @@ h3 {
 //共通部品のヘッダー・フッターと合体したら不要になるもの
 ///////////////////////////////////////////////////
 
-.header {
-  background-color: #fff;
-  width: 100vw;
-  height: 90px;
-}
-
 .breadcrumb {
   background-color: #fff;
   width: 100vw;
   height: 50px;
   border-top: 1px solid #eee;
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.16);
-}
-
-.app_banner {
-  width: 100vw;
-  height: 260px;
-  background-color: #ccc;
-}
-
-.footer {
-  width: 100vw;
-  height: 600px;
-  background-color: #212121;
 }

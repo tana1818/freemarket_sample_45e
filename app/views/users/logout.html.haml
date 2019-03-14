@@ -1,0 +1,10 @@
+= render "layouts/header"
+= render "layouts/breadcrumb"
+
+%main.logout-main.clearfix
+  .main-content
+    .main-content__logout-btn
+      %button.btn-default.btn-red{type: "submit"} ログアウト
+
+  = render "sidebar"
+= render "layouts/footer"

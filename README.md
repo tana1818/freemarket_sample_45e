@@ -1,5 +1,7 @@
 # README
 
+![freemarket_ER図3 10](https://user-images.githubusercontent.com/47135669/54096018-54c4bb00-43ed-11e9-8448-3d591724accc.png)
+
 # ＜ユーザー系のテーブル＞
 
 ## users（ユーザーテーブル）
@@ -11,6 +13,11 @@
 |introduction|text|-------|自己紹介|
 |uid|string|-------|SNS認証用項目|
 |provider|string|-------|SNS認証用項目|
+|sei|string|null: false|姓|
+|mei|string|null: false|名|
+|kana_sei|string|null: false|カナ姓|
+|kana_mei|string|null: false|カナ名|
+|birth|date|null: false|生年月日|
 
 ※SNS認証の参考URL：
 https://qiita.com/kazuooooo/items/47e7d426cbb33355590e
@@ -29,11 +36,6 @@ https://qiita.com/kazuooooo/items/47e7d426cbb33355590e
 ## user_details（ユーザー詳細テーブル）
 |Column|Type|Options|Note|
 |------|----|-------|----|
-|sei|string|null: false|姓|
-|mei|string|null: false|名|
-|kana_sei|string|null: false|カナ姓|
-|kana_mei|string|null: false|カナ名|
-|birth|date|null: false|生年月日|
 |auth_tel|integer|null: false|認証用携帯番号|
 |zip_code|integer|-------|郵便番号|
 |todofuken|string|-------|都道府県|

@@ -1,0 +1,57 @@
+.credit-main{
+  width: 1020px;
+  padding-bottom: 40px;
+  .my-page-payment__body {
+    width: 65%;
+    float: right;
+    background-color: white;
+    &__head {
+      font-size: 22px;
+      line-height: 33px;
+      padding: 32px 16px;
+      text-align: center;
+      font-weight: bold;
+      margin: 0;
+    }
+    &__inner {
+      padding: 64px;
+      border-top: 1px solid rgb(245, 245, 245);
+      &__body {
+        max-width: 320px;
+        margin: 0 auto;
+        &__sub-head {
+          font-size: 16px;
+        }
+        &__setting-add-card {
+          padding: 12px 0;
+          border-bottom: 1px solid rgb(245, 245, 245);
+          .btn-default {
+            display: block;
+            width: 100%;
+            line-height: 48px;
+            font-size: 14px;
+            cursor: pointer;
+            text-align: center;
+          }
+          .btn-red {
+            background: #ea352d;
+            position: relative;
+            margin-top: 10px;
+            color: white;
+          }
+        }
+        &__setting-not-regist {
+          text-align: right;
+          margin-top: 40px;
+          color: blue;
+          font-size: 14px;
+        }
+
+        .icon-angle-right {
+          text-align: right;
+          color: blue;
+        }
+      }
+    }
+  }
+}

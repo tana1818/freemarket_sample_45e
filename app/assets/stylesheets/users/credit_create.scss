@@ -1,0 +1,125 @@
+.credit-create-main{
+  width: 1020px;
+  padding-bottom: 40px;
+  .my-page-credit__body {
+    background-color: rgb(245, 245, 245);
+    &__content {
+      margin: auto;
+      width: 1020px;
+    }
+    &__main {
+      background-color: white;
+      width:700px;
+      float: right;
+      &__head {
+        font-size: 22px;
+        line-height: 33px;
+        padding: 32px 16px;
+        text-align: center;
+        font-weight: bold;
+        margin: 0;
+      }
+      &__inner {
+        padding: 64px;
+        border-top: 1px solid rgb(245, 245, 245);
+        &__body {
+          max-width: 320px;
+          margin: 0 auto;
+          & :first-child {
+            margin-top: 0;
+          }
+          &__field {
+            width: 320px;
+            margin-top: 40px;
+            .form-require {
+              background-color: #ea352d;
+              margin-left: 8px;
+              padding: 2px 4px;
+              color: white;
+              font-size: 12px;
+              vertical-align: top;
+            }
+            .input-default {
+              width: 100%;
+              margin-top: 8px;
+              height: 48px;
+              padding: 10px 16px 8px;
+              border-radius: 4px;
+              box-sizing: border-box;
+            }
+            .signup-card-list {
+              margin-top: 8px;
+              li {
+                display: inline-block;
+              }
+              &__visa {
+                width: 49px;
+                height: 20px;
+              }
+              &__master {
+                width: 34px;
+                height: 20px;
+              }
+              &__saison {
+                width: 30px;
+                height: 20px;
+              }
+              &__jcb {
+                width: 32px;
+                height: 20px;
+              }
+              &__american {
+                width: 21px;
+                height: 20px;
+              }
+              &__diners {
+                width: 32px;
+                height: 20px;
+              }
+              &__discover {
+                width: 32px;
+                height: 20px;
+              }
+            }
+            .signup-form-expire {
+              &__wrap {
+                margin-top: 8px;
+                select {
+                  height: 48px;
+                  width: 35%;
+                  display: inline-block;
+                  padding: 0 16px;
+                  border-radius:4px;
+                  font-size: 16px;
+                  cursor: pointer;
+                }
+              }
+            }
+            p {
+              margin-top: 8px;
+              font-size: 14px;
+            }
+            .info {
+              color: blue;
+              text-align: right;
+            }
+            .btn-default {
+              display: block;
+              width: 100%;
+              line-height: 48px;
+              font-size: 14px;
+              cursor: pointer;
+              text-align: center;
+            }
+            .btn-red {
+              background: #ea352d;
+              position: relative;
+              margin-top: 50px;
+              color: white;
+            }
+          }
+        }
+      }
+    }
+  }
+}

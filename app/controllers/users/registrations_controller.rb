@@ -5,8 +5,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  def new
-    super
+  # def new
+  #   super
     # @user = User.new(
     #   nickname: session[:nickname],
     #   email: session[:email],
@@ -17,11 +17,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
     # @user_detail = @user.user_detail.build
     # @deliverie = @user.deliverie.build
     # @card = @user.card.build
-  end
+  # end
 
   # POST /resource
-  def create
-    super
+  # def create
+    # super
     # user = User.new
     # @user = User.new
     # @user.user_detail.build
@@ -35,7 +35,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     # @user_detail = user.user_detail.build
     # @deliverie = user.deliverie.build
     # @card = user.card.build
-  end
+  # end
 
   # GET /resource/edit
   # def edit

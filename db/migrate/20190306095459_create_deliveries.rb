@@ -8,10 +8,10 @@ class CreateDeliveries < ActiveRecord::Migration[5.2]
       t.integer :zip_code, null: false
       t.string :shikutyoson, null: false
       t.string :banchi, null: false
-      t.string :tatemono, null: false
-      t.integer :tel, null: false
+      t.string :tatemono
+      t.integer :tel
       t.references :user, foreign_key: true
-      t.references :prefecture, foreign_key: true
+      t.integer :prefecture_id
       t.timestamps
     end
   end

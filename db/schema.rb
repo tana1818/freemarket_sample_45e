@@ -64,13 +64,12 @@ ActiveRecord::Schema.define(version: 2019_03_07_045805) do
     t.integer "zip_code", null: false
     t.string "shikutyoson", null: false
     t.string "banchi", null: false
-    t.string "tatemono", null: false
-    t.integer "tel", null: false
+    t.string "tatemono"
+    t.integer "tel"
     t.bigint "user_id"
-    t.bigint "prefecture_id"
+    t.integer "prefecture_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["prefecture_id"], name: "index_deliveries_on_prefecture_id"
     t.index ["user_id"], name: "index_deliveries_on_user_id"
   end
 
@@ -239,7 +238,6 @@ ActiveRecord::Schema.define(version: 2019_03_07_045805) do
   add_foreign_key "categories", "small_categories"
   add_foreign_key "comments", "products"
   add_foreign_key "comments", "users"
-  add_foreign_key "deliveries", "prefectures"
   add_foreign_key "deliveries", "users"
   add_foreign_key "likes", "products"
   add_foreign_key "likes", "users"

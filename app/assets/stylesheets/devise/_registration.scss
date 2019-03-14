@@ -3,19 +3,19 @@
   height: 100%;
   width: 100%;
 
-  section.memberinfo {
+  &__memberinfo {
     display: none;
   }
-  section.tel {
+  &__tel {
     display: none;
   }
-  section.address {
+  &__address {
     display: none;
   }
-  section.credit {
+  &__credit {
     display: none;
   }
-  section.complete {
+  &__complete {
     display: none;
   }
 

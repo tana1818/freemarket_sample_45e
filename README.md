@@ -90,8 +90,6 @@ https://qiita.com/kazuooooo/items/47e7d426cbb33355590e
 |------|----|-------|----|
 |name|string|null: false|商品名（1〜40文字）|
 |description|text|null: false|商品説明（1〜1000文字）|
-|large_category|integer|null: false|大カテゴリー／categories.id|
-|middle_category|integer|null: false|中カテゴリー／categories.id|
 |small_category|integer|null: false|小カテゴリー／categories.id|
 |condition|references|null: false,foreign_key: true|商品の状態／conditions.id|
 |delivery_fee_pay|references|null: false,foreign_key: true|配送料の負担／delivery_fee_pays.id|

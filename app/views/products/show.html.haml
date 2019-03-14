@@ -1,62 +1,71 @@
-%header.header
-%header.breadcrumb
+= render "layouts/header"
+= render "layouts/breadcrumb"
+
 %main.clearfix-g
   .product-detail
-    %h1.product-name.bold 正規品！COACH【コーチ】★★大きめ ミニシグネチャー ショルダーバッグ
+    %h1.product-name.bold
+      = @product.name
     .product-detail__content.clear
       .product-photos
         .product-photo
-          = image_tag 'fe409ce3.png',class: "product-photo"
+          = image_tag @product.image.name1, class: "product-photo"
         .product-photo-srades
           .product-photo-srade
-            = image_tag 'fe409ce3.png',class: "product-photo-srade"
+            = image_tag @product.image.name1, class: "product-photo-srade"
           .product-photo-srade
-            = image_tag 'fe409ce3.png',class: "product-photo-srade"
+            = image_tag @product.image.name1, class: "product-photo-srade"
           .product-photo-srade
-            = image_tag 'fe409ce3.png',class: "product-photo-srade"
+            = image_tag @product.image.name1, class: "product-photo-srade"
           .product-photo-srade
-            = image_tag 'fe409ce3.png',class: "product-photo-srade"
+            = image_tag @product.image.name1, class: "product-photo-srade"
           .product-photo-srade
-            = image_tag 'fe409ce3.png',class: "product-photo-srade"
+            = image_tag @product.image.name1, class: "product-photo-srade"
           .product-photo-srade
-            = image_tag 'fe409ce3.png',class: "product-photo-srade"
+            = image_tag @product.image.name1, class: "product-photo-srade"
           .product-photo-srade
-            = image_tag 'fe409ce3.png',class: "product-photo-srade"
+            = image_tag @product.image.name1, class: "product-photo-srade"
           .product-photo-srade
-            = image_tag 'fe409ce3.png',class: "product-photo-srade"
+            = image_tag @product.image.name1, class: "product-photo-srade"
           .product-photo-srade
-            = image_tag 'fe409ce3.png',class: "product-photo-srade"
+            = image_tag @product.image.name1, class: "product-photo-srade"
           .product-photo-srade
-            = image_tag 'fe409ce3.png',class: "product-photo-srade"
+            = image_tag @product.image.name1, class: "product-photo-srade"
 
       %table.product-detail__table
         = render "products/product-detail-gen__table"
 
     .product-detail__price
-      %span.product-price.bold ¥1,800
+      %span.product-price.bold= '¥ ' + @product.price.to_s(:delimited)
       %span.product-tax (税込)
       %span.product-spping-fee 送料込み
     .product-detail__btn.clear
       %button{type: "submit", class: "btn-default btn-red"} 購入画面に進む
 
     .product-detail__description
-      %p.product-detail__description-text ----------------------------------------------------------<br><br>ご閲覧して頂きありがとうございます！<br>　
+      %p.product-detail__description-text
+        = @product.description
 
     .product-detail__like.clear
       .product-detail__like-left
-        %button{value: "submit",class: "btn-default btn-nomal"} ❤️　最高かよ！
-        %button{value: "submit",class: "btn-default btn-nomal"} 🏳　最悪な商品かよ！
+        %button{value: "submit",class: "btn-default btn-nomal"}
+          = fa_icon('heart-o')
+          最高かよ！
+        %button{value: "submit",class: "btn-default btn-nomal"}
+          = fa_icon('flag-o')
+          最悪な商品かよ！
       .product-detail__like-right
         = link_to "#", class: "product-detail__like-right__add" do
-          = fa_icon("angle-right")
+          = fa_icon("lock")
           %span あんしん・あんぜんへの取り組み
       .product-detail__like.clear
 
   .product-message
-    .product-message__content
-      %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-      %textarea{name: "introduction",class: "textarea-default"}
-      %button{type: "submit", class: "btn-default btn-gray"} コメントする
+    = render 'products/product__comment-box'
+    = form_for [@product, @comment] do |c|
+      .product-message__content
+        %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        = c.text_area :comment, class: 'textarea-default'
+        = c.submit type: "submit", value: "コメントする", class: "btn-default btn-gray"
 
   %ul.product-nav-item.clear
     %li.product-nav-item__prev
@@ -66,36 +75,42 @@
 
   .product-media
     %ul.product-media__box
-      %li.facebook
-        = link_to "", "#", class: 'facebook'
-      %li.twitter
-        = link_to "", "#", class: 'twitter'
-      %li.paypay
-        = link_to "", "#", class: 'paypay'
+      %li.sns-box
+        .sns-box-facebook
+          = link_to "https://ja-jp.facebook.com/", class: "facebook" do
+            = fa_icon "facebook-official", class: "fa fa-facebook"
+      %li.sns-box
+        .sns-box-facebook
+          = link_to "https://twitter.com/", class: "twitter" do
+            = fa_icon "twitter", class: "fa fa-twitter"
+      %li.sns-box
+        .sns-box-facebook
+          = link_to "https://google.co.jp", class: "google" do
+            = fa_icon "google", class: "fa fa-google"
 
   .product-exhibit
     .product-exhibit__user
       %h2.product-exhibit__user__name.bold
-        = link_to "tanakaさんの商品", "#"
+        = link_to "#", class: "product-exhibit__user__name bold" do
+          = "#{@product.user.nickname}さんの商品"
       .product-exhibit__user__item
-        = render "products/product-exhibit-gen__user"
-        = render "products/product-exhibit-gen__user"
-        = render "products/product-exhibit-gen__user"
-        = render "products/product-exhibit-gen__user"
-        = render "products/product-exhibit-gen__user"
-        = render "products/product-exhibit-gen__user"
+        - @other_user_products.each do |p|
+          = render :partial => 'product-exhibit-gen__user', :locals => {product_id: p.id, product_name: p.name, product_image: p.image, product_price: p.price}
 
     .product-exhibit__other
-      .product-exhibit__user
-        %h2.product-exhibit__user__name.bold
-          = link_to "JOJO　その他の商品", "#"
-        .product-exhibit__user__item
-          = render "products/product-exhibit-gen__other"
-          = render "products/product-exhibit-gen__other"
-          = render "products/product-exhibit-gen__other"
-          = render "products/product-exhibit-gen__other"
-          = render "products/product-exhibit-gen__other"
-          = render "products/product-exhibit-gen__other"
-          
+      %h2.product-exhibit__user__name.bold
+        = link_to "#", class: "product-exhibit__user__name.bold" do
+          = "#{@product.brand}の#{@product.small_categorie.name}その他の商品"
+      .product-exhibit__user__item
+        -# - @other_user_products.each do |p|
+        -#   = render :partial => 'product-exhibit-gen__user', :locals => {product_id: p.id, product_name: p.name, product_image: p.image, product_price: p.price}
+
+          -# = render "products/product-exhibit-gen__other"
+          -# = render "products/product-exhibit-gen__other"
+          -# = render "products/product-exhibit-gen__other"
+          -# = render "products/product-exhibit-gen__other"
+          -# = render "products/product-exhibit-gen__other"
+          -# = render "products/product-exhibit-gen__other"
+
 .app_banner
 %footer

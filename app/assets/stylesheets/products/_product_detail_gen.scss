@@ -124,15 +124,33 @@ main {
     margin: 24px 0;
     padding: 32px 0 24px;
     &__box {
-      margin: 30px 0 0;
+      margin: 10px 0 0;
       text-align: center;
       font-size:0;
       li {
         display: inline-block;
         width: 44px;
         height: 44px;
-        border-radius: 5px;
         margin: 0 8px 8px 0;
+      }
+      i {
+        width: 44px;
+        height: 44px;
+        &.fa{
+          // background: #385185;
+          color: white;
+          border-radius: 5px;
+          line-height: 44px;
+          &-facebook{
+            background: #385185;
+          }
+          &-twitter {
+            background: #5d9dc9;
+          }
+          &-google {
+            background: #dd4b39;
+          }
+        }
       }
     }
   }
@@ -251,4 +269,25 @@ table td {
   width: 61%;
   background: #fff;
   padding: 8px;
+}
+
+.fa {
+  font-size: 20px;
+  &-good {
+    color: #ef5185;
+  }
+  &-nomal {
+    color: #fba933;
+  }
+  &-bad {
+    color: #6ab5d8;
+  }
+}
+
+.nth {
+  margin: 0 0 20px 20px;
+}
+
+.nth:nth-child(3n+1) {
+  margin: 0 0 20px;
 }

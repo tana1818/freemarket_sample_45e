@@ -1,0 +1,346 @@
+.signup-container
+
+  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    = devise_error_messages!
+
+    -# signup画面
+    %section.signup
+      = render "layouts/single-header"
+      .signup-main
+        .signup-panel
+          .signup-title
+            %p.l-signup-head 新規会員登録
+          .signup-main
+            .signup-main__Mail-btn
+              %button{ type: "button", class: "mail btn-memberinfo"}
+                メールアドレスで登録
+            .signup-main__Facebook-btn
+              = link_to '#',class: "facebook" do
+                = fa_icon "facebook-square"
+                Facebookで登録
+            .signup-main__Google-btn
+              = link_to '#',class: "google" do
+                = fa_icon "google"
+                Googleで登録
+      = render "layouts/single-footer"
+
+    -# 会員情報画面
+    %section.memberinfo
+      %header.signup-header-line
+        %h1
+          = image_tag '////www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?128691313', alt: 'mercari'
+          .signup-header-line__progress
+            .signup-header-line__progress__item
+              .signup-header-line__progress__title.signup-header-line__progress--done 会員情報
+              .signup-header-line__progress__dot.signup-header-line__progress--done
+                = fa_icon "circle"
+                .signup-header-line__progress__line
+            .signup-header-line__progress__item
+              .signup-header-line__progress__title 電話番号
+              .signup-header-line__progress__dot
+                = fa_icon "circle"
+                .signup-header-line__progress__line
+            .signup-header-line__progress__item
+              .signup-header-line__progress__title 住所入力
+              .signup-header-line__progress__dot
+                = fa_icon "circle"
+                .signup-header-line__progress__line
+            .signup-header-line__progress__item
+              .signup-header-line__progress__title 支払い方法
+              .signup-header-line__progress__dot
+                = fa_icon "circle"
+                .signup-header-line__progress__line
+            .signup-header-line__progress__item
+              .signup-header-line__progress__title 完了
+              .signup-header-line__progress__dot
+                = fa_icon "circle"
+      %main.signup-main-regist
+        .l-signup-container
+          %h4.l-signup-head 会員情報入力
+          .l-signup-inner
+            .l-signup-content
+              .form-group
+                = f.label :nickname, "ニックネーム"
+                %span.form-require 必須
+                = f.text_field :nickname,placeholder: " 例) タナカ", class: "input-default"
+              .form-group
+                = f.label :email, "メールアドレス"
+                %span.form-require 必須
+                = f.email_field :email,placeholder: "PC・携帯どちらでも可能", class: "input-default"
+              .form-group
+                = f.label :password, "パスワード"
+                %span.form-require 必須
+                = f.password_field :password,placeholder: "6文字以上", class: "input-default"
+              .form-group
+                = f.label :password_confirmation, "パスワード（確認）"
+                %span.form-require 必須
+                = f.password_field :password_confirmation,placeholder: "６文字以上", class: "input-default"
+              .form-group
+                %h5 本人確認
+                %p 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+              .form-group
+                = f.label :sei, "姓 (全角)"
+                %span.form-require 必須
+                = f.text_field :sei, placeholder: "例)田中", class: "input-default"
+              .form-group
+                = f.label :mei, "名 (全角)"
+                %span.form-require 必須
+                = f.text_field :mei, placeholder: "例)源", class: "input-default"
+              .form-group
+                = f.label :kana_sei, "姓カナ (全角)"
+                %span.form-require 必須
+                = f.text_field :kana_sei, placeholder: "例)タナカ", class: "input-default"
+              .form-group
+                = f.label :kana_mei, "名カナ (全角)"
+                %span.form-require 必須
+                = f.text_field :kana_mei, placeholder: "例)ゲン", class: "input-default"
+              .form-group
+                = f.label :birth, "生年月日"
+                %span.form-require 必須
+                .birthday
+                  = raw sprintf(f.date_select(:birth, start_year: 1900, use_month_numbers: 1, date_separator: '%s', datetime_separator: '%s'), '年', '月') + '日'
+                %p ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+              %button{ type: "button", class: "btn-default btn-red btn-tel" }
+                次へ進む
+      = render "layouts/single-footer"
+
+    -# 電話番号画面
+    %section.tel
+      %header.signup-header-line
+        %h1
+          = image_tag '////www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?128691313', alt: 'mercari'
+          .signup-header-line__progress
+            .signup-header-line__progress__item
+              .signup-header-line__progress__title.signup-header-line__progress--done 会員情報
+              .signup-header-line__progress__dot.signup-header-line__progress--done
+                = fa_icon "circle"
+                .signup-header-line__progress__line.signup-header-line__progress--done
+            .signup-header-line__progress__item.signup-header-line__progress--done
+              .signup-header-line__progress__title.signup-header-line__progress--done 電話番号
+              .signup-header-line__progress__dot.signup-header-line__progress--done
+                = fa_icon "circle"
+                .signup-header-line__progress__line
+            .signup-header-line__progress__item
+              .signup-header-line__progress__title 住所入力
+              .signup-header-line__progress__dot
+                = fa_icon "circle"
+                .signup-header-line__progress__line
+            .signup-header-line__progress__item
+              .signup-header-line__progress__title 支払い方法
+              .signup-header-line__progress__dot
+                = fa_icon "circle"
+                .signup-header-line__progress__line
+            .signup-header-line__progress__item
+              .signup-header-line__progress__title 完了
+              .signup-header-line__progress__dot
+                = fa_icon "circle"
+      %main.signup-main-regist
+        .l-signup-container
+          %h4.l-signup-head 電話番号の確認
+          .l-signup-inner
+            .l-signup-content
+              .form-group
+                = f.fields_for :user_detail, UserDetail.new do |d|
+                  = d.label :auth_tel,"携帯電話の番号"
+                  = d.text_field :auth_tel,placeholder: "携帯電話の番号を入力", class: "input-default"
+                %button{ type: "button", class: "btn-default btn-red btn-address" }
+                  次へ進む
+                .form-group
+                  %p ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+      = render "layouts/single-footer"
+
+    -# 住所入力画面
+    %section.address
+      %header.signup-header-line
+        %h1
+          = image_tag '////www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?128691313', alt: 'mercari'
+          .signup-header-line__progress
+            .signup-header-line__progress__item
+              .signup-header-line__progress__title.signup-header-line__progress--done 会員情報
+              .signup-header-line__progress__dot.signup-header-line__progress--done
+                = fa_icon "circle"
+                .signup-header-line__progress__line.signup-header-line__progress--done
+            .signup-header-line__progress__item.signup-header-line__progress--done
+              .signup-header-line__progress__title.signup-header-line__progress--done 電話番号
+              .signup-header-line__progress__dot.signup-header-line__progress--done
+                = fa_icon "circle"
+                .signup-header-line__progress__line.signup-header-line__progress--done
+            .signup-header-line__progress__item.signup-header-line__progress--done
+              .signup-header-line__progress__title.signup-header-line__progress--done 住所入力
+              .signup-header-line__progress__dot.signup-header-line__progress--done
+                = fa_icon "circle"
+                .signup-header-line__progress__line
+            .signup-header-line__progress__item
+              .signup-header-line__progress__title 支払い方法
+              .signup-header-line__progress__dot
+                = fa_icon "circle"
+                .signup-header-line__progress__line
+            .signup-header-line__progress__item
+              .signup-header-line__progress__title 完了
+              .signup-header-line__progress__dot
+                = fa_icon "circle"
+      %main.signup-main-regist
+        .l-signup-container
+          %h4.l-signup-head 発送元・お届け先住所入力
+          = f.fields_for :deliverie,Deliverie.new do |de|
+            .l-signup-inner
+              .l-signup-content
+                .form-group
+                  = de.label :sei,"姓 (全角)"
+                  %span.form-require 必須
+                  = de.text_field :sei,placeholder: "例)田中", class: "input-default"
+                .form-group
+                  = de.label :mei,"名 (全角)"
+                  %span.form-require 必須
+                  = de.text_field :mei,placeholder: "例)源", class: "input-default"
+                .form-group
+                  = de.label :kana_sei,"姓カナ (全角)"
+                  %span.form-require 必須
+                  = de.text_field :kana_sei,placeholder: "例)タナカ", class: "input-default"
+                .form-group
+                  = de.label :kana_mei,"名カナ (全角)"
+                  %span.form-require 必須
+                  = de.text_field :kana_mei,placeholder: "例)ゲン", class: "input-default"
+                .form-group
+                  = de.label :zip_code,"郵便番号"
+                  %span.form-require 必須
+                  = de.text_field :zip_code,placeholder: "例)123-4567", class: "input-default"
+                .form-group
+                  = de.label :prefecture_id,"都道府県"
+                  %span.form-require 必須
+                  = de.collection_select :prefecture_id, Prefecture.all, :id, :name
+                .form-group
+                  = de.label :shikutyoson,"市区町村"
+                  %span.form-require 必須
+                  = de.text_field :shikutyoson,placeholder: "例)札幌市豊平区", class: "input-default"
+                .form-group
+                  = de.label :banchi,"市区町村"
+                  %span.form-require 必須
+                  = de.text_field :banchi,placeholder: "例)羊ケ丘1", class: "input-default"
+                .form-group
+                  = de.label :tatemono,"建物名"
+                  %span.form-require 任意
+                  = de.text_field :tatemono,placeholder: "例)フォンティス", class: "input-default"
+                .form-group
+                  = de.label :tel,"電話"
+                  %span.form-require 任意
+                  = de.text_field :tel,placeholder: "例)0123456789", class: "input-default"
+                %button{ type: "button", class: "btn-default btn-red btn-credit" }
+                  次へ進む
+        = render "layouts/single-footer"
+
+    -# 支払方法画面
+    %section.credit
+      %header.signup-header-line
+        %h1
+          = image_tag '////www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?128691313', alt: 'mercari'
+          .signup-header-line__progress
+            .signup-header-line__progress__item
+              .signup-header-line__progress__title.signup-header-line__progress--done 会員情報
+              .signup-header-line__progress__dot.signup-header-line__progress--done
+                = fa_icon "circle"
+                .signup-header-line__progress__line.signup-header-line__progress--done
+            .signup-header-line__progress__item.signup-header-line__progress--done
+              .signup-header-line__progress__title.signup-header-line__progress--done 電話番号
+              .signup-header-line__progress__dot.signup-header-line__progress--done
+                = fa_icon "circle"
+                .signup-header-line__progress__line.signup-header-line__progress--done
+            .signup-header-line__progress__item.signup-header-line__progress--done
+              .signup-header-line__progress__title.signup-header-line__progress--done 住所入力
+              .signup-header-line__progress__dot.signup-header-line__progress--done
+                = fa_icon "circle"
+                .signup-header-line__progress__line.signup-header-line__progress--done
+            .signup-header-line__progress__item.signup-header-line__progress--done
+              .signup-header-line__progress__title.signup-header-line__progress--done 支払い方法
+              .signup-header-line__progress__dot.signup-header-line__progress--done
+                = fa_icon "circle"
+                .signup-header-line__progress__line
+            .signup-header-line__progress__item
+              .signup-header-line__progress__title 完了
+              .signup-header-line__progress__dot
+                = fa_icon "circle"
+      %main.signup-main-credit
+        .my-page-credit__body
+          .my-page-credit__body__content
+            .my-page-credit__body__main
+              %h2.my-page-credit__body__main__head 支払い方法
+              = f.fields_for :card, Card.new do |c|
+                .my-page-credit__body__main__inner__body
+                  .my-page-credit__body__main__inner__body__field
+                    = c.label :card_number,"カード番号"
+                    %span.form-require 必須
+                    = c.text_field :card_number,placeholder: "半角数字のみ", class: "input-default"
+                    %ul.signup-card-list
+                      %li
+                        =image_tag('credit/visa.svg', class: "signup-card-list__visa")
+                      %li
+                        =image_tag('credit/master-card.svg', class: "signup-card-list__master")
+                      %li
+                        =image_tag('credit/saison-card.svg', class: "signup-card-list__saison")
+                      %li
+                        =image_tag('credit/jcb.svg', class: "signup-card-list__jcb")
+                      %li
+                        =image_tag('credit/american_express.svg', class: "signup-card-list__american")
+                      %li
+                        =image_tag('credit/dinersclub.svg', class: "signup-card-list__diners")
+                      %li
+                        =image_tag('credit/discover.svg', class: "signup-card-list__discover")
+                  .my-page-credit__body__main__inner__body__field.signup-form-expire
+                    有効期限
+                    %span.form-require 必須
+                    .signup-form-expire__wrap
+                      = c.select :expiration_month, options_for_select(["-"]+ (1..12).to_a.map {|m|format('%02d', m) }), {},{class: "input-default"}
+                      %span 月
+                    .signup-form-expire__wrap
+                      = c.select :expiration_year, options_for_select(["-"]+ (19..29).to_a.map {|m|format('%02d', m) }), {},{ class: "input-default"}
+                      %span 年
+                  .my-page-credit__body__main__inner__body__field
+                    セキュリティコード
+                    %span.form-require 必須
+                    = c.text_field :security_code, placeholder: "カード背面4桁もしくは3桁の番号", class: "input-default validate[required, custom[onlyNumberSp]]"
+                    %p.info カード裏面の番号とは？
+                    = f.submit "次へ進む", class: "btn-default btn-red btn-complete"
+        = render "layouts/single-footer"
+
+    -# 完了画面
+    %section.complete
+      %header.signup-header-line
+        %h1
+          = image_tag '////www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?128691313', alt: 'mercari'
+          .signup-header-line__progress
+            .signup-header-line__progress__item
+              .signup-header-line__progress__title.signup-header-line__progress--done 会員情報
+              .signup-header-line__progress__dot.signup-header-line__progress--done
+                = fa_icon "circle"
+                .signup-header-line__progress__line.signup-header-line__progress--done
+            .signup-header-line__progress__item.signup-header-line__progress--done
+              .signup-header-line__progress__title.signup-header-line__progress--done 電話番号
+              .signup-header-line__progress__dot.signup-header-line__progress--done
+                = fa_icon "circle"
+                .signup-header-line__progress__line.signup-header-line__progress--done
+            .signup-header-line__progress__item.signup-header-line__progress--done
+              .signup-header-line__progress__title.signup-header-line__progress--done 住所入力
+              .signup-header-line__progress__dot.signup-header-line__progress--done
+                = fa_icon "circle"
+                .signup-header-line__progress__line.signup-header-line__progress--done
+            .signup-header-line__progress__item.signup-header-line__progress--done
+              .signup-header-line__progress__title.signup-header-line__progress--done 支払い方法
+              .signup-header-line__progress__dot.signup-header-line__progress--done
+                = fa_icon "circle"
+                .signup-header-line__progress__line.signup-header-line__progress--done
+            .signup-header-line__progress__item.signup-header-line__progress--done
+              .signup-header-line__progress__title.signup-header-line__progress--done 完了
+              .signup-header-line__progress__dot.signup-header-line__progress--done
+                = fa_icon "circle"
+      %main.signup-main-regist
+        .l-signup-container
+          %h4.l-signup-head 登録完了
+          .l-signup-inner
+            .l-signup-content-last
+              .form-group
+                %h6 &nbsp;&nbsp;ありがとうございます。
+                %h6 会員登録が完了しました。
+              .form-group
+              = link_to "メルカリを始める", root_path ,class: "btn-default btn-red"
+              -# = f.submit "メルカリを始める", class: "btn-default btn-red"
+      = render "layouts/single-footer"

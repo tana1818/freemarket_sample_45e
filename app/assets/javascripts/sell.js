@@ -76,7 +76,7 @@ $(function() {
           sizePullDown.html(data);
         } else {
           sizePullDown.css('display', 'none');
-        };
+        }
       })
       .fail(function() {
         alert('データの取得に失敗しました');
@@ -93,7 +93,7 @@ $(function() {
           brandTextBox.html(data);
         } else {
           brandTextBox.css('display', 'none');
-        };
+        }
       })
       .fail(function() {
         alert('データの取得に失敗しました');
@@ -113,7 +113,7 @@ $(function() {
       deliveryMethodPullDown.css('display', 'none');
     } else {
       deliveryMethodPullDown.css('display', 'block');
-    };
+    }
   });
 
 
@@ -151,7 +151,7 @@ $(function() {
     } else if(kind == 'del') {
       targetElement.hide();
     }
-  };
+  }
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -206,7 +206,7 @@ $(function() {
           toggleErrorMessage('add', '40文字以下で入力してください', '#alert-name');
         } else {
           toggleErrorMessage('del', '', '#alert-name');
-        };
+        }
 
         if (fullMessage.match("Description is too short")) {
           toggleErrorMessage('add', '必須項目です', '#alert-description');
@@ -214,67 +214,67 @@ $(function() {
           toggleErrorMessage('add', '1000文字以下で入力してください', '#alert-description');
         } else {
           toggleErrorMessage('del', '', '#alert-name');
-        };
+        }
 
         if (fullMessage.match("Large category can't be blank")) {
           toggleErrorMessage('add', '必須項目です', '#alert-large-category');
         } else {
           toggleErrorMessage('del', '', '#alert-large-category');
-        };
+        }
 
         if (fullMessage.match("Middle category can't be blank")) {
           toggleErrorMessage('add', '必須項目です', '#alert-middle-category');
         } else {
           toggleErrorMessage('del', '', '#alert-middle-category');
-        };
+        }
 
         if (fullMessage.match("Small category can't be blank")) {
           toggleErrorMessage('add', '必須項目です', '#alert-small-category');
         } else {
           toggleErrorMessage('del', '', '#alert-small-category');
-        };
+        }
 
         if (fullMessage.match("Size can't be blank")) {
           toggleErrorMessage('add', '必須項目です', '#alert-size');
         } else {
           toggleErrorMessage('del', '', '#alert-size');
-        };
+        }
 
         if (fullMessage.match("Condition can't be blank")) {
           toggleErrorMessage('add', '必須項目です', '#alert-condition');
         } else {
           toggleErrorMessage('del', '', '#alert-condition');
-        };
+        }
 
         if (fullMessage.match("Delivery fee pay can't be blank")) {
           toggleErrorMessage('add', '必須項目です', '#alert-delivery-fee-pay');
         } else {
           toggleErrorMessage('del', '', '#alert-delivery-fee-pay');
-        };
+        }
 
         if (fullMessage.match("Delivery method can't be blank")) {
           toggleErrorMessage('add', '必須項目です', '#alert-delivery-method');
         } else {
           toggleErrorMessage('del', '', '#alert-delivery-method');
-        };
+        }
 
         if (fullMessage.match("Prefecture can't be blank")) {
           toggleErrorMessage('add', '必須項目です', '#alert-prefecture');
         } else {
           toggleErrorMessage('del', '', '#alert-prefecture');
-        };
+        }
 
         if (fullMessage.match("Shipment period can't be blank")) {
           toggleErrorMessage('add', '必須項目です', '#alert-shipment-period');
         } else {
           toggleErrorMessage('del', '', '#alert-shipment-period');
-        };
+        }
 
         if (fullMessage.match("Price is not a number") || fullMessage.match("Price must be greater than or equal to 300") || fullMessage.match("Price must be less than or equal to 9999999")) {
           toggleErrorMessage('add', '300以上9999999以下の数値を入力してください', '#alert-price');
         } else {
           toggleErrorMessage('del', '', '#alert-price');
-        };
+        }
 
         // 選択されていたファイルを一度リセットして復元
         var dropzoneFilesCopy = myDropzone.files.slice(0);

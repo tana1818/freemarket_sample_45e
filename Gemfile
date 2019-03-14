@@ -74,6 +74,12 @@ gem 'haml-rails', '~> 1.0'
 gem 'erb2haml'
 gem 'font-awesome-rails'
 gem 'devise'
+gem 'jquery-rails'
+gem 'active_hash'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'dropzonejs-rails'
+gem 'fog-aws'
 
 group :production do
   gem 'unicorn'

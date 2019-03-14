@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_08_021639) do
+ActiveRecord::Schema.define(version: 2019_03_12_121841) do
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "card_number", null: false
@@ -37,6 +37,16 @@ ActiveRecord::Schema.define(version: 2019_03_08_021639) do
     t.index ["middle_category_id"], name: "index_categories_on_middle_category_id"
     t.index ["size_kind_id"], name: "index_categories_on_size_kind_id"
     t.index ["small_category_id"], name: "index_categories_on_small_category_id"
+  end
+
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "comment"
+    t.bigint "user_id"
+    t.bigint "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_comments_on_product_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "conditions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -79,7 +89,7 @@ ActiveRecord::Schema.define(version: 2019_03_08_021639) do
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name1", null: false
+    t.string "name1", default: ""
     t.string "name2"
     t.string "name3"
     t.string "name4"
@@ -223,6 +233,8 @@ ActiveRecord::Schema.define(version: 2019_03_08_021639) do
   add_foreign_key "categories", "large_categories"
   add_foreign_key "categories", "middle_categories"
   add_foreign_key "categories", "small_categories"
+  add_foreign_key "comments", "products"
+  add_foreign_key "comments", "users"
   add_foreign_key "deliveries", "prefectures"
   add_foreign_key "deliveries", "users"
   add_foreign_key "user_details", "prefectures"

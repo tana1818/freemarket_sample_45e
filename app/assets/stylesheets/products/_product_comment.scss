@@ -1,0 +1,42 @@
+.comment {
+  background-color: white;
+  padding: 24px;
+  &-image {
+    width: 50px;
+    height: 50px;
+    // top: -20px;
+    float: left;
+    border-radius: 50%;
+  }
+  &-content {
+    margin:20px 0 40px;
+  }
+  &-user {
+    &__left {
+      float: left;
+      top: -10px;
+      position: relative;
+    }
+    &__right {
+      float: right;
+      inline: block;
+      width: calc(100% - 70px);
+      padding: 16px;
+      background: #eef0f4;
+      border-radius: 15px;
+      line-height: 1.5;
+    }
+  }
+}
+
+.sankaku {
+  width: 0;
+	height: 0;
+	border-top: 10px solid white;
+	border-right: 10px solid #eef0f4;
+	border-bottom: 10px solid white;
+	border-left: 10px solid white;
+  position: relative;
+  float:left;
+  top: 11px;
+}

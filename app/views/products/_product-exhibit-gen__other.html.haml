@@ -1,8 +1,0 @@
-.product-exhibit__user__item-box
-  = link_to "/products/#{product_id}" do
-    .product-exhibit__user__item-box__photo
-      = image_tag product_image.name1
-    .product-exhibit__user__item-box__text
-      %h4= product_name
-      %h5= "¥" + product_price.to_s(:delimited)
-      %p.product-exhibit__user__item-box__text__price-tax (税込)

@@ -3,9 +3,8 @@ class CommentsController < ApplicationController
     def new
     end
 
-    def create
+    def create #商品コメント保存
       @comment = Comment.create(comment_params)
-      # binding.pry
       redirect_to product_path(@comment.product_id)
     end
 

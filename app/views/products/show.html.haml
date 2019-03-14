@@ -1,6 +1,8 @@
 = render "layouts/header"
 = render "layouts/breadcrumb"
 
+//---------商品詳細左側（写真）---------
+
 %main.clearfix-g
   .product-detail
     %h1.product-name.bold
@@ -31,8 +33,12 @@
           .product-photo-srade
             = image_tag @product.image.name1, class: "product-photo-srade"
 
+      //---------商品詳細右側（詳細）---------
+
       %table.product-detail__table
         = render "products/product-detail-gen__table"
+
+    //---------商品詳細その他---------
 
     .product-detail__price
       %span.product-price.bold= '¥ ' + @product.price.to_s(:delimited)
@@ -59,6 +65,8 @@
           %span あんしん・あんぜんへの取り組み
       .product-detail__like.clear
 
+  //---------商品詳細のコメント---------
+
   .product-message
     = render 'products/product__comment-box'
     = form_for [@product, @comment] do |c|
@@ -72,6 +80,8 @@
       = link_to "ワンピース　花柄", "#", class: 'gen'
     %li.product-nav-item__next
       = link_to "Nintendo Switch", "#"
+
+  //---------SNSリンク一覧---------
 
   .product-media
     %ul.product-media__box
@@ -88,6 +98,8 @@
           = link_to "https://google.co.jp", class: "google" do
             = fa_icon "google", class: "fa fa-google"
 
+    //---------商品詳細のユーザーのその他の商品一覧---------
+
   .product-exhibit
     .product-exhibit__user
       %h2.product-exhibit__user__name.bold
@@ -95,22 +107,17 @@
           = "#{@product.user.nickname}さんの商品"
       .product-exhibit__user__item
         - @other_user_products.each do |p|
-          = render :partial => 'product-exhibit-gen__user', :locals => {product_id: p.id, product_name: p.name, product_image: p.image, product_price: p.price}
+          = render partial: 'product-exhibit-gen__user', locals: {product_id: p.id, product_name: p.name, product_image: p.image, product_price: p.price}
 
-    .product-exhibit__other
+    //---------商品詳細のブランドのその他の商品一覧---------
+
+    .product-exhibit__other.clearfix
       %h2.product-exhibit__user__name.bold
         = link_to "#", class: "product-exhibit__user__name.bold" do
           = "#{@product.brand}の#{@product.small_categorie.name}その他の商品"
       .product-exhibit__user__item
-        -# - @other_user_products.each do |p|
-        -#   = render :partial => 'product-exhibit-gen__user', :locals => {product_id: p.id, product_name: p.name, product_image: p.image, product_price: p.price}
-
-          -# = render "products/product-exhibit-gen__other"
-          -# = render "products/product-exhibit-gen__other"
-          -# = render "products/product-exhibit-gen__other"
-          -# = render "products/product-exhibit-gen__other"
-          -# = render "products/product-exhibit-gen__other"
-          -# = render "products/product-exhibit-gen__other"
+        - @other_category_products.each do |p|
+          = render partial: 'product-exhibit-gen__user', locals: {product_id: p.id, product_name: p.name, product_image: p.image, product_price: p.price}
 
 .app_banner
 %footer

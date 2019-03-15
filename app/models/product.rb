@@ -3,19 +3,14 @@ class Product < ApplicationRecord
   belongs_to :delivery_fee_pay
   belongs_to :delivery_method
   belongs_to :shipment_period
-  belongs_to :large_categorie
-  belongs_to :middle_categorie
-  belongs_to :small_categorie
   has_many :comments
-  belongs_to :image
   belongs_to :size
   belongs_to :user
-  has_many :comments
   has_many :likes
   has_many :purchases
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
-  
+
   mount_uploaders :images, ImageUploader
   serialize :images, JSON
 
@@ -34,5 +29,5 @@ class Product < ApplicationRecord
   validates :size, presence: true
   validates :images, presence: true
   validates :user, presence: true
-  
+
 end

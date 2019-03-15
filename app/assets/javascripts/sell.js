@@ -198,6 +198,7 @@ $(function() {
         // 返ってきたエラーメッセージの処理
         var fullMessage = response.error;
         if (!fullMessage) {return;}
+        console.log(fullMessage);
 
         if (fullMessage.match("Name is too short")) {
           toggleErrorMessage('add', '必須項目です', '#alert-name');

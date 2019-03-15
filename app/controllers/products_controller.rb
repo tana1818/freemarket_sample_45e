@@ -29,7 +29,7 @@ class ProductsController < ApplicationController
   end
 
   def product_by_large_category(id)
-    Product.where(large_categorie_id: id).order("id DESC").limit(4)
+    Product.where(large_category: id).order("id DESC").limit(4)
   end
 
   def product_by_brand_category(id)
@@ -89,5 +89,5 @@ class ProductsController < ApplicationController
     
   def comment_params
     params.require(:comment).permit(:comment, :product_id)
-
+  end
 end

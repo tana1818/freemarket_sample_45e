@@ -82,91 +82,51 @@ https://qiita.com/kazuooooo/items/47e7d426cbb33355590e
 - belongs_to :user
 - has_many :purchases
 
+
 # ＜商品系のテーブル＞
 
 ## products（商品テーブル）
 |Column|Type|Options|Note|
 |------|----|-------|----|
-|name|string|null: false|商品名（〜40文字）|
-|description|text|null: false|商品説明（〜1000文字）|
-|category_id|references|null: false,foreign_key: true|カテゴリー／categories.id|
-|condition_id|references|null: false,foreign_key: true|商品の状態／conditions.id|
-|delivery_fee_pay_id|references|null: false,foreign_key: true|配送料の負担／delivery_fee_pays.id|
-|delivery_method_id|references|null: false,foreign_key: true|配送の方法／delivery_methods.id|
-|prefecture|string|null: false|発送元の地域|
-|shipment_period_id|references|null: false,foreign_key: true|発送までの日数／shipment_periods.id|
-|price|integer|null: false|価格|
+|name|string|null: false|商品名（1〜40文字）|
+|description|text|null: false|商品説明（1〜1000文字）|
+|large_category|integer|null: false|大カテゴリー／categories.id|
+|middle_category|integer|null: false|中カテゴリー／categories.id|
+|small_category|integer|null: false|小カテゴリー／categories.id|
+|condition|references|null: false,foreign_key: true|商品の状態／conditions.id|
+|delivery_fee_pay|references|null: false,foreign_key: true|配送料の負担／delivery_fee_pays.id|
+|delivery_method|references|null: false,foreign_key: true|配送の方法／delivery_methods.id|
+|prefecture_id|integer|null: false|発送元の地域／prefectures.id|
+|shipment_period|references|null: false,foreign_key: true|発送までの日数／shipment_periods.id|
+|price|integer|null: false|価格（300〜9999999）|
 |status|string|null: false|出品ステータス（出品停止中・出品中・取引中・売却済み）|
-|size_id|references|null: false,foreign_key: true|サイズ／sizes.id／categories.size_kind_idがnullでなければ必須|
-|brand|string|null: false|ブランド名／is_brand_presenceがnullでなければ必須|
-|user_id|references|null: false,foreign_key: true|ユーザーID／users.id|
-|large_category_id|references|null: false,foreign_key: ture|大カテゴリ|
-|middle_category_id|references|null: false,foreign_key: true|中カテゴリ|
-|small_category_id|references|null: false,foreign_key: true|小カテゴリ|
-|image|string|null: false|商品画像|
-
+|size|references|null: false,foreign_key: true|サイズ／sizes.id／categories.size_kind_idがnullでなければ必須|
+|brand|string|-------|ブランド名|
+|user|references|null: false,foreign_key: true|ユーザーID／users.id|
 
 ### Association
-- belongs_to :category
 - belongs_to :condition
 - belongs_to :delivery_fee_pay
 - belongs_to :delivery_method
-- belongs_to :prefecture
 - belongs_to :shipment_period
 - belongs_to :size
 - belongs_to :user
-- belongs_to :small_category
-- belongs_to :middle_category
-- belongs_to :large_category
-- has_many :images
 - has_many :comments
 - has_many :likes
 - has_many :purchases
-
-## large_categories（大カテゴリーテーブル）
-|Column|Type|Options|Note|
-|------|----|-------|----|
-|name|string|null: false|大カテゴリー名|
-|sort_by|integer|null: false|並び順|
-
-### Association
-- has_many :categories
-
-
-## middle_categories（中カテゴリーテーブル）
-|Column|Type|Options|Note|
-|------|----|-------|----|
-|name|string|null: false|中カテゴリー名|
-|sort_by|integer|null: false|並び順|
-
-### Association
-- has_many :categories
-
-
-## small_categories (小カテゴリーテーブル)
-|Column|Type|Options|Note|
-|------|----|-------|----|
-|name|string|null: false|小カテゴリー名|
-|sort_by|integer|null: false|並び順|
-
-### Association
-- has_many :categories
 
 
 ## categories（カテゴリーテーブル）
 |Column|Type|Options|Note|
 |------|----|-------|----|
 |name|string|null: false|カテゴリー名
-|division|string|null: false|区別
+|division|integer|-------|区分|
 |sort_by|integer|null: false|並び順|
 |size_kind_id|integer|-------|サイズ種別|
 |is_brand_presence|integer|-------|ブランド有無|
 
 ### Association
-- belongs_to :small_category
-- belongs_to :middle_category
-  belongs_to :large_category
-- has_many :products
+
 
 
 ## sizes（サイズテーブル）
@@ -228,6 +188,7 @@ https://qiita.com/kazuooooo/items/47e7d426cbb33355590e
 
 ### Association
 - has_many :products
+
 
 ## comments（商品コメントテーブル）
 |Column|Type|Options|Note|

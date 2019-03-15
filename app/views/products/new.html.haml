@@ -5,137 +5,168 @@
 %main.sell-main
   %h2.sell-main__title
     商品の情報を入力
-  .sell-form
-    .sell-form__upload-box
-      %h3.sell-form__upload-head
-        出品画像
-        %span.sell-form__form-require
-          必須
-      %p.sell-form__desc
-        最大10枚までアップロードできます
-        .sell-form__drop-box
-          %pre.sell-form__box-desc
+  = form_for @product, html: {class: 'dropzone', id: 'my-awesome-dropzone'}, url: products_path do |f|
+    .sell-form
+      .sell-form__upload-box
+        %h3.sell-form__upload-head
+          出品画像
+          %span.sell-form__form-require
+            必須
+        %p.sell-form__desc
+          最大10枚までアップロードできます
+        .dropzone__message
+          .dropzone__text
             ドラッグアンドドロップ
+            %br
             またはクリックしてファイルをアップロード
-  .sell-form__content
-    .sell-form__group
-      %label.sell-form__label
-        商品名
-        %span.sell-form__form-require
-          必須
-      .div
-        %input.sell-form__input{placeholder: '商品名（必須 40文字まで)'}
-    .sell-form__group
-      %label.sell-form__label
-        商品の説明
-        %span.sell-form__form-require
-          必須
-      %textarea.sell-form__textarea{placeholder: '商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。'}
-  .sell-form__content
-    %h3.sell-form__sub-head
-      商品の詳細
-    .sell-form__mini-box
+          #dz-previews.dropzone__previews
+        .sell-form__alert#alert-images
+    .sell-form__content
       .sell-form__group
         %label.sell-form__label
-          カテゴリー
+          商品名
           %span.sell-form__form-require
             必須
-        .sell-form__select-wrap
-          %select.sell-form__select
-            %option{value: ''} ---
-            %option{value: '1'} レディース
-          %i.fa.fa-angle-down
+        .div
+          = f.text_field :name, class: 'sell-form__input', placeholder: '商品名（必須 40文字まで)'
+        .sell-form__alert#alert-name
       .sell-form__group
         %label.sell-form__label
-          商品の状態
+          商品の説明
           %span.sell-form__form-require
             必須
-        .sell-form__select-wrap
-          %select.sell-form__select
-            %option{value: ''} ---
-            %option{value: '1'} 新品、未使用
-          %i.fa.fa-angle-down
-  .sell-form__content
-    %h3.sell-form__sub-head
-      配送について
-    = link_to '', { class: 'sell-form__question', target: '_blank' } do
-      ?
-    .sell-form__mini-box
-      .sell-form__group
-        %label.sell-form__label
-          配送料の負担
-          %span.sell-form__form-require
-            必須
-        .sell-form__select-wrap
-          %select.sell-form__select
-            %option{value: ''} ---
-            %option{value: '1'} レディース
-          %i.fa.fa-angle-down
-      .sell-form__group
-        %label.sell-form__label
-          発送元の地域
-          %span.sell-form__form-require
-            必須
-        .sell-form__select-wrap
-          %select.sell-form__select
-            %option{value: ''} ---
-            %option{value: '1'} 新品、未使用
-          %i.fa.fa-angle-down
-      .sell-form__group
-        %label.sell-form__label
-          発送までの日数
-          %span.sell-form__form-require
-            必須
-        .sell-form__select-wrap
-          %select.sell-form__select
-            %option{value: ''} ---
-            %option{value: '1'} 新品、未使用
-          = fa_icon('angle-down')
-  .sell-form__content
-    %h3.sell-form__sub-head
-      販売価格(300〜9,999,999)
-    = link_to '', { class: 'sell-form__question', target: '_blank' } do
-      ?
-    .sell-form__mini-box
-      .sell-form__price
-        .sell-form__left-box
-          %label.sell-form__price-label
-            価格
+        = f.text_area :description, class: 'sell-form__textarea', placeholder: '商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。'
+        .sell-form__alert#alert-description
+    .sell-form__content
+      %h3.sell-form__sub-head
+        商品の詳細
+      .sell-form__mini-box
+        .sell-form__group
+          %label.sell-form__label
+            カテゴリー
             %span.sell-form__form-require
               必須
-        .sell-form__right-box
-          ¥
-          .sell-form__price-wrap
-            %input.sell-form__price-input{placeholder: '例）300'}
-      .sell-form__fee
-        .sell-form__left-box
-          販売手数料 (10%)
-        .sell-form__right-box -
-      .sell-form__profit
-        .sell-form__left-box
-          販売利益
-        .sell-form__profit-right-box -
-  .sell-form__content
-    %div
-      %p.sell-form__caution
-        = link_to '', { target: '_blank' } do
-          禁止されている出品
-        、
-        = link_to '', { target: '_blank' } do
-          行為
-        を必ずご確認ください。
-      %p.sell-form__caution
-        またブランド品でシリアルナンバー等がある場合はご記載ください。
-        = link_to '', { target: '_blank' } do
-          偽ブランドの販売
-        は犯罪であり処罰される可能性があります。
-      %p.sell-form__caution
-        また、出品をもちまして
-        = link_to '' do
-          加盟店規約
-        に同意したことになります。
-    = link_to '出品する', '#', class: 'sell-form__btn--sell'
-    = link_to 'もどる', '#', class: 'sell-form__btn--back'
+          .sell-form__select-wrap#sell-form__large-category
+            = f.collection_select :large_category, @large_categories, :id, :name, {prompt: '---'}, {class: 'sell-form__select'}
+            = fa_icon('angle-down')
+          .sell-form__alert#alert-large-category
+          .sell-form__select-wrap#sell-form__middle-category
+            = render partial: 'middle_category', locals: {division: :null}
+          .sell-form__select-wrap#sell-form__small-category
+            = render partial: 'small_category', locals: {division: :null}
+        .sell-form__group#sell-form__size-group
+          = render partial: 'size', locals: {size_kind_id: :null}
+        .sell-form__group#sell-form__brand-group
+          = render partial: 'brand'
+        .sell-form__group
+          %label.sell-form__label
+            商品の状態
+            %span.sell-form__form-require
+              必須
+          .sell-form__select-wrap
+            = f.collection_select :condition_id, @conditions, :id, :name, {prompt: '---'}, {class: 'sell-form__select'}
+            = fa_icon('angle-down')
+          .sell-form__alert#alert-condition
+    .sell-form__content
+      %h3.sell-form__sub-head
+        配送について
+      = link_to '', { class: 'sell-form__question', target: '_blank' } do
+        ?
+      .sell-form__mini-box
+        .sell-form__group
+          %label.sell-form__label
+            配送料の負担
+            %span.sell-form__form-require
+              必須
+          .sell-form__select-wrap
+            = f.collection_select :delivery_fee_pay_id, @delivery_fee_pays, :id, :name, {prompt: '---'}, {class: 'sell-form__select'}
+            = fa_icon('angle-down')
+          .sell-form__alert#alert-delivery-fee-pay
+        .sell-form__group#sell-form__delivery-method-group
+          %label.sell-form__label
+            配送の方法
+            %span.sell-form__form-require
+              必須
+          .sell-form__select-wrap
+            = f.collection_select :delivery_method_id, @delivery_methods, :id, :name, {prompt: '---'}, {class: 'sell-form__select'}
+            = fa_icon('angle-down')
+          .sell-form__alert#alert-delivery-method
+        .sell-form__group
+          %label.sell-form__label
+            発送元の地域
+            %span.sell-form__form-require
+              必須
+          .sell-form__select-wrap
+            = f.collection_select :prefecture_id, @prefectures, :id, :name, {prompt: '---'}, {class: 'sell-form__select'}
+            = fa_icon('angle-down')
+          .sell-form__alert#alert-prefecture
+        .sell-form__group
+          %label.sell-form__label
+            発送までの日数
+            %span.sell-form__form-require
+              必須
+          .sell-form__select-wrap
+            = f.collection_select :shipment_period_id, @shipment_periods, :id, :name, {prompt: '---'}, {class: 'sell-form__select'}
+            = fa_icon('angle-down')
+          .sell-form__alert#alert-shipment-period
+    .sell-form__content
+      %h3.sell-form__sub-head
+        販売価格(300〜9,999,999)
+      = link_to '', { class: 'sell-form__question', target: '_blank' } do
+        ?
+      .sell-form__mini-box
+        .sell-form__price
+          .clearfix
+            .sell-form__left-box
+              %label.sell-form__price-label
+                価格
+                %span.sell-form__form-require
+                  必須
+            .sell-form__right-box
+              ¥
+              .sell-form__price-wrap
+                = f.text_field :price, class: 'sell-form__price-input', placeholder: '例）300'
+          .clearfix
+            .sell-form__alert#alert-price
+        .sell-form__fee
+          .sell-form__left-box
+            販売手数料 (10%)
+          .sell-form__right-box#number-fee -
+        .sell-form__profit
+          .sell-form__left-box
+            販売利益
+          .sell-form__profit-right-box#number-profit -
+    .sell-form__content
+      %div
+        %p.sell-form__caution
+          = link_to '', { target: '_blank' } do
+            禁止されている出品
+          、
+          = link_to '', { target: '_blank' } do
+            行為
+          を必ずご確認ください。
+        %p.sell-form__caution
+          またブランド品でシリアルナンバー等がある場合はご記載ください。
+          = link_to '', { target: '_blank' } do
+            偽ブランドの販売
+          は犯罪であり処罰される可能性があります。
+        %p.sell-form__caution
+          また、出品をもちまして
+          = link_to '' do
+            加盟店規約
+          に同意したことになります。
+        = f.submit '出品する', class: 'sell-form__btn--sell'
+        = link_to 'もどる', root_path, class: 'sell-form__btn--back'
+  .modal
+    .modal__body
+      .modal__title
+        出品が完了しました
+      .modal__main
+        .modal__text
+          あなたが出品した商品は「出品した商品一覧」からいつでも見ることができます。
+        = link_to '続けて出品する', new_product_path, class: 'modal__btn--next'
+        .modal__link
+          = link_to '商品ページへ行ってシェアする', '#', id: 'modal__share'
 %footer.sell-footer
   %ul.sell-footer__list
     %li.sell-footer__item

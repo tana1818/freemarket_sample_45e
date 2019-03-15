@@ -61,16 +61,15 @@ ActiveRecord::Schema.define(version: 2019_03_12_121841) do
     t.string "mei", null: false
     t.string "kana_sei", null: false
     t.string "kana_mei", null: false
-    t.integer "zip_code", null: false
+    t.string "zip_code", null: false
     t.string "shikutyoson", null: false
     t.string "banchi", null: false
-    t.string "tatemono", null: false
-    t.integer "tel", null: false
+    t.string "tatemono"
+    t.integer "tel"
     t.bigint "user_id"
-    t.bigint "prefecture_id"
+    t.integer "prefecture_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["prefecture_id"], name: "index_deliveries_on_prefecture_id"
     t.index ["user_id"], name: "index_deliveries_on_user_id"
   end
 
@@ -194,11 +193,6 @@ ActiveRecord::Schema.define(version: 2019_03_12_121841) do
   end
 
   create_table "user_details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "sei", null: false
-    t.string "mei", null: false
-    t.string "kana_sei", null: false
-    t.string "kana_mei", null: false
-    t.date "birth", null: false
     t.integer "auth_tel", null: false
     t.integer "zip_code"
     t.string "shikutyoson"
@@ -216,8 +210,13 @@ ActiveRecord::Schema.define(version: 2019_03_12_121841) do
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
     t.text "introduction"
-    t.string "uid", null: false
-    t.string "provider", null: false
+    t.string "uid"
+    t.string "provider"
+    t.string "sei", null: false
+    t.string "mei", null: false
+    t.string "kana_sei", null: false
+    t.string "kana_mei", null: false
+    t.date "birth", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -235,7 +234,6 @@ ActiveRecord::Schema.define(version: 2019_03_12_121841) do
   add_foreign_key "categories", "small_categories"
   add_foreign_key "comments", "products"
   add_foreign_key "comments", "users"
-  add_foreign_key "deliveries", "prefectures"
   add_foreign_key "deliveries", "users"
   add_foreign_key "user_details", "prefectures"
   add_foreign_key "user_details", "users"

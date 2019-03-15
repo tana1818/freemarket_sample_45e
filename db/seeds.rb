@@ -106,8 +106,6 @@ ShipmentPeriod.create(name: '2~3日で発送', sort_by: 2)
 ShipmentPeriod.create(name: '4~7日で発送', sort_by: 3)
 
 User.create(nickname: 'テスト', email: 'test@test.com', password: 'passw0rd')
-
-
-
+User.create(nickname: 'テスト2', email: 'test2@test.com', password: 'passw0rd')
 
 

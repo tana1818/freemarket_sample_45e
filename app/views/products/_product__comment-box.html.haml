@@ -1,0 +1,17 @@
+.comment
+  - if @comments
+    -@comments.each do |c|
+      %ul.comment__list
+        %li.comment-content.clearfix
+          =link_to user_path, class: "comment-user__left" do
+            = image_tag "member_photo_noimage_thumb.png", class: "comment-image"
+          .sankaku
+          .comment-user__right
+            .comment-user__right-name
+              = c.user.nickname
+            .comment-user__right-box
+              .comment-user__text
+                = c.comment
+              .comment-user__time
+                = time_ago_in_words(c.created_at)
+                = fa_icon("clock-o", class: "clock")

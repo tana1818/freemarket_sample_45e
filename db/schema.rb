@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2019_03_14_045805) do
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -35,8 +36,8 @@ ActiveRecord::Schema.define(version: 2019_03_14_045805) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "comment", null: false
-    t.bigint "product_id", null: false
-    t.bigint "user_id", null: false
+    t.bigint "user_id"
+    t.bigint "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_comments_on_product_id"
@@ -86,8 +87,6 @@ ActiveRecord::Schema.define(version: 2019_03_14_045805) do
     t.bigint "product_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["product_id"], name: "index_likes_on_product_id"
-    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -114,25 +113,8 @@ ActiveRecord::Schema.define(version: 2019_03_14_045805) do
     t.index ["delivery_method_id"], name: "index_products_on_delivery_method_id"
     t.index ["shipment_period_id"], name: "index_products_on_shipment_period_id"
     t.index ["size_id"], name: "index_products_on_size_id"
+    t.index ["small_categorie_id"], name: "index_products_on_small_categorie_id"
     t.index ["user_id"], name: "index_products_on_user_id"
-  end
-
-  create_table "purchases", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "rates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "rating_type", null: false
-    t.text "comment", null: false
-    t.bigint "reputation_id", null: false
-    t.bigint "purchase_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["purchase_id"], name: "index_rates_on_purchase_id"
-    t.index ["reputation_id"], name: "index_rates_on_reputation_id"
-    t.index ["user_id"], name: "index_rates_on_user_id"
   end
 
   create_table "reputations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -212,4 +194,5 @@ ActiveRecord::Schema.define(version: 2019_03_14_045805) do
   add_foreign_key "rates", "purchases"
   add_foreign_key "rates", "reputations"
   add_foreign_key "rates", "users"
+  
 end

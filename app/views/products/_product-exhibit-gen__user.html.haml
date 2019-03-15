@@ -1,10 +1,11 @@
-.product-exhibit__user__item-box
-  = link_to "#" do
-    .product-exhibit__user__item-box__photo
-      = image_tag 'fe409ce3.png', class: "product-exhibit__user__item-box__photo"
-    .product-exhibit__user__item-box__text
-      %p.product-exhibit__user__item-box__text__name ジョジョジョジョジョジョッジョジョジョジョジョジョジョジョジョジョジョッじょジョジョ
-      .product-exhibit__user__item-box__text__price
-        %span ¥ 14,000
-        %span.product-exhibit__user__item-box__text__price-like ❤️ ５
-      %p.product-exhibit__user__item-box__text__price-tax (税込)
+
+//---------商品詳細ページ用一覧---------
+
+.top-page-items-boxes__content__item-box.nth
+  = link_to "/products/#{product_id}" do
+    .top-page-items-boxes__content__item-box__image
+      = image_tag product_image.name1
+    .top-page-items-boxes__content__item-box__text
+      %h4= product_name
+      %h5= "¥" + product_price.to_s(:delimited)
+      %p (税込)

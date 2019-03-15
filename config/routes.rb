@@ -9,9 +9,12 @@ Rails.application.routes.draw do
   }
 
   root 'products#index'
-
   resources :products, only: [:index, :new, :show, :create] do
+    resources :comments, only: [:create]
     collection do
+      get 'search'
+      get 'show_brand_item'
+      get 'show_category_item'
       get :purchase_confirmation
       get :get_middle_categories
       get :get_small_categories

@@ -90,5 +90,4 @@ class ProductsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:comment, :product_id)
   end
-
 end

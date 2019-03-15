@@ -1,9 +1,4 @@
 $(function(){
-  // $('.btn-start').on("click", function() {
-  //   $('section').css('display','none');
-  //   $('.signup').css('display','block');
-  // });
-
   $('.btn-memberinfo').on("click", function() {
     $('section').css('display','none');
     $('.memberinfo').css('display','block');

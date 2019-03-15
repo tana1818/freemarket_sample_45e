@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_14_124832) do
+
+ActiveRecord::Schema.define(version: 2019_03_14_045805) do
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "card_number", null: false
@@ -25,18 +26,12 @@ ActiveRecord::Schema.define(version: 2019_03_14_124832) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
+    t.integer "division"
     t.integer "sort_by", null: false
+    t.integer "size_kind_id"
     t.integer "is_brand_presence"
-    t.bigint "size_kind_id"
-    t.bigint "large_category_id", null: false
-    t.bigint "middle_category_id", null: false
-    t.bigint "small_category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["large_category_id"], name: "index_categories_on_large_category_id"
-    t.index ["middle_category_id"], name: "index_categories_on_middle_category_id"
-    t.index ["size_kind_id"], name: "index_categories_on_size_kind_id"
-    t.index ["small_category_id"], name: "index_categories_on_small_category_id"
   end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -87,70 +82,35 @@ ActiveRecord::Schema.define(version: 2019_03_14_124832) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name1", default: ""
-    t.string "name2"
-    t.string "name3"
-    t.string "name4"
-    t.string "name5"
-    t.string "name6"
-    t.string "name7"
-    t.string "name8"
-    t.string "name9"
-    t.string "name10"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "large_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.integer "sort_by", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "middle_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.integer "sort_by", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "prefectures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.integer "is_hidden"
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "product_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
-    t.integer "price"
-    t.string "status"
+    t.string "name", null: false
+    t.text "description", null: false
+    t.integer "large_category", null: false
+    t.integer "middle_category", null: false
+    t.integer "small_category", null: false
+    t.bigint "condition_id", null: false
+    t.bigint "delivery_fee_pay_id", null: false
+    t.bigint "delivery_method_id", null: false
+    t.integer "prefecture_id", null: false
+    t.bigint "shipment_period_id", null: false
+    t.integer "price", null: false
+    t.string "status", null: false
+    t.bigint "size_id", null: false
     t.string "brand"
-    t.bigint "category_id"
-    t.bigint "condition_id"
-    t.bigint "delivery_fee_pay_id"
-    t.bigint "delivery_method_id"
-    t.bigint "prefecture_id"
-    t.bigint "shipment_period_id"
-    t.bigint "size_id"
-    t.bigint "user_id"
-    t.bigint "image_id"
-    t.bigint "small_categorie_id"
-    t.bigint "middle_categorie_id"
-    t.bigint "large_categorie_id"
+    t.string "images", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["condition_id"], name: "index_products_on_condition_id"
     t.index ["delivery_fee_pay_id"], name: "index_products_on_delivery_fee_pay_id"
     t.index ["delivery_method_id"], name: "index_products_on_delivery_method_id"
-    t.index ["image_id"], name: "index_products_on_image_id"
-    t.index ["large_categorie_id"], name: "index_products_on_large_categorie_id"
-    t.index ["middle_categorie_id"], name: "index_products_on_middle_categorie_id"
-    t.index ["prefecture_id"], name: "index_products_on_prefecture_id"
     t.index ["shipment_period_id"], name: "index_products_on_shipment_period_id"
     t.index ["size_id"], name: "index_products_on_size_id"
     t.index ["small_categorie_id"], name: "index_products_on_small_categorie_id"
@@ -185,13 +145,6 @@ ActiveRecord::Schema.define(version: 2019_03_14_124832) do
     t.index ["size_kind_id"], name: "index_sizes_on_size_kind_id"
   end
 
-  create_table "small_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.integer "sort_by", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "user_details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "auth_tel", null: false
     t.integer "zip_code"
@@ -203,8 +156,6 @@ ActiveRecord::Schema.define(version: 2019_03_14_124832) do
     t.bigint "prefecture_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["prefecture_id"], name: "index_user_details_on_prefecture_id"
-    t.index ["user_id"], name: "index_user_details_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -229,12 +180,19 @@ ActiveRecord::Schema.define(version: 2019_03_14_124832) do
   end
 
   add_foreign_key "cards", "users"
-  add_foreign_key "categories", "large_categories"
-  add_foreign_key "categories", "middle_categories"
-  add_foreign_key "categories", "small_categories"
   add_foreign_key "comments", "products"
   add_foreign_key "comments", "users"
   add_foreign_key "deliveries", "users"
-  add_foreign_key "user_details", "prefectures"
-  add_foreign_key "user_details", "users"
+  add_foreign_key "likes", "products"
+  add_foreign_key "likes", "users"
+  add_foreign_key "products", "conditions"
+  add_foreign_key "products", "delivery_fee_pays"
+  add_foreign_key "products", "delivery_methods"
+  add_foreign_key "products", "shipment_periods"
+  add_foreign_key "products", "sizes"
+  add_foreign_key "products", "users"
+  add_foreign_key "rates", "purchases"
+  add_foreign_key "rates", "reputations"
+  add_foreign_key "rates", "users"
+  
 end

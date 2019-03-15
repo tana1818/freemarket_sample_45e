@@ -29,7 +29,7 @@ class ProductsController < ApplicationController
   end
 
   def product_by_large_category(id)
-    Product.where(large_categorie_id: id).order("id DESC").limit(4)
+    Product.where(large_category: id).order("id DESC").limit(4)
   end
 
   def product_by_brand_category(id)
@@ -86,8 +86,9 @@ class ProductsController < ApplicationController
     end
     params.require(:product).permit(:name, :description, :large_category, :condition_id, :delivery_fee_pay_id, :delivery_method_id, :prefecture_id, :shipment_period_id, :price, {images: []}).merge(middle_category: params[:middle_category], small_category: params[:small_category], size_id: params[:size_id], brand: params[:brand], user_id: 1, status: '出品中')
   end
-    
+
   def comment_params
     params.require(:comment).permit(:comment, :product_id)
+  end
 
 end

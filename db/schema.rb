@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2019_03_14_045805) do
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -36,8 +35,8 @@ ActiveRecord::Schema.define(version: 2019_03_14_045805) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "comment", null: false
-    t.bigint "user_id"
-    t.bigint "product_id"
+    t.bigint "product_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_comments_on_product_id"
@@ -87,6 +86,8 @@ ActiveRecord::Schema.define(version: 2019_03_14_045805) do
     t.bigint "product_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_likes_on_product_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -113,7 +114,6 @@ ActiveRecord::Schema.define(version: 2019_03_14_045805) do
     t.index ["delivery_method_id"], name: "index_products_on_delivery_method_id"
     t.index ["shipment_period_id"], name: "index_products_on_shipment_period_id"
     t.index ["size_id"], name: "index_products_on_size_id"
-    t.index ["small_categorie_id"], name: "index_products_on_small_categorie_id"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
 
@@ -139,10 +139,9 @@ ActiveRecord::Schema.define(version: 2019_03_14_045805) do
   create_table "sizes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.integer "sort_by", null: false
-    t.bigint "size_kind_id"
+    t.integer "size_kind_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["size_kind_id"], name: "index_sizes_on_size_kind_id"
   end
 
   create_table "user_details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -153,9 +152,10 @@ ActiveRecord::Schema.define(version: 2019_03_14_045805) do
     t.string "tatemono"
     t.string "avater_image"
     t.bigint "user_id"
-    t.bigint "prefecture_id"
+    t.integer "prefecture_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_user_details_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -191,8 +191,5 @@ ActiveRecord::Schema.define(version: 2019_03_14_045805) do
   add_foreign_key "products", "shipment_periods"
   add_foreign_key "products", "sizes"
   add_foreign_key "products", "users"
-  add_foreign_key "rates", "purchases"
-  add_foreign_key "rates", "reputations"
-  add_foreign_key "rates", "users"
-  
+  add_foreign_key "user_details", "users"
 end

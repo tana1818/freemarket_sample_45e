@@ -9,14 +9,14 @@ class ProductsController < ApplicationController
   end
 
   def index #トップページ
-    @products_womens = Product.where(large_categorie_id: 1).order("id DESC").limit(4)
-    @products_mens = Product.where(large_categorie_id: 2).order("id DESC").limit(4)
-    @products_kids = Product.where(large_categorie_id: 3).order("id DESC").limit(4)
-    @products_perfumes = Product.where(large_categorie_id: 4).order("id DESC").limit(4)
-    @products_chanels = Product.where(brand: "chanel").order("id DESC").limit(4)
-    @products_vitons = Product.where(brand: "ルイヴィトン").order("id DESC").limit(4)
-    @products_shups = Product.where(brand: "シュプリーム").order("id DESC").limit(4)
-    @products_nikes = Product.where(brand: "NIKE").order("id DESC").limit(4)
+    @products_womens = product_by_large_category(1)
+    @products_mens = product_by_large_category(2)
+    @products_kids = product_by_large_category(3)
+    @products_perfumes = product_by_large_category(4)
+    @products_chanels = product_by_brand_category("chanel")
+    @products_vitons = product_by_brand_category("ルイヴィトン")
+    @products_shups = product_by_brand_category("シュプリーム")
+    @products_nikes = product_by_brand_category("NIKE")
   end
 
   def new
@@ -29,6 +29,14 @@ class ProductsController < ApplicationController
   end
 
   def show_brand_item  #全てのブランド商品をみるボタン（準備中）
+  end
+
+  def product_by_large_category(id)
+    Product.where(large_categorie_id: id).order("id DESC").limit(4)
+  end
+
+  def product_by_brand_category(id)
+    Product.where(brand: id).order("id DESC").limit(4)
   end
 
   private

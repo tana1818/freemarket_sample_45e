@@ -10,6 +10,6 @@ class CommentsController < ApplicationController
 
     private
     def comment_params
-      params.require(:comment).permit(:comment).merge(user_id: 2, product_id:params[:product_id])
+      params.require(:comment).permit(:comment).merge(user_id: 2, product_id:params[:product_id]) #user_idは仮なのでmergeさせてからいじります
     end
 end

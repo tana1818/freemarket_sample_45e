@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_12_121841) do
+ActiveRecord::Schema.define(version: 2019_03_14_124832) do
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "card_number", null: false
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2019_03_12_121841) do
   end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "comment"
+    t.text "comment", null: false
     t.bigint "user_id"
     t.bigint "product_id"
     t.datetime "created_at", null: false

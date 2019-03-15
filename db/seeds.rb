@@ -105,7 +105,7 @@
 # ShipmentPeriod.create(name: '2~3日で発送', sort_by: 2)
 # ShipmentPeriod.create(name: '4~7日で発送', sort_by: 3)
 #
-# User.create(nickname: 'テスト', email: 'test@test.com', password: 'passw0rd')
-# User.create(nickname: 'テスト2', email: 'test2@test.com', password: 'passw0rd')
+# User.create(nickname: 'テスト1', sei: 't', mei: 't', kana_sei: 't', kana_mei: 't', birth: '2018/1/1', email: 'test@test.com', password: 'passw0rd')
+# User.create(nickname: 'テスト2', sei: 't', mei: 't', kana_sei: 't', kana_mei: 't', birth: '2018/1/1', email: 'test1@test1.com', password: 'passw0rd')
 
-# Product.create()
+Product.create(name: 'ナイキのTシャツ', description: 'かっこいい', large_category: 'メンズ', middle_category: 'トップス', small_category: 'Tシャツ/カットソー(半袖/袖なし)', condition_id: 1, delivery_fee_pay_id: 1, delivery_method_id: 1, prefecture_id: 1, shipment_period_id: 1, price: 500, status: "売り出し中", size_id: 1, brand: "NIKE", images: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGOPQc2fx8POUZvhJ6eg6dUksVq2zUlFoP3RibhVAkK0PwVYP3", user_id: 1)

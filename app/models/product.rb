@@ -30,4 +30,13 @@ class Product < ApplicationRecord
   validates :images, presence: true
   validates :user, presence: true
 
+
+  def product_by_large_category(id)
+    Product.where(large_category: id).order("id DESC").limit(4)
+  end
+
+  def product_by_brand_category(id)
+    Product.where(brand: id).order("id DESC").limit(4)
+  end
+  
 end

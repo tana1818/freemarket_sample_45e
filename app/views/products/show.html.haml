@@ -10,28 +10,28 @@
     .product-detail__content.clear
       .product-photos
         .product-photo
-          = image_tag @product.image.name1, class: "product-photo"
+          = image_tag @product.images, class: "product-photo"
         .product-photo-srades
           .product-photo-srade
-            = image_tag @product.image.name1, class: "product-photo-srade"
+            = image_tag @product.images, class: "product-photo-srade"
           .product-photo-srade
-            = image_tag @product.image.name1, class: "product-photo-srade"
+            = image_tag @product.images, class: "product-photo-srade"
           .product-photo-srade
-            = image_tag @product.image.name1, class: "product-photo-srade"
+            = image_tag @product.images, class: "product-photo-srade"
           .product-photo-srade
-            = image_tag @product.image.name1, class: "product-photo-srade"
+            = image_tag @product.images, class: "product-photo-srade"
           .product-photo-srade
-            = image_tag @product.image.name1, class: "product-photo-srade"
+            = image_tag @product.images, class: "product-photo-srade"
           .product-photo-srade
-            = image_tag @product.image.name1, class: "product-photo-srade"
+            = image_tag @product.images, class: "product-photo-srade"
           .product-photo-srade
-            = image_tag @product.image.name1, class: "product-photo-srade"
+            = image_tag @product.images, class: "product-photo-srade"
           .product-photo-srade
-            = image_tag @product.image.name1, class: "product-photo-srade"
+            = image_tag @product.images, class: "product-photo-srade"
           .product-photo-srade
-            = image_tag @product.image.name1, class: "product-photo-srade"
+            = image_tag @product.images, class: "product-photo-srade"
           .product-photo-srade
-            = image_tag @product.image.name1, class: "product-photo-srade"
+            = image_tag @product.images, class: "product-photo-srade"
 
       //---------商品詳細右側（詳細）---------
 
@@ -107,17 +107,17 @@
           = "#{@product.user.nickname}さんの商品"
       .product-exhibit__user__item
         - @other_user_products.each do |p|
-          = render partial: 'product-exhibit-gen__user', locals: {product_id: p.id, product_name: p.name, product_image: p.image, product_price: p.price}
+          = render partial: 'product-exhibit-gen__user', locals: {product_id: p.id, product_name: p.name, product_image: p.images, product_price: p.price}
 
     //---------商品詳細のブランドのその他の商品一覧---------
 
     .product-exhibit__other.clearfix
       %h2.product-exhibit__user__name.bold
         = link_to "#", class: "product-exhibit__user__name.bold" do
-          = "#{@product.brand}の#{@product.small_categorie.name}その他の商品"
+          = "#{@product.brand}の#{@product.small_category}その他の商品"
       .product-exhibit__user__item
         - @other_category_products.each do |p|
-          = render partial: 'product-exhibit-gen__user', locals: {product_id: p.id, product_name: p.name, product_image: p.image, product_price: p.price}
+          = render partial: 'product-exhibit-gen__user', locals: {product_id: p.id, product_name: p.name, product_image: p.images, product_price: p.price}
 
 .app_banner
 %footer

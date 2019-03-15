@@ -1,4 +1,4 @@
 class Size < ApplicationRecord
-  belongs_to :size_kind
   has_many :products
+  belongs_to :size_kind
 end

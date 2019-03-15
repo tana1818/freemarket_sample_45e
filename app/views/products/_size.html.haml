@@ -1,0 +1,8 @@
+%label.sell-form__label
+  サイズ
+  %span.sell-form__form-require
+    必須
+.sell-form__select-wrap
+  = collection_select @product, :size_id, Size.where(size_kind_id: size_kind_id).order('sort_by'), :id, :name, {prompt: '---'}, {class: 'sell-form__select'}
+  = fa_icon('angle-down')
+  .sell-form__alert#alert-size

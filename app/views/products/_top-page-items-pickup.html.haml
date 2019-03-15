@@ -1,0 +1,92 @@
+%section.top-page__pickup-container
+  %h2 ピックアップカテゴリー
+  %section.top-page-items-boxes
+    %h3
+      = link_to root_path do
+        レディース 新着アイテム
+    .top-page-items-boxes__content.clearfix
+      - @products_womens.each do |p|
+        = render :partial => 'top-page-items-boxes', :locals => {product_id: p.id, product_name: p.name, product_image: p.image, product_price: p.price}
+    .top-page-items-boxes__view-all
+      = link_to root_path do
+        %p すべての商品を見る
+
+  %section.top-page-items-boxes
+    %h3
+      = link_to root_path do
+        メンズ 新着アイテム
+    .top-page-items-boxes__content.clearfix
+      - @products_mens.each do |p|
+        = render :partial => 'top-page-items-boxes', :locals => {product_id: p.id, product_name: p.name, product_image: p.image, product_price: p.price}
+    .top-page-items-boxes__view-all
+      = link_to root_path do
+        %p すべての商品を見る
+
+  %section.top-page-items-boxes
+    %h3
+      = link_to root_path do
+        ベビー・キッズ 新着アイテム
+    .top-page-items-boxes__content.clearfix
+      - @products_kids.each do |p|
+        = render :partial => 'top-page-items-boxes', :locals => {product_id: p.id, product_name: p.name, product_image: p.image, product_price: p.price}
+    .top-page-items-boxes__view-all
+      = link_to root_path do
+        %p すべての商品を見る
+
+  %section.top-page-items-boxes
+    %h3
+      = link_to root_path do
+        コスメ・香水・美容 新着アイテム
+    .top-page-items-boxes__content.clearfix
+      - @products_perfumes.each do |p|
+        = render :partial => 'top-page-items-boxes', :locals => {product_id: p.id, product_name: p.name, product_image: p.image, product_price: p.price}
+    .top-page-items-boxes__view-all
+      = link_to root_path do
+        %p すべての商品を見る
+
+
+%section.top-page__pickup-container
+  %h2 ピックアップブランド
+  %section.top-page-items-boxes
+    %h3
+      = link_to root_path do
+        シャネル 新着アイテム
+    .top-page-items-boxes__content.clearfix
+      - @products_chanels.each do |p|
+        = render :partial => 'top-page-items-boxes', :locals => {product_id: p.id, product_name: p.name, product_image: p.image, product_price: p.price}
+    .top-page-items-boxes__view-all
+      = link_to root_path do
+        %p すべての商品を見る
+
+  %section.top-page-items-boxes
+    %h3
+      = link_to root_path do
+        ルイヴィトン 新着アイテム
+    .top-page-items-boxes__content.clearfix
+      - @products_vitons.each do |p|
+        = render :partial => 'top-page-items-boxes', :locals => {product_id: p.id, product_name: p.name, product_image: p.image, product_price: p.price}
+    .top-page-items-boxes__view-all
+      = link_to root_path do
+        %p すべての商品を見る
+
+  %section.top-page-items-boxes
+    %h3
+      = link_to root_path do
+        シュプリーム 新着アイテム
+    .top-page-items-boxes__content.clearfix
+      - @products_shups.each do |p|
+        = render :partial => 'top-page-items-boxes', :locals => {product_id: p.id, product_name: p.name, product_image: p.image, product_price: p.price}
+    .top-page-items-boxes__view-all
+      = link_to root_path do
+        %p すべての商品を見る
+
+  %section.top-page-items-boxes
+    %h3
+      = link_to root_path do
+        NIKE 新着アイテム
+    .top-page-items-boxes__content.clearfix
+      - @products_nikes.each do |p|
+        = render :partial => 'top-page-items-boxes', :locals => {product_id: p.id, product_name: p.name, product_image: p.image, product_price: p.price}
+    .top-page-items-boxes__view-all
+      = link_to root_path do
+        %p すべての商品を見る

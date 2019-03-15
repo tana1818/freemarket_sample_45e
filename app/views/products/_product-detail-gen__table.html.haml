@@ -1,49 +1,60 @@
+
+//---------トップページ商品一覧---------
+
 %tr
   %th 出品者
   %td
     = link_to "#" do
-      tanaka
+      = @product.user.nickname
     .right__rates
-      = fa_icon ('grin-beam')
+      = fa_icon('smile-o spin', class: "fa fa-good")
       %span.good 222
 
-      =fa_icon ('grin')
+      = fa_icon('meh-o spin', class: "fa fa-nomal")
       %span.nomal 222
 
-      =fa_icon ('grimace')
+      = fa_icon('frown-o spin', class: "fa fa-bad")
       %span.bad 222
 
 %tr
   %th カテゴリー
   %td
     = link_to "#" do
-      もしかして<br>
+      = @product.large_category.name
+      <br>
     = link_to "#" do
-      オラオラ<br>
+      = fa_icon('angle-right')
+      = @product.middle_category.name
+      <br>
     = link_to "#" do
-      ですかーー
+      = fa_icon('angle-right')
+      = @product.small_category.name
 
 %tr
   %th ブランド
   %td
     = link_to "#" do
-      スタープラチナ
+      = @product.brand
 
 %tr
   %th 商品のサイズ
-  %td XL
+  %td
+    = @product.size.name
 
 %tr
   %th 商品の状態
-  %td 目立ったキズはなし
+  %td
+    = @product.condition.name
 
 %tr
   %th 配送料の負担
-  %td 送料込み（出品者負担）
+  %td
+    = @product.delivery_fee_pay.name
 
 %tr
   %th 配送の方法
-  %td 未定
+  %td
+    = @product.delivery_method.name
 
 %tr
   %th 配送元地域
@@ -51,4 +62,5 @@
 
 %tr
   %th 発送日の目安
-  %td 2~3日で発送
+  %td
+    = @product.shipment_period.name

@@ -46,6 +46,14 @@
     text-align: center;
     color: #fff;
   }
+  %__form-require {
+    margin: 0 0 0 8px;
+    padding: 2px 4px;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 12px;
+    vertical-align: top;
+  }
 }
 
 ///////////////////////////////////////////////////
@@ -55,13 +63,12 @@
 .sell-form {
   border-top: 1px solid #eee;
   &__form-require {
+    @extend %__form-require;
     background: #ea352d;
-    margin: 0 0 0 8px;
-    padding: 2px 4px;
-    border-radius: 2px;
-    color: #fff;
-    font-size: 12px;
-    vertical-align: top;
+    &--not {
+      @extend %__form-require;
+      background: #ccc;
+    }
   }
   &__upload-box {
     width: 620px;
@@ -77,19 +84,27 @@
   &__drop-box {
     width: 620px;
     margin: 16px auto 0;
-    padding: 40px;
+    padding: 10px;
     min-height: 162px;
     background: #f5f5f5;
     border: 1px dashed #ccc;
     text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: block;
+    cursor: pointer;
+    position: relative;
   }
   &__box-desc {
     text-align: center;
     font-size: 14px;
     line-height: 1.5;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 40px;
+    right: 0;
+    bottom: 0;
+    margin: auto;
   }
   &__content {
     padding: 40px;
@@ -249,7 +264,76 @@
       width: 45%;
     }
   }
+  &__alert {
+    display: none;
+    margin: 8px 0 0;
+    color: #ea352d;
+    line-height: 21px;
+  }
 }
+
+#sell-form {
+  &__middle-category {
+    display: none;
+  }
+  &__small-category {
+    display: none;
+  }
+  &__size-group {
+    display: none;
+  }
+  &__brand-group {
+    display: none;
+  }
+  &__delivery-method-group {
+    display: none;
+  }
+}
+
+///////////////////////////////////////////////////
+//モーダル部分
+///////////////////////////////////////////////////
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0,0,0,0.75);
+  text-align: center;
+  z-index: 9999;
+  &__body {
+    width: 600px;
+    margin: 10% auto 20px;
+    background-color: #fff;
+  }
+  &__title {
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+    padding: 30px;
+  }
+  &__main {
+    padding: 40px;
+  }
+  &__btn {
+    @extend %__btn;
+    &--next {
+      @extend %__btn;
+      margin: 40px 0 0;
+      background: #ea352d;
+      border: 1px solid #ea352d;
+      width: 100%;
+    }
+  }
+  &__link {
+    margin: 16px 0 0;
+  }
+}
+
 
 ///////////////////////////////////////////////////
 //フッター部分

@@ -105,9 +105,9 @@
 # ShipmentPeriod.create(name: '2~3日で発送', sort_by: 2)
 # ShipmentPeriod.create(name: '4~7日で発送', sort_by: 3)
 #
-User.create(nickname: 'テスト1', sei: 'テ', mei: 'スト1', kanasei: 'テ', kanamei: 'スト1', birth: '2019-03-11', email: 'test1@test.com', encrypted_password: 'passw0rd')
-User.create(nickname: 'テスト2', sei: 'テ', mei: 'スト2', kanasei: 'テ', kanamei: 'スト2', birth: '2019-03-11', email: 'test2@test.com', encrypted_password: 'passw0rd')
-User.create(nickname: 'テスト3', sei: 'テ', mei: 'スト3', kanasei: 'テ', kanamei: 'スト3', birth: '2019-03-11', email: 'test3@test.com', encrypted_password: 'passw0rd')
-User.create(nickname: 'テスト4', sei: 'テ', mei: 'スト4', kanasei: 'テ', kanamei: 'スト4', birth: '2019-03-11', email: 'test4@test.com', encrypted_password: 'passw0rd')
+User.create(nickname: 'テスト1', sei: 'テ', mei: 'スト1', kana_sei: 'テ', kana_mei: 'スト1', birth: '2019-03-11', email: 'test1@test.com', encrypted_password: 'passw0rd')
+User.create(nickname: 'テスト2', sei: 'テ', mei: 'スト2', kana_sei: 'テ', kana_mei: 'スト2', birth: '2019-03-11', email: 'test2@test.com', encrypted_password: 'passw0rd')
+User.create(nickname: 'テスト3', sei: 'テ', mei: 'スト3', kana_sei: 'テ', kana_mei: 'スト3', birth: '2019-03-11', email: 'test3@test.com', encrypted_password: 'passw0rd')
+User.create(nickname: 'テスト4', sei: 'テ', mei: 'スト4', kana_sei: 'テ', kana_mei: 'スト4', birth: '2019-03-11', email: 'test4@test.com', encrypted_password: 'passw0rd')
 
 # Product.create()

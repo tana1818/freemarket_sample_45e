@@ -2,7 +2,6 @@
 @import 'users';
 @import 'user_detail_gen';
 @import 'set_profile_gen';
-@import 'product_detail_gen';
 @import 'users/side-bar';
 @import 'users/main-content';
 @import 'users/mypage';
@@ -23,6 +22,9 @@
 @import 'products/purchase-confirmation';
 @import 'products/index';
 @import 'products/top-page-items-boxes';
+@import 'products/product_detail_gen';
+@import 'products/product_comment';
+@import 'products/dropzone';
 @import 'layouts/header';
 @import 'layouts/footer';
 @import 'layouts/exhibit-button';

@@ -1,14 +1,38 @@
 class Product < ApplicationRecord
-  belongs_to :Category
   belongs_to :condition
   belongs_to :delivery_fee_pay
   belongs_to :delivery_method
-  belongs_to :prefecture
   belongs_to :shipment_period
+  belongs_to :large_categorie
+  belongs_to :middle_categorie
+  belongs_to :small_categorie
+  has_many :comments
+  belongs_to :image
   belongs_to :size
   belongs_to :user
-  has_many :images
   has_many :comments
   has_many :likes
   has_many :purchases
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :prefecture
+  
+  mount_uploaders :images, ImageUploader
+  serialize :images, JSON
+
+  validates :name, length: {in: 1..40}
+  validates :description, length: {in: 1..1000}
+  validates :large_category, presence: true
+  validates :middle_category, presence: true
+  validates :small_category, presence: true
+  validates :condition, presence: true
+  validates :delivery_fee_pay, presence: true
+  validates :delivery_method, presence: true
+  validates :prefecture_id, presence: true
+  validates :shipment_period, presence: true
+  validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
+  validates :status, presence: true
+  validates :size, presence: true
+  validates :images, presence: true
+  validates :user, presence: true
+  
 end

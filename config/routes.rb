@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   end
 
   resources :user_details, only: [:index]
-
+  
   resources :users, only: [:show, :new] do
     collection do
       get :logout

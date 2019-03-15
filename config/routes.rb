@@ -15,11 +15,11 @@ Rails.application.routes.draw do
       get 'search'
       get 'show_brand_item'
       get 'show_category_item'
-      get :purchase_confirmation
-      get :get_middle_categories
-      get :get_small_categories
-      get :judge_get_sizes
-      get :judge_brand
+      get 'purchase_confirmation'
+      get 'get_middle_categories'
+      get 'get_small_categories'
+      get 'judge_get_sizes'
+      get 'judge_brand'
     end
   end
 

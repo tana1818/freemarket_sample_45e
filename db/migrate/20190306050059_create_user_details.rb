@@ -8,7 +8,7 @@ class CreateUserDetails < ActiveRecord::Migration[5.2]
       t.string :tatemono
       t.string :avater_image
       t.references :user, foreign_key: true
-      t.references :prefecture, foreign_key: true
+      t.integer     :prefecture_id
       t.timestamps
     end
   end

@@ -1,25 +1,25 @@
 class UsersController < ApplicationController
 
-  def new # 仮のidで作成中
+  def new
     @user = User.find(params[:id])
   end
 
   def create
   end
 
-  def show # 仮のidで作成中
+  def show
     @user = User.find(params[:id])
   end
 
-  def credit # 仮のidで作成中
+  def credit
     @user = User.find(params[:id])
   end
 
-  def credit_create # 仮のidで作成中
+  def credit_create
     @user = User.find(params[:id])
   end
 
-  def logout # 仮のidで作成中
+  def logout
     @user = User.find(params[:id])
   end
 

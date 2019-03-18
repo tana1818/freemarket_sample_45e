@@ -23,21 +23,15 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :user_details, only: [:index]
+  resources :user_details, only: [:show]
 
-  resources :users, only: [:show, :new, :create] do
-    collection do
+  resources :users, only:[:show, :new, :create] do
+    member do
+      get :selling
       get :logout
       get :credit
       get :credit_create
-      # get :profile
+      get :profile
     end
-    # member do
-    #   get :selling
-      # get :logout
-      # get :credit
-      # get :credit_create
-      # get :profile
-    # end
   end
 end

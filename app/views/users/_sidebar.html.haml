@@ -2,7 +2,7 @@
   %nav
     %ul
       %li.side-bar__list-item--current
-        = link_to '#', class: 'side-bar__list-link' do
+        = link_to user_path(current_user), class: 'side-bar__list-link' do
           マイページ
           = fa_icon('angle-right')
 
@@ -28,10 +28,10 @@
           = fa_icon('angle-right')
 
       //---------出品商品編集ページ（実装）---------
-      -# %li.side-bar__list-item
-      -#   = link_to selling_user_path, class: 'side-bar__list-link' do
-      -#     出品した商品 - 出品中
-      -#     = fa_icon('angle-right')
+      %li.side-bar__list-item
+        = link_to selling_user_path, class: 'side-bar__list-link' do
+          出品した商品 - 出品中
+          = fa_icon('angle-right')
 
       %li.side-bar__list-item
         = link_to '#', class: 'side-bar__list-link' do
@@ -91,7 +91,7 @@
     %ul
       //---------プロフィールページ（実装）---------
       %li.side-bar__list-item
-        = link_to "#", class: 'side-bar__list-link' do
+        = link_to profile_user_path, class: 'side-bar__list-link' do
           プロフィール
           = fa_icon('angle-right')
 
@@ -102,7 +102,7 @@
 
       //---------支払い方法ページ（実装）---------
       %li.side-bar__list-item
-        = link_to "#", class: 'side-bar__list-link' do
+        = link_to credit_user_path, class: 'side-bar__list-link' do
           支払い方法
           = fa_icon('angle-right')
 
@@ -113,7 +113,7 @@
 
       //---------本人情報ページ（実装）---------
       %li.side-bar__list-item
-        = link_to "#", class: 'side-bar__list-link' do
+        = link_to user_detail_path, class: 'side-bar__list-link' do
           本人情報
           = fa_icon('angle-right')
 
@@ -124,6 +124,6 @@
 
       //---------ログアウトページ（実装）---------
       %li.side-bar__list-item
-        = link_to "#", class: 'side-bar__list-link' do
+        = link_to logout_user_path, class: 'side-bar__list-link' do
           ログアウト
           = fa_icon('angle-right')

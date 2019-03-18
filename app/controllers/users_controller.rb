@@ -3,12 +3,9 @@ class UsersController < ApplicationController
 
   def create
   end
-  
+
   def new
     @user = User.find(params[:id])
-  end
-
-  def show
   end
 
   def selling
@@ -29,6 +26,10 @@ class UsersController < ApplicationController
   end
 
   def logout
+    @user = User.find(params[:id])
+  end
+
+  def profile
     @user = User.find(params[:id])
   end
 

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   }
 
   root 'products#index'
-  resources :products, only: [:index, :new, :show, :create] do
+  resources :products, only: [:index, :new, :show, :create, :edit, :destroy] do
     resources :comments, only: [:create]
     collection do
       get 'search'
@@ -24,12 +24,20 @@ Rails.application.routes.draw do
   end
 
   resources :user_details, only: [:index]
-  
-  resources :users, only: [:show, :new] do
+
+  resources :users, only: [:show, :new, :create] do
     collection do
       get :logout
       get :credit
       get :credit_create
+      # get :profile
+    end
+    member do
+      get :selling
+      # get :logout
+      # get :credit
+      # get :credit_create
+      # get :profile
     end
   end
 end

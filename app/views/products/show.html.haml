@@ -77,14 +77,16 @@
       .product-detail__btn
         %button{type: "submit", class: "btn-default btn-gray user-nav-2"} 出品を一旦停止
 
-      = link_to "/products/#{@product.id}", class: 'product-detail__btn', method: :delete do
+      = link_to product_path, class: 'product-detail__btn', method: :delete do
         %button{type: "submit", class: "btn-default btn-gray user-nav-1"} 商品削除
 
-
+  -# "/products/#{@product.id}"
   //---------商品詳細のコメント---------
 
   .product-message
-    = render 'products/product__comment-box'
+    - if @comments
+      - @comments.each do |c|
+        = render partial: 'product__comment-box', locals: {user_nickname: c.user.nickname, comment: c.comment, create_time: c.created_at}
     = form_for [@product, @comment] do |c|
       .product-message__content
         %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。

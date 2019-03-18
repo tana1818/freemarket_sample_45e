@@ -12,7 +12,7 @@ crumb :profile do |user|
 end
 
 crumb :user_details do |user|
-  link "本人情報の登録"
+  link "本人情報の登録", user_detail_path
   parent :user, user
 end
 
@@ -22,7 +22,7 @@ crumb :logout do |user|
 end
 
 crumb :credit do |user|
-  link "支払い方法", credit_users_path
+  link "支払い方法", credit_user_path
   parent :user, user
 end
 

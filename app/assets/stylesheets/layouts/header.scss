@@ -64,21 +64,23 @@ header.header {
             p {
               display: block;
               padding: 0 10px;
-              border: 1px solid #ea352d;
+              border: 1px solid #0099e8;
               border-radius: 5px;
-              background-color: #ea352d;
+              // background-color: #ea352d;
               width: 80px;
               height: 32px;
               float: left;
-              opacity: 0.9;
-              color: #fff;
+              // opacity: 0.9;
+              color: #0099e8;
               text-align: center;
               font-size: 14px;
               line-height: 32px;
               cursor: pointer;
             }
             p:hover {
-              opacity: 1;
+              color: #fff;
+              background-color: #0099e8;
+              // opacity: 1;
             }
           }
           li.header__contents__lower__button__signup {

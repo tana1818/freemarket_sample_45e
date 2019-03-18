@@ -10,28 +10,28 @@
     .product-detail__content.clear
       .product-photos
         .product-photo
-          = image_tag @product.images, class: "product-photo"
+          = image_tag @product.images[0].url, class: "product-photo"
         .product-photo-srades
           .product-photo-srade
-            = image_tag @product.images, class: "product-photo-srade"
+            = image_tag @product.images[0].url, class: "product-photo-srade"
           .product-photo-srade
-            = image_tag @product.images, class: "product-photo-srade"
+            = image_tag @product.images[0].url, class: "product-photo-srade"
           .product-photo-srade
-            = image_tag @product.images, class: "product-photo-srade"
+            = image_tag @product.images[0].url, class: "product-photo-srade"
           .product-photo-srade
-            = image_tag @product.images, class: "product-photo-srade"
+            = image_tag @product.images[0].url, class: "product-photo-srade"
           .product-photo-srade
-            = image_tag @product.images, class: "product-photo-srade"
+            = image_tag @product.images[0].url, class: "product-photo-srade"
           .product-photo-srade
-            = image_tag @product.images, class: "product-photo-srade"
+            = image_tag @product.images[0].url, class: "product-photo-srade"
           .product-photo-srade
-            = image_tag @product.images, class: "product-photo-srade"
+            = image_tag @product.images[0].url, class: "product-photo-srade"
           .product-photo-srade
-            = image_tag @product.images, class: "product-photo-srade"
+            = image_tag @product.images[0].url, class: "product-photo-srade"
           .product-photo-srade
-            = image_tag @product.images, class: "product-photo-srade"
+            = image_tag @product.images[0].url, class: "product-photo-srade"
           .product-photo-srade
-            = image_tag @product.images, class: "product-photo-srade"
+            = image_tag @product.images[0].url, class: "product-photo-srade"
 
       //---------商品詳細右側（詳細）---------
 
@@ -44,8 +44,9 @@
       %span.product-price.bold= '¥ ' + @product.price.to_s(:delimited)
       %span.product-tax (税込)
       %span.product-spping-fee 送料込み
-    .product-detail__btn.clear
-      %button{type: "submit", class: "btn-default btn-red"} 購入画面に進む
+    - if @product.user.id != 1 #とりあえずuser_idが１なら表示されないmerge後current_userに変更
+      .product-detail__btn.clear
+        %button{type: "submit", class: "btn-default btn-red"} 購入画面に進む
 
     .product-detail__description
       %p.product-detail__description-text
@@ -64,6 +65,20 @@
           = fa_icon("lock")
           %span あんしん・あんぜんへの取り組み
       .product-detail__like.clear
+
+  //---------商品編集ナビ（商品編集、出品一旦停止、商品削除）---------
+
+  - if @product.user.id == 1  #とりあえずuser_idが１なら表示されるmerge後current_userに変更
+    .product-current-user-nav
+      = link_to edit_product_path, class: 'product-detail__btn' do
+        %button{type: "submit", class: "btn-default btn-red user-nav-1"} 商品の編集
+      %p or
+      .product-detail__btn
+        %button{type: "submit", class: "btn-default btn-gray user-nav-2"} 出品を一旦停止
+
+      = link_to "/products/#{@product.id}", class: 'product-detail__btn', method: :delete do
+        %button{type: "submit", class: "btn-default btn-gray user-nav-1"} 商品削除
+
 
   //---------商品詳細のコメント---------
 

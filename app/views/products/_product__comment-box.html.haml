@@ -1,6 +1,6 @@
-.comment
-  - if @comments
-    -@comments.each do |c|
+- if @comments
+  - @comments.each do |c|
+    .comment
       %ul.comment__list
         %li.comment-content.clearfix
           =link_to user_path, class: "comment-user__left" do

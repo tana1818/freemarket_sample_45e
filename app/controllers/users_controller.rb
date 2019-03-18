@@ -1,9 +1,14 @@
 class UsersController < ApplicationController
 
-  def new
+  def create
   end
 
-  def create
+  def show
+  end
+
+  def selling
+    @user = User.find(params[:id])
+    @other_user_products = Product.where(user_id: 1).order("id DESC").limit(6)
   end
 
 end

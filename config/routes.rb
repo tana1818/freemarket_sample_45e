@@ -32,12 +32,12 @@ Rails.application.routes.draw do
       get :credit_create
       # get :profile
     end
-    member do
-      get :selling
+    # member do
+    #   get :selling
       # get :logout
       # get :credit
       # get :credit_create
       # get :profile
-    end
+    # end
   end
 end

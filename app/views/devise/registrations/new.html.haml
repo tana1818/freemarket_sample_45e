@@ -15,11 +15,11 @@
               %button{ type: "button", class: "mail btn-memberinfo"}
                 メールアドレスで登録
             .signup-main__Facebook-btn
-              = link_to '#',class: "facebook" do
+              = link_to user_facebook_omniauth_authorize_path,class: "facebook" do
                 = fa_icon "facebook-square"
                 Facebookで登録
             .signup-main__Google-btn
-              = link_to '#',class: "google" do
+              = link_to user_google_oauth2_omniauth_authorize_path,class: "google" do
                 = fa_icon "google"
                 Googleで登録
       = render "layouts/single-footer"
@@ -342,5 +342,4 @@
                 %h6 会員登録が完了しました。
               .form-group
               = link_to "メルカリを始める", root_path ,class: "btn-default btn-red"
-              -# = f.submit "メルカリを始める", class: "btn-default btn-red"
       = render "layouts/single-footer"

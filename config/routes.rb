@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     passwords:     'users/passwords',
     registrations: 'users/registrations',
     sessions: 'users/sessions',
-    omniauth_callbacks: 'users/omniauth_callbacks'
+    omniauth_callbacks: 'users/omniauth_callbacks',
   }
 
   root 'products#index'
@@ -26,6 +26,9 @@ Rails.application.routes.draw do
   resources :user_details, only: [:show]
 
   resources :users, only:[:show, :new, :create] do
+    collection do
+      get :signup
+    end
     member do
       get :selling
       get :logout

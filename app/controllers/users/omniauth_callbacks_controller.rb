@@ -13,7 +13,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   private
 
   def callback_from(provider)
-    # binding.pry
     provider = provider.to_s
     @user = User.find_for_oauth(request.env['omniauth.auth'])
 
@@ -27,7 +26,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       session[:provider] = @user.provider
       session[:uid] = @user.uid
       redirect_to new_user_registration_path
-      # redirect_to new_user_registration_sns_path
     end
   end
 

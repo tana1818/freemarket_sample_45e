@@ -17,7 +17,8 @@ class User < ApplicationRecord
   has_many :purchases
   has_many :rates
 
-  validates :nickname, presence: true
+  validates :nickname, length: { maximum: 20 }, presence: true
+  validates :password, length: { minimum: 6 }
   validates :sei, presence: true
   validates :mei, presence: true
   validates :kana_sei, presence: true

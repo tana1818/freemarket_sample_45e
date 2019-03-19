@@ -21,6 +21,9 @@ Rails.application.routes.draw do
       get 'judge_get_sizes'
       get 'judge_brand'
     end
+    member do
+      get 'purchase_confirmation'
+    end
   end
 
   resources :user_details, only: [:show]

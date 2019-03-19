@@ -1,7 +1,9 @@
 %body.purchase-confirmation
-  %header
-    = link_to root_path do
-      = image_tag "logo.svg"
+  -# %header
+  -#   = link_to root_path do
+  -#     = image_tag "logo.svg"
+  = render "layouts/single-header"
+
   %main
     %section
       %h2 購入を確定しますか？
@@ -39,12 +41,5 @@
           %p.pay-method__inner__text
           = link_to root_path do
             %p.pay-method__inner__change 変更する　＞
-  %footer
-    %nav
-      %ul
-        %li プライバシーポリシー
-        %li メルカリ利用規約
-        %li 特定商取引に関する表記
-    = link_to root_path do
-      = image_tag "logo-gray.svg"
-    %small ©️ 2019 Mercari
+
+  = render "layouts/single-footer"

@@ -1,0 +1,13 @@
+= render 'layouts/header'
+= render 'layouts/breadcrumb'
+%main.clearfix
+  .product-exhibit.do-sell
+    .product-exhibit__user
+      %h2.product-exhibit__user__name.bold.plus
+        = link_to "#", class: "product-exhibit__user__name bold.plus" do
+          = "#{@user.nickname}さんの商品"
+      .product-exhibit__user__item
+        - @other_user_products.each do |p|
+          = render partial: 'products/product-exhibit-gen__user', locals: {product_id: p.id, product_name: p.name, product_image: p.images, product_price: p.price}
+  = render 'sidebar'
+= render 'layouts/footer'

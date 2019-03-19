@@ -16,9 +16,10 @@
       .header__contents__lower__user-navigation
         %ul
           %li.header__contents__lower__user-navigation__mypage
-            .header__contents__lower__user-navigation__mypage__image
-              = image_tag "mypage-icon.jpg"
-            %p マイページ
+            = link_to user_path(current_user), class: 'header__contents__lower__user-navigation__mypage' do
+              .header__contents__lower__user-navigation__mypage__image
+                = image_tag "mypage-icon.jpg"
+              %p マイページ
           %li.header__contents__lower__user-navigation__news
             = fa_icon('bell')
             %p お知らせ

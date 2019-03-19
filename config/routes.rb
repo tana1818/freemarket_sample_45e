@@ -23,6 +23,10 @@ Rails.application.routes.draw do
     end
   end
 
+  # devise_scope :user do
+  #   get 'sign_up/sns', to: 'users/registrations#sns', as: 'new_user_registration_sns'
+  # end
+
   resources :user_details, only: [:index]
 
   resources :users, only: [:show, :new] do

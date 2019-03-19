@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
 
+  require 'payjp'
+
   def show #商品詳細ページ
     @product = Product.find(params[:id])
     @comment = Comment.new
@@ -75,6 +77,18 @@ class ProductsController < ApplicationController
     if @small_category.is_brand_presence
       render partial: 'brand'
     end
+  end
+
+  def pay
+    Payjp.api_key = 'sk_test_eb4453d310b2f6b4f2c6f649'
+    token = User.find(current_user.id).payjptoken
+    #支払いの実行。amountは仮。
+    Payjp::Charge.create(
+      amount:   1000,
+      customer: token,
+      currency: 'jpy'
+    )
+    redirect_to root_path
   end
 
 

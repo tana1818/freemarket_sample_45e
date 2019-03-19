@@ -10,9 +10,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-    # super
-  # end
+  def create
+    Payjp.api_key = 'sk_test_eb4453d310b2f6b4f2c6f649'
+    customer = Payjp::Customer.create(
+      card: params[:user][:payjptoken]
+    )
+    params[:user][:payjptoken] = customer.id
+    super
+  end
 
   # GET /resource/edit
   # def edit

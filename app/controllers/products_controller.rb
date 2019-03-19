@@ -83,7 +83,10 @@ class ProductsController < ApplicationController
     redirect_to root_path
   end
 
-
+  def purchase_confirmation
+    @product = Product.find(params[:id])
+    @delivery = Deliverie.find(user_id: current_user[:id])
+  end
 
   private
 

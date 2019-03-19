@@ -16,8 +16,8 @@
       .header__contents__lower__button
         %ul
           %li.header__contents__lower__button__login
-            %p ログイン
+            = link_to new_user_session_path, class: 'header__contents__lower__button__login' do
+              %p ログイン
           %li.header__contents__lower__button__signup
-            %p 新規会員登録
-
-
+            = link_to new_user_registration_path, class: 'header__contents__lower__button__signup' do
+              %p 新規会員登録

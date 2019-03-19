@@ -11,28 +11,28 @@
     .product-detail__content.clear
       .product-photos
         .product-photo
-          = image_tag @product.image.name1, class: "product-photo"
+          = image_tag @product.images[0].url, class: "product-photo"
         .product-photo-srades
           .product-photo-srade
-            = image_tag @product.image.name1, class: "product-photo-srade"
+            = image_tag @product.images[0].url, class: "product-photo-srade"
           .product-photo-srade
-            = image_tag @product.image.name1, class: "product-photo-srade"
+            = image_tag @product.images[0].url, class: "product-photo-srade"
           .product-photo-srade
-            = image_tag @product.image.name1, class: "product-photo-srade"
+            = image_tag @product.images[0].url, class: "product-photo-srade"
           .product-photo-srade
-            = image_tag @product.image.name1, class: "product-photo-srade"
+            = image_tag @product.images[0].url, class: "product-photo-srade"
           .product-photo-srade
-            = image_tag @product.image.name1, class: "product-photo-srade"
+            = image_tag @product.images[0].url, class: "product-photo-srade"
           .product-photo-srade
-            = image_tag @product.image.name1, class: "product-photo-srade"
+            = image_tag @product.images[0].url, class: "product-photo-srade"
           .product-photo-srade
-            = image_tag @product.image.name1, class: "product-photo-srade"
+            = image_tag @product.images[0].url, class: "product-photo-srade"
           .product-photo-srade
-            = image_tag @product.image.name1, class: "product-photo-srade"
+            = image_tag @product.images[0].url, class: "product-photo-srade"
           .product-photo-srade
-            = image_tag @product.image.name1, class: "product-photo-srade"
+            = image_tag @product.images[0].url, class: "product-photo-srade"
           .product-photo-srade
-            = image_tag @product.image.name1, class: "product-photo-srade"
+            = image_tag @product.images[0].url, class: "product-photo-srade"
 
       //---------商品詳細右側（詳細）---------
 
@@ -45,8 +45,9 @@
       %span.product-price.bold= '¥ ' + @product.price.to_s(:delimited)
       %span.product-tax (税込)
       %span.product-spping-fee 送料込み
-    .product-detail__btn.clear
-      %button{type: "submit", class: "btn-default btn-red"} 購入画面に進む
+    - if @product.user.id != 1 #とりあえずuser_idが１なら表示されないmerge後current_userに変更
+      .product-detail__btn.clear
+        %button{type: "submit", class: "btn-default btn-red"} 購入画面に進む
 
     .product-detail__description
       %p.product-detail__description-text
@@ -66,10 +67,26 @@
           %span あんしん・あんぜんへの取り組み
       .product-detail__like.clear
 
+  //---------商品編集ナビ（商品編集、出品一旦停止、商品削除）---------
+
+  - if @product.user.id == 1  #とりあえずuser_idが１なら表示されるmerge後current_userに変更
+    .product-current-user-nav
+      = link_to edit_product_path, class: 'product-detail__btn' do
+        %button{type: "submit", class: "btn-default btn-red user-nav-1"} 商品の編集
+      %p or
+      .product-detail__btn
+        %button{type: "submit", class: "btn-default btn-gray user-nav-2"} 出品を一旦停止
+
+      = link_to product_path, class: 'product-detail__btn', method: :delete do
+        %button{type: "submit", class: "btn-default btn-gray user-nav-1"} 商品削除
+
+  -# "/products/#{@product.id}"
   //---------商品詳細のコメント---------
 
   .product-message
-    = render 'products/product__comment-box'
+    - if @comments
+      - @comments.each do |c|
+        = render partial: 'product__comment-box', locals: {user_nickname: c.user.nickname, comment: c.comment, create_time: c.created_at}
     = form_for [@product, @comment] do |c|
       .product-message__content
         %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
@@ -108,17 +125,17 @@
           = "#{@product.user.nickname}さんの商品"
       .product-exhibit__user__item
         - @other_user_products.each do |p|
-          = render partial: 'product-exhibit-gen__user', locals: {product_id: p.id, product_name: p.name, product_image: p.image, product_price: p.price}
+          = render partial: 'product-exhibit-gen__user', locals: {product_id: p.id, product_name: p.name, product_image: p.images, product_price: p.price}
 
     //---------商品詳細のブランドのその他の商品一覧---------
 
     .product-exhibit__other.clearfix
       %h2.product-exhibit__user__name.bold
         = link_to "#", class: "product-exhibit__user__name.bold" do
-          = "#{@product.brand}の#{@product.small_categorie.name}その他の商品"
+          = "#{@product.brand}の#{@product.small_category}その他の商品"
       .product-exhibit__user__item
         - @other_category_products.each do |p|
-          = render partial: 'product-exhibit-gen__user', locals: {product_id: p.id, product_name: p.name, product_image: p.image, product_price: p.price}
+          = render partial: 'product-exhibit-gen__user', locals: {product_id: p.id, product_name: p.name, product_image: p.images, product_price: p.price}
 
 .app_banner
 %footer

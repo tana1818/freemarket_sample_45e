@@ -1,3 +1,4 @@
+- breadcrumb :credit, @user
 = render "layouts/header"
 = render "layouts/breadcrumb"
 
@@ -7,7 +8,7 @@
     .my-page-payment__body__inner
       .my-page-payment__body__inner__body
         %h3.my-page-payment__body__inner__body__sub-head クレジットカード一覧
-        .my-page-payment__body__inner__body__setting-add-card
+        = link_to credit_create_user_path, class: "my-page-payment__body__inner__body__setting-add-card" do
           %button{ type: "button", class: "btn-default btn-red" }
             クレジットカードを追加する
         .my-page-payment__body__inner__body__setting-not-regist

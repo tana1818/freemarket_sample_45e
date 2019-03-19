@@ -1,5 +1,6 @@
-%header.header
-%header.breadcrumb
+- breadcrumb :profile, @user
+= render 'layouts/header'
+= render 'layouts/breadcrumb'
 %main.clearfix
   .main-content
     //以上まだrenderingしてない
@@ -20,5 +21,4 @@
     //----------ここまでがユーザープロフィール編集-----------
 
   = render 'users/sidebar'
-.app_banner
-%footer
+= render 'layouts/footer'

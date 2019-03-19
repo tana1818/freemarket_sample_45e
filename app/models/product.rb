@@ -31,11 +31,11 @@ class Product < ApplicationRecord
   validates :user, presence: true
 
   #---------トップページ商品一覧の際のピックアップカテゴリー---------
-  def product_by_large_category(id)
+  def self.product_by_large_category(id)
     Product.where(large_category: id).order("id DESC").limit(4)
   end
   #---------トップページ商品一覧の際のピックアップbrand---------
-  def product_by_brand_category(id)
+  def self.product_by_brand_category(id)
     Product.where(brand: id).order("id DESC").limit(4)
   end
 

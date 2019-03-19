@@ -3,7 +3,7 @@
     max-width: none;
     width: 456px;
     height: 350px;
-    margin: 0 auto;
+    margin: 30px auto 0;
     background: #fff;
     border-bottom: solid 1px white;
     .signup-title{
@@ -17,7 +17,7 @@
       }
     }
     .signup-main{
-      background-color: white;
+      // background-color: white;
       font-size:14px;
       position: relative;
       min-height: 100%;
@@ -71,4 +71,8 @@
       }
     }
   }
+}
+
+.signup {
+  height: 100vh;
 }

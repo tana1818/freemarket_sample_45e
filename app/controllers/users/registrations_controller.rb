@@ -15,8 +15,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super
     @user.uid = session[:uid]
     @user.provider = session[:provider]
-    if @user.save
-    else
+    unless @user.save
       redirect_to signup_users_path
     end
   end

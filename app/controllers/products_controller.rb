@@ -75,8 +75,6 @@ class ProductsController < ApplicationController
     @shipment_periods = ShipmentPeriod.order('sort_by')
   end
 
-  private
-
   def get_middle_categories
     render partial: 'middle_category', locals: {division: params[:large_category]}
   end
@@ -109,6 +107,8 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @delivery = Deliverie.find(user_id: current_user[:id])
   end
+
+  private
 
   def product_params
     if params[:product][:images]

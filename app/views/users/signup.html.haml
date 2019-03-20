@@ -1,20 +1,18 @@
-.signup-container
-  %section.signup
-    = render "layouts/single-header"
+= render "layouts/single-header"
+.signup-main
+  .signup-panel
+    .signup-title
+      %p.l-signup-head 新規会員登録
     .signup-main
-      .signup-panel
-        .signup-title
-          %p.l-signup-head 新規会員登録
-        .signup-main
-          .signup-main__Mail-btn
-            = link_to new_user_registration_path,class: "mail btn-memberinfo" do
-              メールアドレスで登録
-          .signup-main__Facebook-btn
-            = link_to user_facebook_omniauth_authorize_path,class: "facebook" do
-              = fa_icon "facebook-square"
-              Facebookで登録
-          .signup-main__Google-btn
-            = link_to user_google_oauth2_omniauth_authorize_path,class: "google" do
-              = fa_icon "google"
-              Googleで登録
-    = render "layouts/single-footer"
+      .signup-main__Mail-btn
+        = link_to new_user_registration_path,class: "mail btn-memberinfo" do
+          メールアドレスで登録
+      .signup-main__Facebook-btn
+        = link_to user_facebook_omniauth_authorize_path,class: "facebook" do
+          = fa_icon "facebook-square"
+          Facebookで登録
+      .signup-main__Google-btn
+        = link_to user_google_oauth2_omniauth_authorize_path,class: "google" do
+          = fa_icon "google"
+          Googleで登録
+= render "layouts/single-footer"

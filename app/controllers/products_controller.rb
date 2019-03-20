@@ -99,8 +99,9 @@ class ProductsController < ApplicationController
     Payjp.api_key = 'sk_test_eb4453d310b2f6b4f2c6f649'
     token = User.find(current_user.id).payjptoken
     #支払いの実行。amountは仮。
+    amount = params[:amount]
     Payjp::Charge.create(
-      amount:   1000,
+      amount:   amount,
       customer: token,
       currency: 'jpy'
     )

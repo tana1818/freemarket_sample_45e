@@ -18,9 +18,4 @@ $(function(){
     $('section').css('display','none');
     $('.credit').css('display','block');
   });
-
-  $('.btn-complete').on("click", function() {
-    $('section').css('display','none');
-    $('.complete').css('display','block');
-  });
 });

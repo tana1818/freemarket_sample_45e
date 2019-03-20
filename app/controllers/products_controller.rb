@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
 
+  require 'payjp'
+
   def show #商品詳細ページ
     @no_user = User.none
     @product = Product.find(params[:id])
@@ -98,10 +100,22 @@ class ProductsController < ApplicationController
     end
   end
 
+  def pay
+    Payjp.api_key = 'sk_test_eb4453d310b2f6b4f2c6f649'
+    token = User.find(current_user.id).payjptoken
+    #支払いの実行。amountは仮。
+    Payjp::Charge.create(
+      amount:   1000,
+      customer: token,
+      currency: 'jpy'
+    )
+    
+    redirect_to root_path
+  end
+
   def destroy
     @product = Product.find(params[:id])
     @product.destroy if @product.user_id == curreent_user.id #とりあえずproductのuser_idが１なら商品消えるmerge後current_userに変更
-    redirect_to root_path
   end
 
   def purchase_confirmation

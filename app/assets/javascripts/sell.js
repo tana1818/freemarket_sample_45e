@@ -4,7 +4,7 @@ $(function() {
 // ページを開いた時に実行するスクリプト
 ////////////////////////////////////////////////////////////////////////////////
 
-if (location.pathname.match('products') && ( location.pathname.match('new') || location.pathname.match('edit')) {
+if (location.pathname.match('products') && ( location.pathname.match('new') || location.pathname.match('edit'))) {
   visibleMiddleCategory('open');
   visibleSmallCategory('open');
   visibleSizeAndBrand('open');

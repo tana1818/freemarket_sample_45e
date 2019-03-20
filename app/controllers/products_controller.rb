@@ -100,7 +100,7 @@ class ProductsController < ApplicationController
   end
 
   def pay
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    Payjp.api_key = 'sk_test_eb4453d310b2f6b4f2c6f649'
     token = User.find(current_user.id).payjptoken
     #支払いの実行。amountは仮。
     Payjp::Charge.create(

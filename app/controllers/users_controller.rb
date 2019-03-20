@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
   def selling
     @user = User.find(params[:id])
-    @other_user_products = Product.where(user_id: 1).order("id DESC").limit(6)
+    @current_user_products = Product.where(user_id: current_user.id).order("id DESC").limit(6)
   end
 
   def show
@@ -31,6 +31,9 @@ class UsersController < ApplicationController
 
   def profile
     @user = User.find(params[:id])
+  end
+
+  def signup
   end
 
 end

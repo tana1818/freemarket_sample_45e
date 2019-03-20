@@ -1,11 +1,19 @@
 class ProductsController < ApplicationController
 
+  require 'payjp'
+
   def show #商品詳細ページ
     @product = Product.find(params[:id])
     @comment = Comment.new
     @comments = Comment.where(product_id: params[:id])
     @other_user_products = Product.where(user_id: @product.user_id).where.not(id: params[:id]).order("id DESC").limit(6)
     @other_category_products = Product.where(brand: @product.brand).where.not(id: params[:id]).order("id DESC").limit(6)
+
+    if user_signed_in?  #購入ボタンの表示の際に動く
+    # @produc = Product.find(params[:id])
+    else @no_user = User.none
+    end
+
   end
 
   def index #トップページ
@@ -38,6 +46,9 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    gon.middle_category = ''
+    gon.small_category = ''
+    gon.product_images_count = 0
     @large_categories = Category.where(division: :null).order('sort_by')
     @conditions = Condition.order('sort_by')
     @delivery_fee_pays = DeliveryFeePay.order('sort_by')
@@ -53,6 +64,23 @@ class ProductsController < ApplicationController
     else
       render json: { error: @product.errors.full_messages.join(", ") }, status: 400
     end
+  end
+
+  def edit
+    @product = Product.find(params[:id])
+    gon.product_id = params[:id]
+    gon.product_images = @product.images
+    gon.product_images_count = @product.images.length
+    gon.middle_category = @product.middle_category
+    gon.small_category = @product.small_category
+    gon.size = @product.size.id
+    gon.brand = @product.brand
+    @large_categories = Category.where(division: :null).order('sort_by')
+    @conditions = Condition.order('sort_by')
+    @delivery_fee_pays = DeliveryFeePay.order('sort_by')
+    @delivery_methods = DeliveryMethod.order('sort_by')
+    @prefectures = Prefecture.all
+    @shipment_periods = ShipmentPeriod.order('sort_by')
   end
 
   def get_middle_categories
@@ -77,15 +105,31 @@ class ProductsController < ApplicationController
     end
   end
 
+  def pay
+    Payjp.api_key = 'sk_test_eb4453d310b2f6b4f2c6f649'
+    token = User.find(current_user.id).payjptoken
+    #支払いの実行。amountは仮。
+    Payjp::Charge.create(
+      amount:   1000,
+      customer: token,
+      currency: 'jpy'
+    )
+    
+    redirect_to root_path
+  end
+
   def destroy
     @product = Product.find(params[:id])
     @product.destroy if @product.user_id == curreent_user.id #とりあえずproductのuser_idが１なら商品消えるmerge後current_userに変更
-    redirect_to root_path
   end
 
   def purchase_confirmation
     @product = Product.find(params[:id])
-    @delivery = Deliverie.find(user_id: current_user[:id])
+    # @delivery = Deliverie.find(user_id: current_user[:id])
+  end
+
+  def edit
+    @product = Product.find(params[:id])
   end
 
   private
@@ -94,7 +138,7 @@ class ProductsController < ApplicationController
     if params[:product][:images]
       params[:product][:images] = params[:product][:images].values
     end
-    params.require(:product).permit(:name, :description, :large_category, :condition_id, :delivery_fee_pay_id, :delivery_method_id, :prefecture_id, :shipment_period_id, :price, {images: []}).merge(middle_category: params[:middle_category], small_category: params[:small_category], size_id: params[:size_id], brand: params[:brand], user_id: 1, status: '出品中')
+    params.require(:product).permit(:name, :description, :large_category, :condition_id, :delivery_fee_pay_id, :delivery_method_id, :prefecture_id, :shipment_period_id, :price, {images: []}).merge(middle_category: params[:middle_category], small_category: params[:small_category], size_id: params[:size_id], brand: params[:brand], user_id: current_user.id, status: '出品中')
   end
 
   def comment_params

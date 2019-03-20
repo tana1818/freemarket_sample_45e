@@ -27,6 +27,8 @@ Rails.application.routes.draw do
     end
   end
 
+  post 'products/pay', to: 'products#pay'
+
   resources :user_details, only: [:index, :show]
   
   resources :users, only:[:show, :new, :create] do

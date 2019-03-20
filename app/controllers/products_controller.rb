@@ -1,12 +1,17 @@
 class ProductsController < ApplicationController
 
   def show #商品詳細ページ
-    @no_user = User.none
     @product = Product.find(params[:id])
     @comment = Comment.new
     @comments = Comment.where(product_id: params[:id])
     @other_user_products = Product.where(user_id: @product.user_id).where.not(id: params[:id]).order("id DESC").limit(6)
     @other_category_products = Product.where(brand: @product.brand).where.not(id: params[:id]).order("id DESC").limit(6)
+
+    if user_signed_in?  #購入ボタンの表示の際に動く
+    # @produc = Product.find(params[:id])
+    else @no_user = User.none
+    end
+
   end
 
   def index #トップページ
@@ -106,7 +111,7 @@ class ProductsController < ApplicationController
 
   def purchase_confirmation
     @product = Product.find(params[:id])
-    @delivery = Deliverie.find(user_id: current_user[:id])
+    # @delivery = Deliverie.find(user_id: current_user[:id])
   end
 
   def edit

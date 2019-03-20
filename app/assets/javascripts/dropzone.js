@@ -7,6 +7,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+var globImageNum = [];
+var globFilesCount = 0;
 
 /*
  *
@@ -737,11 +739,12 @@ var Dropzone = function (_Emitter) {
 
         // Called when a file is added to the queue
         // Receives `file`
-        addedfile: function addedfile(file) {
+        addedfile: function addedfile(file, imageNum, addFlg) {
           var _this2 = this;
 
           // ドロップボックスのファイル数が最大数を超えた場合の処理を追加
-          if (this.options.maxFiles == null || this.getAcceptedFiles().length < this.options.maxFiles) {
+          if (this.options.maxFiles == null || globFilesCount < this.options.maxFiles) {
+          globFilesCount = globFilesCount + 1;
 
           if (this.element === this.previewsContainer) {
             this.element.classList.add("dz-started");
@@ -783,11 +786,20 @@ var Dropzone = function (_Emitter) {
 
             // 削除ボタンの隣に編集ボタンを追加
             if (this.options.addRemoveLinks) {
-              file._removeLink = Dropzone.createElement("<div class=\"dropzone__link\"><a class=\"dropzone__remove\">編集</a><a class=\"dropzone__remove\" href=\"javascript:undefined;\" data-dz-remove>" + this.options.dictRemoveFile + "</a></div>");
-              file.previewElement.appendChild(file._removeLink);
+              if (addFlg == 1) {
+                file._removeLink = Dropzone.createElement("<div class=\"dropzone__link\"><a class=\"dropzone__remove\">編集</a><a class=\"dropzone__remove dropzone__remove--edit\" href=\"javascript:undefined;\" data-imagenum=\"" + imageNum + "\" data-dz-remove>" + this.options.dictRemoveFile + "</a></div>");
+                file.previewElement.appendChild(file._removeLink);
+              } else {
+                file._removeLink = Dropzone.createElement("<div class=\"dropzone__link\"><a class=\"dropzone__remove\">編集</a><a class=\"dropzone__remove\" href=\"javascript:undefined;\" data-dz-remove>" + this.options.dictRemoveFile + "</a></div>");
+                file.previewElement.appendChild(file._removeLink);
+              }
             }
 
             var removeFileEvent = function removeFileEvent(e) {
+              globImageNum.push($(this).data('imagenum'));
+              $('#image_num').val(globImageNum);
+              globFilesCount = globFilesCount - 1;
+              console.log(globFilesCount);
               e.preventDefault();
               e.stopPropagation();
               if (file.status === Dropzone.UPLOADING) {

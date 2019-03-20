@@ -9,8 +9,9 @@ Rails.application.routes.draw do
   }
 
   root 'products#index'
-  resources :products, only: [:index, :new, :show, :create] do
+  resources :products, only: [:index, :new, :show, :create, :edit, :update] do
     resources :comments, only: [:create]
+    resources :images, only: [:create, :destroy]
     collection do
       get 'search'
       get 'show_brand_item'
@@ -24,7 +25,7 @@ Rails.application.routes.draw do
   end
 
   resources :user_details, only: [:index]
-  
+
   resources :users, only: [:show, :new] do
     collection do
       get :logout

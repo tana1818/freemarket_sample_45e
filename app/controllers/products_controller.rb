@@ -38,6 +38,9 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    gon.middle_category = ''
+    gon.small_category = ''
+    gon.product_images_count = 0
     @large_categories = Category.where(division: :null).order('sort_by')
     @conditions = Condition.order('sort_by')
     @delivery_fee_pays = DeliveryFeePay.order('sort_by')
@@ -54,6 +57,25 @@ class ProductsController < ApplicationController
       render json: { error: @product.errors.full_messages.join(", ") }, status: 400
     end
   end
+
+  def edit
+    @product = Product.find(params[:id])
+    gon.product_id = params[:id]
+    gon.product_images = @product.images
+    gon.product_images_count = @product.images.length
+    gon.middle_category = @product.middle_category
+    gon.small_category = @product.small_category
+    gon.size = @product.size.id
+    gon.brand = @product.brand
+    @large_categories = Category.where(division: :null).order('sort_by')
+    @conditions = Condition.order('sort_by')
+    @delivery_fee_pays = DeliveryFeePay.order('sort_by')
+    @delivery_methods = DeliveryMethod.order('sort_by')
+    @prefectures = Prefecture.all
+    @shipment_periods = ShipmentPeriod.order('sort_by')
+  end
+
+  private
 
   def get_middle_categories
     render partial: 'middle_category', locals: {division: params[:large_category]}
@@ -77,14 +99,11 @@ class ProductsController < ApplicationController
     end
   end
 
-
-  private
-
   def product_params
     if params[:product][:images]
       params[:product][:images] = params[:product][:images].values
     end
-    params.require(:product).permit(:name, :description, :large_category, :condition_id, :delivery_fee_pay_id, :delivery_method_id, :prefecture_id, :shipment_period_id, :price, {images: []}).merge(middle_category: params[:middle_category], small_category: params[:small_category], size_id: params[:size_id], brand: params[:brand], user_id: 1, status: '出品中')
+    params.require(:product).permit(:name, :description, :large_category, :condition_id, :delivery_fee_pay_id, :delivery_method_id, :prefecture_id, :shipment_period_id, :price, {images: []}).merge(middle_category: params[:middle_category], small_category: params[:small_category], size_id: params[:size_id], brand: params[:brand], user_id: current_user.id, status: '出品中')
   end
 
   def comment_params

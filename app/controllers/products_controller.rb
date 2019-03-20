@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
 
   def show #商品詳細ページ
+    @no_user = User.none
     @product = Product.find(params[:id])
     @comment = Comment.new
     @comments = Comment.where(product_id: params[:id])
@@ -88,13 +89,17 @@ class ProductsController < ApplicationController
     @delivery = Deliverie.find(user_id: current_user[:id])
   end
 
+  def edit
+    @product = Product.find(params[:id])
+  end
+
   private
 
   def product_params
     if params[:product][:images]
       params[:product][:images] = params[:product][:images].values
     end
-    params.require(:product).permit(:name, :description, :large_category, :condition_id, :delivery_fee_pay_id, :delivery_method_id, :prefecture_id, :shipment_period_id, :price, {images: []}).merge(middle_category: params[:middle_category], small_category: params[:small_category], size_id: params[:size_id], brand: params[:brand], user_id: 1, status: '出品中')
+    params.require(:product).permit(:name, :description, :large_category, :condition_id, :delivery_fee_pay_id, :delivery_method_id, :prefecture_id, :shipment_period_id, :price, {images: []}).merge(middle_category: params[:middle_category], small_category: params[:small_category], size_id: params[:size_id], brand: params[:brand], user_id: current_user.id, status: '出品中')
   end
 
   def comment_params

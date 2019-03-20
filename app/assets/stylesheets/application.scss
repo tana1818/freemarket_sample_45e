@@ -18,6 +18,7 @@
 @import "./users/signup_main";
 @import "./users/signup_main_credit";
 @import "./users/signup_main_regist";
+@import "users/do_sell";
 @import 'under_constructions';
 @import 'products/purchase-confirmation';
 @import 'products/index';
@@ -25,7 +26,9 @@
 @import 'products/product_detail_gen';
 @import 'products/product_comment';
 @import 'products/dropzone';
+@import 'products/product_current-user-nav';
 @import 'layouts/header';
 @import 'layouts/footer';
 @import 'layouts/exhibit-button';
+@import 'layouts/breadcrumbs';
 @import 'devise/_registration';

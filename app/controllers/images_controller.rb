@@ -2,17 +2,18 @@ class ImagesController < ApplicationController
   before_action :set_product
 
   def create
-    add_more_images(images_params[:images])
-    @product.save
-    if params[:image_num]
-      remove_image_at_index(params[:image_num])
-      @product.save
+    Product.transaction do
+      add_more_images(images_params[:images])
+      @product.save!
+      if params[:image_num]
+        remove_image_at_index(params[:image_num])
+        @product.save!
+      end
+      @product.update(name: product_params[:name], description: product_params[:description], large_category: product_params[:large_category], condition_id: product_params[:condition_id], delivery_fee_pay_id: product_params[:delivery_fee_pay_id], delivery_method_id: product_params[:delivery_method_id], prefecture_id: product_params[:prefecture_id], shipment_period_id: product_params[:shipment_period_id], price: product_params[:price], middle_category: params[:middle_category], small_category: params[:small_category], size_id: params[:size_id], brand: params[:brand])
     end
-    if @product.update(product_params)
       render json: { message: 'success', productId: @product.id , act: 'update'}, status: 200
-    else
-      render json: { error: @product.errors.full_messages.join(", ") }, status: 400
-    end
+    rescue => e
+      render json: { error: e.message }, status: 400
   end
 
   def destroy

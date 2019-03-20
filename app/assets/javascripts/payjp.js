@@ -24,7 +24,6 @@ $(function() {
         $(".input-default.exp_year").removeAttr("name");
 
         var token = response.id;
-        console.log(token)
 
         $('section').css('display','none');
         $('.complete').css('display','block');

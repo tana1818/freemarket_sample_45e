@@ -68,11 +68,13 @@
   }
 
   &__size {
+    display: none;
     margin-bottom: 1em;
     font-size: 14px;
   }
 
   &__filename {
+    display: none;
     white-space: nowrap;
   }
 

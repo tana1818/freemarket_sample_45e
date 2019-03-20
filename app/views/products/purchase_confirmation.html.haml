@@ -23,7 +23,7 @@
             %p.buy-content__inner__payment__text 支払い金額
             %p.buy-content__inner__payment__price= "¥" + @product.price.to_s(:delimited)
           %p.buy-content__inner__error-text 配送先と支払い方法の入力を完了してください。
-          = button_to "購入する", {controller: 'products', action: 'pay', class: "buy-content__inner__button"}, {method: :post}
+          = button_to "購入する", {controller: 'products', action: 'pay', class: "buy-content__inner__button", amount: @product.price }, {method: :post}
       %section.shipping-to
         .shipping-to__inner
           %h3 配送先

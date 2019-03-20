@@ -1,5 +1,6 @@
-= render "layouts/header"
-= render "layouts/breadcrumb"
+- breadcrumb :logout, @user
+= render "layouts/header-logined"
+-# = render "layouts/breadcrumb"
 
 %main.logout-main.clearfix
   .main-content

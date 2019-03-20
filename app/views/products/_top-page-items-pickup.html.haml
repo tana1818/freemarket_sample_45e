@@ -6,7 +6,7 @@
         レディース 新着アイテム
     .top-page-items-boxes__content.clearfix
       - @products_womens.each do |p|
-        = render :partial => 'top-page-items-boxes', :locals => {product_id: p.id, product_name: p.name, product_image: p.image, product_price: p.price}
+        = render :partial => 'top-page-items-boxes', :locals => {product_id: p.id, product_name: p.name, product_image: p.images, product_price: p.price}
     .top-page-items-boxes__view-all
       = link_to root_path do
         %p すべての商品を見る
@@ -17,7 +17,7 @@
         メンズ 新着アイテム
     .top-page-items-boxes__content.clearfix
       - @products_mens.each do |p|
-        = render :partial => 'top-page-items-boxes', :locals => {product_id: p.id, product_name: p.name, product_image: p.image, product_price: p.price}
+        = render :partial => 'top-page-items-boxes', :locals => {product_id: p.id, product_name: p.name, product_image: p.images, product_price: p.price}
     .top-page-items-boxes__view-all
       = link_to root_path do
         %p すべての商品を見る
@@ -28,7 +28,7 @@
         ベビー・キッズ 新着アイテム
     .top-page-items-boxes__content.clearfix
       - @products_kids.each do |p|
-        = render :partial => 'top-page-items-boxes', :locals => {product_id: p.id, product_name: p.name, product_image: p.image, product_price: p.price}
+        = render :partial => 'top-page-items-boxes', :locals => {product_id: p.id, product_name: p.name, product_image: p.images, product_price: p.price}
     .top-page-items-boxes__view-all
       = link_to root_path do
         %p すべての商品を見る
@@ -39,7 +39,7 @@
         コスメ・香水・美容 新着アイテム
     .top-page-items-boxes__content.clearfix
       - @products_perfumes.each do |p|
-        = render :partial => 'top-page-items-boxes', :locals => {product_id: p.id, product_name: p.name, product_image: p.image, product_price: p.price}
+        = render :partial => 'top-page-items-boxes', :locals => {product_id: p.id, product_name: p.name, product_image: p.images, product_price: p.price}
     .top-page-items-boxes__view-all
       = link_to root_path do
         %p すべての商品を見る
@@ -53,7 +53,7 @@
         シャネル 新着アイテム
     .top-page-items-boxes__content.clearfix
       - @products_chanels.each do |p|
-        = render :partial => 'top-page-items-boxes', :locals => {product_id: p.id, product_name: p.name, product_image: p.image, product_price: p.price}
+        = render :partial => 'top-page-items-boxes', :locals => {product_id: p.id, product_name: p.name, product_image: p.images, product_price: p.price}
     .top-page-items-boxes__view-all
       = link_to root_path do
         %p すべての商品を見る
@@ -64,7 +64,7 @@
         ルイヴィトン 新着アイテム
     .top-page-items-boxes__content.clearfix
       - @products_vitons.each do |p|
-        = render :partial => 'top-page-items-boxes', :locals => {product_id: p.id, product_name: p.name, product_image: p.image, product_price: p.price}
+        = render :partial => 'top-page-items-boxes', :locals => {product_id: p.id, product_name: p.name, product_image: p.images, product_price: p.price}
     .top-page-items-boxes__view-all
       = link_to root_path do
         %p すべての商品を見る
@@ -75,7 +75,7 @@
         シュプリーム 新着アイテム
     .top-page-items-boxes__content.clearfix
       - @products_shups.each do |p|
-        = render :partial => 'top-page-items-boxes', :locals => {product_id: p.id, product_name: p.name, product_image: p.image, product_price: p.price}
+        = render :partial => 'top-page-items-boxes', :locals => {product_id: p.id, product_name: p.name, product_image: p.images, product_price: p.price}
     .top-page-items-boxes__view-all
       = link_to root_path do
         %p すべての商品を見る
@@ -86,7 +86,7 @@
         NIKE 新着アイテム
     .top-page-items-boxes__content.clearfix
       - @products_nikes.each do |p|
-        = render :partial => 'top-page-items-boxes', :locals => {product_id: p.id, product_name: p.name, product_image: p.image, product_price: p.price}
+        = render :partial => 'top-page-items-boxes', :locals => {product_id: p.id, product_name: p.name, product_image: p.images, product_price: p.price}
     .top-page-items-boxes__view-all
       = link_to root_path do
         %p すべての商品を見る

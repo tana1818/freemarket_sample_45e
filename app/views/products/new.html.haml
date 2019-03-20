@@ -1,7 +1,6 @@
-%header.sell-header
-  %h1.sell-header__title
-    = link_to '#', class: 'sell-header__link' do
-      = image_tag 'logo.svg', class: 'sell-header__image'
+
+= render "layouts/single-header"
+
 %main.sell-main
   %h2.sell-main__title
     商品の情報を入力
@@ -167,15 +166,5 @@
         = link_to '続けて出品する', new_product_path, class: 'modal__btn--next'
         .modal__link
           = link_to '商品ページへ行ってシェアする', '#', id: 'modal__share'
-%footer.sell-footer
-  %ul.sell-footer__list
-    %li.sell-footer__item
-      プライバシーポリシー
-    %li.sell-footer__item
-      メルカリ利用規約
-    %li.sell-footer__item
-      特定商取引に関する表記
-  = link_to '#', class: 'sell-footer__logo' do
-    = image_tag '//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?1445690901', size: '80x65'
-  %p.sell-footer__copyright
-    ©︎ 2019 Mercari
+
+= render "layouts/single-footer"

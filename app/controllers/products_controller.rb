@@ -88,13 +88,13 @@ class ProductsController < ApplicationController
       customer: token,
       currency: 'jpy'
     )
+    
+    redirect_to root_path
   end
 
   def destroy
     @product = Product.find(params[:id])
     @product.destroy if @product.user_id == curreent_user.id #とりあえずproductのuser_idが１なら商品消えるmerge後current_userに変更
-
-    redirect_to root_path
   end
 
 

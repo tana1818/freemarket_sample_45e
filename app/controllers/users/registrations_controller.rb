@@ -12,7 +12,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create
-    Payjp.api_key = 'sk_test_eb4453d310b2f6b4f2c6f649'
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     customer = Payjp::Customer.create(
      card: params[:user][:payjptoken]
     )

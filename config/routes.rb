@@ -9,8 +9,9 @@ Rails.application.routes.draw do
   }
 
   root 'products#index'
-  resources :products, only: [:index, :new, :show, :create, :edit, :destroy] do
+  resources :products do
     resources :comments, only: [:create]
+    resources :images, only: [:create, :destroy]
     collection do
       get 'search'
       get 'show_brand_item'
@@ -26,8 +27,10 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :user_details, only: [:show]
+  post 'products/pay', to: 'products#pay'
 
+  resources :user_details, only: [:index, :show]
+  
   resources :users, only:[:show, :new, :create] do
     collection do
       get :signup

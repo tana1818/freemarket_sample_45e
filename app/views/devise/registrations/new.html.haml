@@ -1,6 +1,6 @@
 .signup-container
 
-  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { id: 'registration-form'}) do |f|
     = devise_error_messages!
 
     -# 会員情報画面
@@ -248,7 +248,7 @@
                   .my-page-credit__body__main__inner__body__field
                     = c.label :card_number,"カード番号"
                     %span.form-require 必須
-                    = c.text_field :card_number,placeholder: "半角数字のみ", class: "input-default"
+                    = c.text_field :card_number,placeholder: "半角数字のみ", class: "input-default number"
                     %ul.signup-card-list
                       %li
                         =image_tag('credit/visa.svg', class: "signup-card-list__visa")
@@ -268,16 +268,17 @@
                     有効期限
                     %span.form-require 必須
                     .signup-form-expire__wrap
-                      = c.select :expiration_month, options_for_select(["-"]+ (1..12).to_a.map {|m|format('%02d', m) }), {},{class: "input-default"}
+                      = c.select :expiration_month, options_for_select(["-"]+ (1..12).to_a.map {|m|format('%02d', m) }), {},{class: "input-default exp_month"}
                       %span 月
                     .signup-form-expire__wrap
-                      = c.select :expiration_year, options_for_select(["-"]+ (19..29).to_a.map {|m|format('%02d', m) }), {},{ class: "input-default"}
+                      = c.select :expiration_year, options_for_select(["-"]+ (19..29).to_a.map {|m|format('%02d', m) }), {},{ class: "input-default exp_year"}
                       %span 年
                   .my-page-credit__body__main__inner__body__field
                     セキュリティコード
                     %span.form-require 必須
-                    = c.text_field :security_code, placeholder: "カード背面4桁もしくは3桁の番号", class: "input-default validate[required, custom[onlyNumberSp]]"
+                    = c.text_field :security_code, placeholder: "カード背面4桁もしくは3桁の番号", class: "input-default cvc validate[required, custom[onlyNumberSp]]"
                     %p.info カード裏面の番号とは？
+                    = f.text_field :payjptoken, type: "hidden", class: "payjptoken", value: ""
                     = f.submit "次へ進む", class: "btn-default btn-red btn-complete"
         = render "layouts/single-footer"
 

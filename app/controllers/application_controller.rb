@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :basic_auth, if: :production?
   protect_from_forgery with: :exception
-  before_action :authenticate_user!, except: :signup
+  before_action :authenticate_user!, except: [:index, :signup, :show, :search]
   before_action :authenticate_with_http_digest
   before_action :configure_permitted_parameters, if: :devise_controller?
 
@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   end
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys:[:nickname,:sei,:mei,:kana_sei,:kana_mei,:birth,card_attributes: [:card_number,:expiration_month,:expiration_year,:security_code,:user],deliverie_attributes: [:sei,:mei,:kana_sei,:kana_mei,:zip_code,:prefecture_id,:shikutyoson,:banchi,:tatemono,:tel],user_detail_attributes: [:auth_tel]])
+    devise_parameter_sanitizer.permit(:sign_up, keys:[:nickname,:sei,:mei,:kana_sei,:kana_mei,:birth,:payjptoken,card_attributes: [:card_number,:expiration_month,:expiration_year,:security_code,:user],deliverie_attributes: [:sei,:mei,:kana_sei,:kana_mei,:zip_code,:prefecture_id,:shikutyoson,:banchi,:tatemono,:tel],user_detail_attributes: [:auth_tel]])
   end
 
 end

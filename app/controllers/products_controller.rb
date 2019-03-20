@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @comment = Comment.new
     @comments = Comment.where(product_id: params[:id])
-    @other_user_products = Product.where(user_id: @product.user_id).order("id DESC").limit(6)
+    @other_user_products = Product.where(user_id: @product.user_id).where.not(id: params[:id]).order("id DESC").limit(6)
     @other_category_products = Product.where(brand: @product.brand).where.not(id: params[:id]).order("id DESC").limit(6)
   end
 
@@ -77,6 +77,16 @@ class ProductsController < ApplicationController
     end
   end
 
+  def destroy
+    @product = Product.find(params[:id])
+    @product.destroy if @product.user_id == curreent_user.id #とりあえずproductのuser_idが１なら商品消えるmerge後current_userに変更
+    redirect_to root_path
+  end
+
+  def purchase_confirmation
+    @product = Product.find(params[:id])
+    @delivery = Deliverie.find(user_id: current_user[:id])
+  end
 
   private
 

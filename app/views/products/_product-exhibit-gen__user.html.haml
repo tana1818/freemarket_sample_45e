@@ -4,7 +4,7 @@
 .top-page-items-boxes__content__item-box.nth
   = link_to "/products/#{product_id}" do
     .top-page-items-boxes__content__item-box__image
-      = image_tag product_image.name1
+      = image_tag product_image[0].url
     .top-page-items-boxes__content__item-box__text
       %h4= product_name
       %h5= "¥" + product_price.to_s(:delimited)

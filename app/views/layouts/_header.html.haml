@@ -5,7 +5,7 @@
         = link_to root_path do
           = image_tag "logo.svg"
       .header__contents__upper__form
-        .header__contents__upper__form__text-field
+        %input.header__contents__upper__form__text-field{:name => "nickname", :placeholder => "キーワードから探す", :type => "text"}/
     .header__contents__lower.clearfix
       %nav.header__contents__lower__brand-and-category-search
         %ul
@@ -16,8 +16,8 @@
       .header__contents__lower__button
         %ul
           %li.header__contents__lower__button__login
-            %p ログイン
+            = link_to new_user_session_path, class: 'header__contents__lower__button__login' do
+              %p ログイン
           %li.header__contents__lower__button__signup
-            %p 新規会員登録
-
-
+            = link_to new_user_registration_path, class: 'header__contents__lower__button__signup' do
+              %p 新規会員登録

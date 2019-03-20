@@ -1,0 +1,19 @@
+.product {
+  &-current-user-nav {
+    margin: 24px 0 24px 0;
+    padding: 8px 16px 8px 16px;
+    background-color: white;
+    & p {
+      text-align: center;
+    }
+  }
+}
+
+
+.user-nav-1 {
+  margin: 16px 0;
+}
+
+.user-nav-2 {
+  margin-top: 16px;
+}

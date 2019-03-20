@@ -3,7 +3,7 @@ class Product < ApplicationRecord
   belongs_to :delivery_fee_pay
   belongs_to :delivery_method
   belongs_to :shipment_period
-  has_many :comments
+  has_many :comments, dependent: :destroy
   belongs_to :size
   belongs_to :user
   has_many :likes
@@ -29,5 +29,14 @@ class Product < ApplicationRecord
   validates :size, presence: true
   validates :images, presence: true
   validates :user, presence: true
+
+  #---------トップページ商品一覧の際のピックアップカテゴリー---------
+  def self.product_by_large_category(id)
+    Product.where(large_category: id).order("id DESC").limit(4)
+  end
+  #---------トップページ商品一覧の際のピックアップbrand---------
+  def self.product_by_brand_category(id)
+    Product.where(brand: id).order("id DESC").limit(4)
+  end
 
 end

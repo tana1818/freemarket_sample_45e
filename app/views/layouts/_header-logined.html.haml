@@ -5,7 +5,7 @@
         = link_to root_path do
           = image_tag "logo.svg"
       .header__contents__upper__form
-        .header__contents__upper__form__text-field
+        %input.header__contents__upper__form__text-field{:name => "nickname", :placeholder => "キーワードから探す", :type => "text"}/
     .header__contents__lower.clearfix
       %nav.header__contents__lower__brand-and-category-search
         %ul
@@ -16,9 +16,10 @@
       .header__contents__lower__user-navigation
         %ul
           %li.header__contents__lower__user-navigation__mypage
-            .header__contents__lower__user-navigation__mypage__image
-              = image_tag "mypage-icon.jpg"
-            %p マイページ
+            = link_to user_path(current_user), class: 'header__contents__lower__user-navigation__mypage' do
+              .header__contents__lower__user-navigation__mypage__image
+                = image_tag "mypage-icon.jpg"
+              %p マイページ
           %li.header__contents__lower__user-navigation__news
             = fa_icon('bell')
             %p お知らせ

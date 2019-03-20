@@ -3,7 +3,7 @@ $(function() {
     e.preventDefault();
     $(".btn-default.btn-red.btn-complete").prop("disabled", true);
 
-    Payjp.setPublicKey(ENV["PAYJP_PUBLIC_KEY"]);
+    Payjp.setPublicKey("pk_test_5edbd73f01ee222e374536d5");
 
     var card = {
       number: $(".input-default.number").val(),

@@ -4,12 +4,13 @@ $(function() {
 // ページを開いた時に実行するスクリプト
 ////////////////////////////////////////////////////////////////////////////////
 
+if (location.pathname.match('products') && ( location.pathname.match('new') || location.pathname.match('edit')) {
   visibleMiddleCategory('open');
   visibleSmallCategory('open');
   visibleSizeAndBrand('open');
   visibleDeliveryMethod();
   priceAutoCalc();
-
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 // 各コントロールを変更した時に実行するスクリプト

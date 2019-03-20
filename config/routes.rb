@@ -9,8 +9,9 @@ Rails.application.routes.draw do
   }
 
   root 'products#index'
-  resources :products, only: [:index, :new, :show, :create, :edit, :destroy] do
+  resources :products do
     resources :comments, only: [:create]
+    resources :images, only: [:create, :destroy]
     collection do
       get 'search'
       get 'show_brand_item'
@@ -21,12 +22,15 @@ Rails.application.routes.draw do
       get 'judge_get_sizes'
       get 'judge_brand'
     end
+    member do
+      get 'purchase_confirmation'
+    end
   end
 
   post 'products/pay', to: 'products#pay'
 
-  resources :user_details, only: [:show]
-
+  resources :user_details, only: [:index, :show]
+  
   resources :users, only:[:show, :new, :create] do
     collection do
       get :signup

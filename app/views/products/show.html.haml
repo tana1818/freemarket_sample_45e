@@ -1,5 +1,8 @@
 -breadcrumb :product, @product
-= render "layouts/header"
+- if current_user
+  = render 'layouts/header-logined'
+-else
+  = render 'layouts/header'
 = render "layouts/breadcrumb"
 
 //---------商品詳細左側（写真）---------
@@ -45,8 +48,8 @@
       %span.product-price.bold= '¥ ' + @product.price.to_s(:delimited)
       %span.product-tax (税込)
       %span.product-spping-fee 送料込み
-    - if @product.user.id != 1 #とりあえずuser_idが１なら表示されないmerge後current_userに変更
-      .product-detail__btn.clear
+    - if @product.user.id != current_user.id #とりあえずuser_idが１なら表示されないmerge後current_userに変更
+      = link_to purchase_confirmation_product_path, class: "product-detail__btn clear" do
         %button{type: "submit", class: "btn-default btn-red"} 購入画面に進む
 
     .product-detail__description
@@ -69,7 +72,7 @@
 
   //---------商品編集ナビ（商品編集、出品一旦停止、商品削除）---------
 
-  - if @product.user.id == 1  #とりあえずuser_idが１なら表示されるmerge後current_userに変更
+  - if @product.user.id == current_user.id  #とりあえずuser_idが１なら表示されるmerge後current_userに変更
     .product-current-user-nav
       = link_to edit_product_path, class: 'product-detail__btn' do
         %button{type: "submit", class: "btn-default btn-red user-nav-1"} 商品の編集
@@ -80,7 +83,6 @@
       = link_to product_path, class: 'product-detail__btn', method: :delete do
         %button{type: "submit", class: "btn-default btn-gray user-nav-1"} 商品削除
 
-  -# "/products/#{@product.id}"
   //---------商品詳細のコメント---------
 
   .product-message
@@ -137,5 +139,4 @@
         - @other_category_products.each do |p|
           = render partial: 'product-exhibit-gen__user', locals: {product_id: p.id, product_name: p.name, product_image: p.images, product_price: p.price}
 
-.app_banner
-%footer
+= render 'layouts/footer'

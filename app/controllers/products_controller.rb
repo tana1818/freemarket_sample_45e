@@ -39,6 +39,9 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    gon.middle_category = ''
+    gon.small_category = ''
+    gon.product_images_count = 0
     @large_categories = Category.where(division: :null).order('sort_by')
     @conditions = Condition.order('sort_by')
     @delivery_fee_pays = DeliveryFeePay.order('sort_by')
@@ -54,6 +57,23 @@ class ProductsController < ApplicationController
     else
       render json: { error: @product.errors.full_messages.join(", ") }, status: 400
     end
+  end
+
+  def edit
+    @product = Product.find(params[:id])
+    gon.product_id = params[:id]
+    gon.product_images = @product.images
+    gon.product_images_count = @product.images.length
+    gon.middle_category = @product.middle_category
+    gon.small_category = @product.small_category
+    gon.size = @product.size.id
+    gon.brand = @product.brand
+    @large_categories = Category.where(division: :null).order('sort_by')
+    @conditions = Condition.order('sort_by')
+    @delivery_fee_pays = DeliveryFeePay.order('sort_by')
+    @delivery_methods = DeliveryMethod.order('sort_by')
+    @prefectures = Prefecture.all
+    @shipment_periods = ShipmentPeriod.order('sort_by')
   end
 
   def get_middle_categories

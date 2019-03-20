@@ -264,14 +264,10 @@ Devise.setup do |config|
   config.omniauth :facebook,
                   Rails.application.secrets.facebook_client_id,
                   Rails.application.secrets.facebook_client_secret
-                  # "1277169622440476",
-                  # "f5550dd7363d4b09310df66b56197c2b"
 
   config.omniauth :google_oauth2,
                   Rails.application.secrets.google_client_id,
                   Rails.application.secrets.google_client_secret
-                  # "1085397874235-ru5egk6h41kc2tp0m36n1qbndpvkqcom.apps.googleusercontent.com"
-                  # "Eq75mqrLQHV4aVfzw4qrUWrf"
 
   # config.omniauth :facebook ,ENV['facebook_client_id'], ENV['facebook_client_secret']
   # config.omniauth :google_oauth2, ENV['google_client_id'], ENV['google_client_secret'], scope: 'email'

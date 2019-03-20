@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
 
   def show #商品詳細ページ
+    @no_user = User.none
     @product = Product.find(params[:id])
     @comment = Comment.new
     @comments = Comment.where(product_id: params[:id])
@@ -106,6 +107,10 @@ class ProductsController < ApplicationController
   def purchase_confirmation
     @product = Product.find(params[:id])
     @delivery = Deliverie.find(user_id: current_user[:id])
+  end
+
+  def edit
+    @product = Product.find(params[:id])
   end
 
   private

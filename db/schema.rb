@@ -81,6 +81,21 @@ ActiveRecord::Schema.define(version: 2019_03_19_072910) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name1", null: false
+    t.string "name2"
+    t.string "name3"
+    t.string "name4"
+    t.string "name5"
+    t.string "name6"
+    t.string "name7"
+    t.string "name8"
+    t.string "name9"
+    t.string "name10"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "product_id", null: false

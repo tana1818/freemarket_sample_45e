@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   require 'payjp'
 
   def show #商品詳細ページ
-    @product = Product.find(params[:id])
+    set_product
     @comment = Comment.new
     @comments = Comment.where(product_id: params[:id])
     @other_user_products = Product.where(user_id: @product.user_id).where.not(id: params[:id]).order("id DESC").limit(6)
@@ -46,15 +46,10 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    set_pulldowns
     gon.middle_category = ''
     gon.small_category = ''
     gon.product_images_count = 0
-    @large_categories = Category.where(division: :null).order('sort_by')
-    @conditions = Condition.order('sort_by')
-    @delivery_fee_pays = DeliveryFeePay.order('sort_by')
-    @delivery_methods = DeliveryMethod.order('sort_by')
-    @prefectures = Prefecture.all
-    @shipment_periods = ShipmentPeriod.order('sort_by')
   end
 
   def create
@@ -67,7 +62,8 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @product = Product.find(params[:id])
+    set_product
+    set_pulldowns
     gon.product_id = params[:id]
     gon.product_images = @product.images
     gon.product_images_count = @product.images.length
@@ -75,12 +71,6 @@ class ProductsController < ApplicationController
     gon.small_category = @product.small_category
     gon.size = @product.size.id
     gon.brand = @product.brand
-    @large_categories = Category.where(division: :null).order('sort_by')
-    @conditions = Condition.order('sort_by')
-    @delivery_fee_pays = DeliveryFeePay.order('sort_by')
-    @delivery_methods = DeliveryMethod.order('sort_by')
-    @prefectures = Prefecture.all
-    @shipment_periods = ShipmentPeriod.order('sort_by')
   end
 
   def get_middle_categories
@@ -92,14 +82,14 @@ class ProductsController < ApplicationController
   end
 
   def judge_get_sizes
-    @small_category = Category.find(params[:small_category])
+    set_small_category
     if @small_category.size_kind_id
       render partial: 'size', locals: {size_kind_id: @small_category.size_kind_id}
     end
   end
 
   def judge_brand
-    @small_category = Category.find(params[:small_category])
+    set_small_category
     if @small_category.is_brand_presence
       render partial: 'brand'
     end
@@ -115,25 +105,37 @@ class ProductsController < ApplicationController
       customer: token,
       currency: 'jpy'
     )
-
     redirect_to root_path
   end
 
   def destroy
-    @product = Product.find(params[:id])
+    set_product
     @product.destroy if @product.user_id == curreent_user.id #とりあえずproductのuser_idが１なら商品消えるmerge後current_userに変更
   end
 
   def purchase_confirmation
-    @product = Product.find(params[:id])
+    set_product
     # @delivery = Deliverie.find(user_id: current_user[:id])
   end
 
-  def edit
+  private
+
+  def set_product
     @product = Product.find(params[:id])
   end
 
-  private
+  def set_small_category
+    @small_category = Category.find(params[:small_category])
+  end
+
+  def set_pulldowns
+    @large_categories = Category.where(division: :null).order('sort_by')
+    @conditions = Condition.order('sort_by')
+    @delivery_fee_pays = DeliveryFeePay.order('sort_by')
+    @delivery_methods = DeliveryMethod.order('sort_by')
+    @prefectures = Prefecture.all
+    @shipment_periods = ShipmentPeriod.order('sort_by')
+  end
 
   def product_params
     if params[:product][:images]

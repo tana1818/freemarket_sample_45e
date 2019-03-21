@@ -20,15 +20,18 @@
   %th カテゴリー
   %td
     = link_to "#" do
-      = @product.large_category
+      -# = @product.category.name
+      レディース
       <br>
     = link_to "#" do
       = fa_icon('angle-right')
-      = @product.middle_category
+      -# = @product.middle_category
+      トップス
       <br>
     = link_to "#" do
       = fa_icon('angle-right')
-      = @product.small_category
+      -# = @product.small_category
+      ポロシャツ
 
 %tr
   %th ブランド
@@ -59,7 +62,8 @@
 %tr
   %th 配送元地域
   %td
-    = @product.prefecture_id
+    -# = @product.prefecture_id
+    東京都
 
 %tr
   %th 発送日の目安

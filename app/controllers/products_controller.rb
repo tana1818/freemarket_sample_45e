@@ -110,7 +110,8 @@ class ProductsController < ApplicationController
 
   def destroy
     set_product
-    @product.destroy if @product.user_id == curreent_user.id #とりあえずproductのuser_idが１なら商品消えるmerge後current_userに変更
+    @product.destroy if @product.user_id == current_user.id #とりあえずproductのuser_idが１なら商品消えるmerge後current_userに変更
+    redirect_to root_path
   end
 
   def purchase_confirmation

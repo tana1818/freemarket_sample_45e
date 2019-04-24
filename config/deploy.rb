@@ -2,7 +2,7 @@
 lock "~> 3.11.0"
 
 set :application, "freemarket_sample_45e"
-set :repo_url, "git@github.com:kozitex/freemarket_sample_45e.git"
+set :repo_url, "git@github.com:tana1818/freemarket_sample_45e.git"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -44,7 +44,7 @@ set :rbenv_type, :user
 set :rbenv_ruby, '2.3.1'
 
 set :ssh_options, auth_methods: ['publickey'],
-                  keys: ['~/.ssh/freemarket_sample_45e.pem']
+                  keys: ['~/.ssh/mercari.pem']
 
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
@@ -58,26 +58,24 @@ namespace :deploy do
     invoke 'unicorn:restart'
   end
 
-  desc 'upload secrets.yml'
-  task :upload do
-    on roles(:app) do |host|
-      if test "[ ! -d #{shared_path}/config ]"
-        execute "mkdir -p #{shared_path}/config"
-      end
-      upload!('config/secrets.yml', "#{shared_path}/config/secrets.yml")
-    end
-  end
-  before :starting, 'deploy:upload'
-  after :finishing, 'deploy:cleanup'
+#   desc 'upload secrets.yml'
+#   task :upload do
+#     on roles(:app) do |host|
+#       if test "[ ! -d #{shared_path}/config ]"
+#         execute "mkdir -p #{shared_path}/config"
+#       end
+#       upload!('config/secrets.yml', "#{shared_path}/config/secrets.yml")
+#     end
+#   end
+#   before :starting, 'deploy:upload'
+#   after :finishing, 'deploy:cleanup'
 end
-
-set :default_env, {
-  rbenv_root: "/usr/local/rbenv",
-  path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH",
-  BASIC_AUTH_USER: ENV['BASIC_AUTH_USER'],
-  BASIC_AUTH_PASSWORD: ENV['BASIC_AUTH_PASSWORD'],
-  AWS_ACCESS_KEY_ID: ENV["AWS_ACCESS_KEY_ID"],
-  AWS_SECRET_ACCESS_KEY: ENV["AWS_SECRET_ACCESS_KEY"]
-}
-
-
+#
+# set :default_env, {
+#   rbenv_root: "/usr/local/rbenv",
+#   path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH",
+#   BASIC_AUTH_USER: ENV['BASIC_AUTH_USER'],
+#   BASIC_AUTH_PASSWORD: ENV['BASIC_AUTH_PASSWORD'],
+#   AWS_ACCESS_KEY_ID: ENV["AWS_ACCESS_KEY_ID"],
+#   AWS_SECRET_ACCESS_KEY: ENV["AWS_SECRET_ACCESS_KEY"]
+# }

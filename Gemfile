@@ -77,7 +77,7 @@ gem 'devise'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'dropzonejs-rails'
-gem 'fog-aws'
+# gem 'fog-aws'
 
 group :production do
   gem 'unicorn'

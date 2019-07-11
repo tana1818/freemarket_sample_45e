@@ -111,5 +111,6 @@
 # User.create(nickname: 'テスト6', sei: 'テ', mei: 'スト6', kana_sei: 'テ', kana_mei: 'スト6', birth: '2019/3/11', email: 'test6@test.com', password: 'passw0rd')
 # User.create(nickname: 'テスト7', sei: 'テ', mei: 'スト7', kana_sei: 'テ', kana_mei: 'スト7', birth: '2019/3/11', email: 'test7@test.com', password: 'passw0rd')
 # User.create(nickname: 'テスト8', sei: 'テ', mei: 'スト8', kana_sei: 'テ', kana_mei: 'スト8', birth: '2019/3/11', email: 'test8@test.com', password: 'passw0rd')
-User.create(nickname: 'テスト9', sei: 'テ', mei: 'スト9', kana_sei: 'テ', kana_mei: 'スト9', birth: '2019/3/11', email: 'test9@test.com', password: 'passw0rd')
+# User.create(nickname: 'テスト9', sei: 'テ', mei: 'スト9', kana_sei: 'テ', kana_mei: 'スト9', birth: '2019/3/11', email: 'test9@test.com', password: 'passw0rd')
+User.create(nickname: 'テスト10', sei: 'テ', mei: 'スト10', kana_sei: 'テ', kana_mei: 'スト10', birth: '2019/3/11', email: 'test10@test.com', password: 'passw0rd')
 # Product.create(name: 'ナイキのTシャツ', description: 'かっこいい', large_category: 'メンズ', middle_category: 'トップス', small_category: 'Tシャツ/カットソー(半袖/袖なし)', condition_id: 1, delivery_fee_pay_id: 1, delivery_method_id: 1, prefecture_id: 1, shipment_period_id: 1, price: 500, status: "売り出し中", size_id: 1, brand: "NIKE", images: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGOPQc2fx8POUZvhJ6eg6dUksVq2zUlFoP3RibhVAkK0PwVYP3", user_id: 1)

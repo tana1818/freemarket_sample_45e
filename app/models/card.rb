@@ -1,5 +1,5 @@
 class Card < ApplicationRecord
-  belongs_to :user
+  # belongs_to :user
   has_many :purchases
 
   validates :card_number, numericality: true, presence: true

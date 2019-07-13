@@ -1,7 +1,7 @@
 class CreateUserDetails < ActiveRecord::Migration[5.2]
   def change
     create_table :user_details do |t|
-      t.integer :auth_tel, null: false
+      t.string :auth_tel, null: false
       t.integer :zip_code
       t.string :shikutyoson
       t.string :banchi

@@ -21,7 +21,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     # super
     # @user.uid = session[:uid]
     # @user.provider = session[:provider]
-    # @user.save
+    @user.save
   end
 
 end

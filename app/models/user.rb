@@ -9,8 +9,8 @@ class User < ApplicationRecord
   has_one :deliverie, dependent: :destroy
   accepts_nested_attributes_for :deliverie
   has_one :purchase, dependent: :destroy
-  # has_one :card, dependent: :destroy
-  # accepts_nested_attributes_for :card
+  has_one :card, dependent: :destroy
+  accepts_nested_attributes_for :card
   has_many :products
   has_many :comments
   has_many :likes

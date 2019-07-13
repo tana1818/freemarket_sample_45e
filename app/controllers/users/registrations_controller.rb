@@ -17,11 +17,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
      card: params[:user][:payjptoken]
     )
     params[:user][:payjptoken] = customer.id
+    # @user = customer.id
     # binding.pry
     # super
     # @user.uid = session[:uid]
     # @user.provider = session[:provider]
-    @user.save
+    # @user.save
   end
 
 end

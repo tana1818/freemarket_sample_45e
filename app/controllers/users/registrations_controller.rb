@@ -17,7 +17,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
      card: params[:user][:payjptoken]
     )
     params[:user][:payjptoken] = customer.id
-    # super
+    super
     @user.uid = session[:uid]
     @user.provider = session[:provider]
     @user.save

@@ -11,7 +11,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       )
   end
 
-  def create!
+  def create
     Payjp.api_key = 'sk_test_eb4453d310b2f6b4f2c6f649'
     customer = Payjp::Customer.create(
      card: params[:user][:payjptoken]

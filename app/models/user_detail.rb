@@ -2,6 +2,6 @@ class UserDetail < ApplicationRecord
   belongs_to :user, optional: true
   has_many :prerfectures
 
-  validates :auth_tel, presence: true, length: { minimum: 2 }
+  validates :auth_tel, presence: true
 
 end

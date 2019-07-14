@@ -121,7 +121,7 @@
               .form-group
                 = f.fields_for :user_detail, UserDetail.new do |d|
                   = d.label :auth_tel,"携帯電話の番号"
-                  = d.text_field :auth_tel,placeholder: "携帯電話の番号を入力", class: "input-default"
+                  = d.text_field :auth_tel,placeholder: "10文字以内で携帯電話の番号を入力", class: "input-default"
                 %button{ type: "button", class: "btn-default btn-red btn-address" }
                   次へ進む
                 .form-group

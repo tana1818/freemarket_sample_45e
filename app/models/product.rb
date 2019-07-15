@@ -26,7 +26,7 @@ class Product < ApplicationRecord
   validates :shipment_period, presence: true
   validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
   validates :status, presence: true
-  validates :size, presence: true
+  # validates :size, presence: true
   validates :images, presence: true
   validates :user, presence: true
 

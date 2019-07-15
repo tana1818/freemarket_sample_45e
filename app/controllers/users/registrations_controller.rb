@@ -11,18 +11,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
       )
   end
 
-  def create!
+  def create
     Payjp.api_key = 'sk_test_eb4453d310b2f6b4f2c6f649'
     customer = Payjp::Customer.create(
      card: params[:user][:payjptoken]
     )
     params[:user][:payjptoken] = customer.id
-    # @user = customer.id
-    # binding.pry
-    # super
+    
+    super
     # @user.uid = session[:uid]
     # @user.provider = session[:provider]
-    # @user.save!
+    @user.save
   end
 
 end

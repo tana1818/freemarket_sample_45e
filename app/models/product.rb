@@ -17,8 +17,8 @@ class Product < ApplicationRecord
   validates :name, length: {in: 1..40}
   validates :description, length: {in: 1..1000}
   validates :large_category, presence: true
-  validates :middle_category, presence: true
-  validates :small_category, presence: true
+  # validates :middle_category, presence: true
+  # validates :small_category, presence: true
   validates :condition, presence: true
   validates :delivery_fee_pay, presence: true
   validates :delivery_method, presence: true

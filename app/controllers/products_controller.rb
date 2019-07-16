@@ -75,7 +75,7 @@ class ProductsController < ApplicationController
     gon.product_images_count = @product.images.length
     gon.middle_category = @product.middle_category
     gon.small_category = @product.small_category
-    gon.size = @product.size.id
+    gon.size = @product.size_id
     gon.brand = @product.brand
   end
 

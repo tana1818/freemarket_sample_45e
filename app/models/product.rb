@@ -4,7 +4,7 @@ class Product < ApplicationRecord
   belongs_to :delivery_method
   belongs_to :shipment_period
   has_many :comments, dependent: :destroy
-  belongs_to :size
+  # belongs_to :size
   belongs_to :user
   has_many :likes
   has_many :purchases

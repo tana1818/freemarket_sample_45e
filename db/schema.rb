@@ -94,8 +94,8 @@ ActiveRecord::Schema.define(version: 2019_03_19_072910) do
     t.string "name", null: false
     t.text "description", null: false
     t.integer "large_category", null: false
-    t.integer "middle_category", null: false
-    t.integer "small_category", null: false
+    t.integer "middle_category"
+    t.integer "small_category"
     t.bigint "condition_id", null: false
     t.bigint "delivery_fee_pay_id", null: false
     t.bigint "delivery_method_id", null: false
@@ -103,7 +103,7 @@ ActiveRecord::Schema.define(version: 2019_03_19_072910) do
     t.bigint "shipment_period_id", null: false
     t.integer "price", null: false
     t.string "status", null: false
-    t.bigint "size_id", null: false
+    t.bigint "size_id", default: 10
     t.string "brand"
     t.string "images", null: false
     t.bigint "user_id", null: false

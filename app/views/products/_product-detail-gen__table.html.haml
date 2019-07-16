@@ -39,8 +39,10 @@
 %tr
   %th 商品のサイズ
   %td
-    = @size_name.name
-
+    - if @size_name == nil
+      サイズ無し
+    - else @size_name.name
+    -# - @size_name == nil ? "サイズ無し" : @size_name.name
 %tr
   %th 商品の状態
   %td

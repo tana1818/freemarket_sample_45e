@@ -25,7 +25,7 @@ class ProductsController < ApplicationController
     @products_womens = product_by_large_category(1)
     @products_mens = product_by_large_category(2)
     @products_kids = product_by_large_category(3)
-    @products_perfumes = product_by_large_category(4)
+    @products_perfumes = product_by_large_category(7)
     @products_chanels = product_by_brand_category("chanel")
     @products_vitons = product_by_brand_category("ルイヴィトン")
     @products_shups = product_by_brand_category("シュプリーム")

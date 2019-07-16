@@ -20,18 +20,15 @@
   %th カテゴリー
   %td
     = link_to "#" do
-      -# = @product.category.name
-      レディース
+      = @large_category_name.name
       <br>
     = link_to "#" do
       = fa_icon('angle-right')
-      -# = @product.middle_category
-      トップス
+      - @middle_category_name ? @middle_category_name.name : ''
       <br>
     = link_to "#" do
       = fa_icon('angle-right')
-      -# = @product.small_category
-      ポロシャツ
+      - @small_category_name ? @small_category_name.name : ''
 
 %tr
   %th ブランド
@@ -42,7 +39,7 @@
 %tr
   %th 商品のサイズ
   %td
-    = @product.size.name
+    = @size_name.name
 
 %tr
   %th 商品の状態

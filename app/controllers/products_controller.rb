@@ -8,6 +8,10 @@ class ProductsController < ApplicationController
     @comments = Comment.where(product_id: params[:id])
     @other_user_products = Product.where(user_id: @product.user_id).where.not(id: params[:id]).order("id DESC").limit(6)
     @other_category_products = Product.where(brand: @product.brand).where.not(id: params[:id]).order("id DESC").limit(6)
+    @size_name = Size.find_by(params[:size_id])
+    @large_category_name = Category.find_by(id: @product.large_category)
+    @middle_category_name = Category.find_by(id: @product.middle_category)
+    @small_category_name = Category.find_by(id: @product.small_category)
 
     if user_signed_in?  #購入ボタンの表示の際に動く
     # @produc = Product.find(params[:id])

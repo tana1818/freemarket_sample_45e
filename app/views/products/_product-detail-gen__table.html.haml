@@ -24,11 +24,15 @@
       <br>
     = link_to "#" do
       = fa_icon('angle-right')
-      - @middle_category_name ? @middle_category_name.name : ''
+      - if @middle_category_name
+        @middle_category_name.name
+      - else ''
       <br>
     = link_to "#" do
       = fa_icon('angle-right')
-      - @small_category_name ? @small_category_name.name : ''
+      - if @small_category_name
+        @small_category_name.name
+      - else ''
 
 %tr
   %th ブランド

@@ -18,6 +18,7 @@ if (location.pathname.match('products') && ( location.pathname.match('new') || l
 
   $(document).on('change', '#product_large_category', function() {
     visibleMiddleCategory('change');
+    visibleSizeAndBrand('change');
   });
 
   $(document).on('change', '#middle_category', function() {
@@ -113,9 +114,9 @@ if (location.pathname.match('products') && ( location.pathname.match('new') || l
     var brandTextBox = $('#sell-form__brand-group');
 
     if (process == 'change') {
-      var smallCategoryID = $('#small_category').val();
+      var smallCategoryID = 33;
     } else {
-      var smallCategoryID = gon.small_category;
+      // var smallCategoryID = gon.small_category;
     }
     if (smallCategoryID == '') {
       sizePullDown.css('display', 'none');
@@ -152,7 +153,7 @@ if (location.pathname.match('products') && ( location.pathname.match('new') || l
             $('#brand').val(gon.brand);
           }
         } else {
-          brandTextBox.css('display', 'none');
+          // brandTextBox.css('display', 'none');
         }
       })
       .fail(function() {

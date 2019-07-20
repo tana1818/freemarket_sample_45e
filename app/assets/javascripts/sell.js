@@ -116,7 +116,7 @@ if (location.pathname.match('products') && ( location.pathname.match('new') || l
     if (process == 'change') {
       var smallCategoryID = 33;
     } else {
-      // var smallCategoryID = gon.small_category;
+      var smallCategoryID = gon.small_category;
     }
     if (smallCategoryID == '') {
       sizePullDown.css('display', 'none');

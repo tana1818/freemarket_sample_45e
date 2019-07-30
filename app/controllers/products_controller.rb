@@ -32,7 +32,8 @@ class ProductsController < ApplicationController
     @products_nikes = product_by_brand_category("NIKE")
   end
 
-  def search  #商品検索ページ　（準備中）
+  def search
+    @search = Product.search(params[:search]).paginate(page: params[:page], per_page: 4)
   end
 
   def show_category_item  #全てのカテゴリ商品をみるボタン（準備中）

@@ -1,0 +1,176 @@
+- if current_user
+  = render 'layouts/header-logined'
+-else
+  = render 'layouts/header'
+
+= render "layouts/breadcrumb"
+
+%main.search
+  .search__left
+    .search__left-box
+      .serch__left-box__sort
+      = form_tag(search_products_path,:method => 'get') do
+        = text_field_tag :search, '',class: "input-default", placeholder: "並び替え"
+        
+      .search__left-box__detail
+        %h4 詳細検索
+        .search__left-box__detail-form
+          %label 
+            = fa_icon('plus')
+            %span キーワードを追加する
+            = form_tag(search_products_path,:method => 'get') do
+              = text_field_tag :search, '',class: "input-default", placeholder: "例) 値下げ"
+
+        .search__left-box__detail-form__group
+          %label 
+            = fa_icon('list')
+            %span カテゴリを選択する
+            = form_tag(search_products_path,:method => 'get') do
+              = text_field_tag :search, '',class: "input-default", placeholder: "例) レディース"
+
+        .search__left-box__detail-form__group
+          %label 
+            = fa_icon('tag')
+            %span ブランド名から探す
+            = form_tag(search_products_path,:method => 'get') do
+              = text_field_tag :search, '',class: "input-default", placeholder: "例) chanel"
+
+        .search__left-box__detail-form__group
+          %label 
+            = fa_icon('arrows-alt')
+            %span サイズを指定する
+            = form_tag(search_products_path,:method => 'get') do
+              = text_field_tag :search, '',class: "input-default", placeholder: "例) すべて"
+
+        .search__left-box__detail-form__group.search-price
+          %label 
+            = fa_icon('usd')
+            %span 価格
+            = form_tag(search_products_path,:method => 'get') do
+              = text_field_tag :search, '',class: "input-default", placeholder: "例) 選択してください"
+              = text_field_tag :search, '',class: "input-default input-default-mini", placeholder: "¥ Min"
+              %span ~
+              = text_field_tag :search, '',class: "input-default input-default-mini", placeholder: "¥ Max"
+
+        .search__left-box__detail-form__group
+          %label 
+            = fa_icon('star')
+            %span 商品の状態
+            .chechbox-form
+              .checkbox-default
+                = form_tag(search_products_path,:method => 'get') do
+                  %label
+                    %input{:name => "sex[]", :type => "checkbox", :value => "7"}
+                    -# = fa_icon('icon-check')
+                    すべて
+              .checkbox-default
+                = form_tag(search_products_path,:method => 'get') do
+                  %label
+                    %input{:name => "sex[]", :type => "checkbox", :value => "1"}
+                    -# = fa_icon('icon-check')
+                    新品、未使用
+              .checkbox-default
+                = form_tag(search_products_path,:method => 'get') do
+                  %label
+                    %input{:name => "sex[]", :type => "checkbox", :value => "2"}
+                    -# = fa_icon('icon-check')
+                    未使用に近い
+              .checkbox-default
+                = form_tag(search_products_path,:method => 'get') do
+                  %label
+                    %input{:name => "sex[]", :type => "checkbox", :value => "3"}
+                    -# = fa_icon('icon-check')
+                    目立った傷や汚れなし
+              .checkbox-default
+                = form_tag(search_products_path,:method => 'get') do
+                  %label
+                    %input{:name => "sex[]", :type => "checkbox", :value => "4"}
+                    -# = fa_icon('icon-check')
+                    やや傷や汚れあり
+              .checkbox-default
+                = form_tag(search_products_path,:method => 'get') do
+                  %label
+                    %input{:name => "sex[]", :type => "checkbox", :value => "5"}
+                    -# = fa_icon('icon-check')
+                    傷や汚れあり
+              .checkbox-default
+                = form_tag(search_products_path,:method => 'get') do
+                  %label
+                    %input{:name => "sex[]", :type => "checkbox", :value => "6"}
+                    -# = fa_icon('icon-check')
+                    全体的に状態が悪い
+
+        .search__left-box__detail-form__group
+          %label 
+            = fa_icon('truck')
+            %span 配送料の負担
+            .chechbox-form
+              .checkbox-default
+                = form_tag(search_products_path,:method => 'get') do
+                  %label
+                    %input{:name => "sex[]", :type => "checkbox", :value => "7"}
+                    -# = fa_icon('icon-check')
+                    すべて
+              .checkbox-default
+                = form_tag(search_products_path,:method => 'get') do
+                  %label
+                    %input{:name => "sex[]", :type => "checkbox", :value => "1"}
+                    -# = fa_icon('icon-check')
+                    着払い（購入者負担）
+              .checkbox-default
+                = form_tag(search_products_path,:method => 'get') do
+                  %label
+                    %input{:name => "sex[]", :type => "checkbox", :value => "2"}
+                    -# = fa_icon('icon-check')
+                    送料込み（出品者負担）
+
+        .search__left-box__detail-form__group
+          %label 
+            = fa_icon('shopping-cart')
+            %span 販売状況
+            .chechbox-form
+              .checkbox-default
+                = form_tag(search_products_path,:method => 'get') do
+                  %label
+                    %input{:name => "sex[]", :type => "checkbox", :value => "7"}
+                    -# = fa_icon('icon-check')
+                    すべて
+              .checkbox-default
+                = form_tag(search_products_path,:method => 'get') do
+                  %label
+                    %input{:name => "sex[]", :type => "checkbox", :value => "1"}
+                    -# = fa_icon('icon-check')
+                    販売中
+              .checkbox-default
+                = form_tag(search_products_path,:method => 'get') do
+                  %label
+                    %input{:name => "sex[]", :type => "checkbox", :value => "2"}
+                    -# = fa_icon('icon-check')
+                    売り切れ
+
+        .search__left-box__detail-form__group
+          = submit_tag '完了', class: "btn-default-mini btn-red"
+          = submit_tag 'クリア', class: "btn-default-mini btn-gray"
+
+
+  .search__right
+    %h5 〜の検索結果
+
+    .search__right-result-number
+      = will_paginate @search
+    .search__right-content
+      .search__right-content-item
+        - @search.each do |p|
+          .search__right-content-item-box
+            = link_to "/products/#{p.id}" do
+              .search__right-content-item-box__image
+                = image_tag p.images[0].url
+              .search__right-content-item-box__text
+                %h6= p.name
+                %h7= "¥ " + p.price.to_s(:delimited)
+
+
+
+= render "layouts/footer"
+
+= render 'layouts/exhibit-button'

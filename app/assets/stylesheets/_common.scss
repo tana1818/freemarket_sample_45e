@@ -44,6 +44,27 @@ h3 {
   font-weight: bold;
 }
 
+h4 {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+h5 {
+  font-size: 22px;
+  margin: 0 0 8px;
+  line-height: 1.4;
+}
+
+h6 {
+  font-size: 14px;
+  height: 1.5em;
+}
+
+h7 {
+  font-size: 17px;
+  font-weight: 600;
+}
+
 .clearfix:after {
     content: '';
     display: block;

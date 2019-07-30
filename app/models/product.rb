@@ -39,4 +39,12 @@ class Product < ApplicationRecord
     Product.where(brand: id).order("id DESC").limit(4)
   end
 
+  def self.search(search)
+    if search
+      Product.where(['name LIKE ?', "%#{search}%"])
+    else
+      Product.all
+    end
+  end
+
 end

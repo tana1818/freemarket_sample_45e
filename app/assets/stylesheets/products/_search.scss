@@ -39,6 +39,11 @@
           &__image {
             width: 160px;
             height: 160px;
+            & img {
+              object-fit: cover;
+              width: 160px;
+              height: 160px;
+            } 
           }
           &__text {
             background-color: #fff;
@@ -75,6 +80,14 @@
   word-break: break-word;
 }
 
+.checkbox-default:nth-child(2n-1) {
+  margin: 16px 0 0 4%;
+}
+
 .btn-default-mini {
   width: 49.1%;
+}
+
+a.btn-default-mini {
+  padding: 16px 39px;
 }

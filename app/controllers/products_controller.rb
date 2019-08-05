@@ -33,7 +33,9 @@ class ProductsController < ApplicationController
   end
 
   def search
-    @search = Product.search(params[:search]).paginate(page: params[:page], per_page: 4)
+    @search = Product.ransack(params[:q])
+    set_pulldowns
+    @result = @search.result
   end
 
   def show_category_item  #全てのカテゴリ商品をみるボタン（準備中）
@@ -65,7 +67,6 @@ class ProductsController < ApplicationController
     else
       render json: { error: @product.errors.full_messages.join(", ") }, status: 400
     end
-    # binding.pry
   end
 
   def edit
@@ -143,6 +144,7 @@ class ProductsController < ApplicationController
     @delivery_methods = DeliveryMethod.order('sort_by')
     @prefectures = Prefecture.all
     @shipment_periods = ShipmentPeriod.order('sort_by')
+    @sizes = Size.all.order('sort_by')
   end
 
   def product_params
@@ -155,4 +157,9 @@ class ProductsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:comment, :product_id)
   end
+
+  def search_params
+    params.require(:q).permit(:name_cont, :large_category_eq, :brand_cont, :size_id_eq, :price_gteq, :price__lteq, :condition_id_in)
+  end
+  
 end
